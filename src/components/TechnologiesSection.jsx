@@ -1,69 +1,38 @@
+import tecnologies from './../data/tecnologies.json'
 
 
 const TechnologiesSection = () => {
+    const htmlDecode = (input)=> {
+        console.log(input);
+        var e = document.createElement('div');
+        e.innerHTML = input;
+        e.classList.add('card-tech-img')
+        console.log(e.childNodes);
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
     return (
-        <>
-            <section>
-
-                <div className="container text-center">
-                    <div className="row row-cols-3">
-                        <div className="col-md-12">
-                            <h1 id="title">Nuestras Tecnologias</h1>
-                        </div>
-
-                        <div className="card col">
-                            <h3>Python</h3>
-                            <i className="bi bi-arrow-right"/>
-                        </div>
-
-                        <div className="card col">
-                            <h3>JavaScript</h3>
-                            <li>
-                            <i className="bi bi-arrow-right"/>
-                                <p>Lorem ipsum</p>
-                                <p>loae</p>
-                            </li>
-                        </div>
-
-                        <div className="card col">
-                            <h3> C# </h3>
-                            <li>
-                            <i className="bi bi-arrow-right"/>
-                                <p>Lorem, ipsum dolor</p>
-                                <p>lore,</p>
-                            </li>
-                        </div>
-
-                        <div className="card col">
-                            <h3>AWS</h3>
-                            <li>
-                            <i className="bi bi-arrow-right"/>hola
-                                <p>Lorem ipsum dolor </p>
-
-                            </li>
-                        </div>
-
-                        <div className="card col">
-                            <h3>SQL</h3>
-                            <li>
-                            <i className="bi bi-arrow-right"/>
-                                <p>dolor sit</p>
-                            </li>
-                        </div>
-
-                        <div className="card col">
-                            <h3>Docker</h3>
-                            <li>
-                            <i className="bi bi-arrow-right"/><p>ipsum dolor sit amet</p>
-                            <i className="bi bi-arrow-right"/>hols
-
-                            </li>
-                        </div>
-                    </div>
+        <div className='container mt-5'>
+            <div className="row">
+                <div className="col-md-12 d-flex justify-content-center align-items-center">
+                    <h2 className='h3'>Nuestro stack de tecnologias</h2>
                 </div>
-
-            </section>
-        </>
+            </div>
+            <div className="row d-flex justify-content-center">
+                {
+                    tecnologies.map((item, index) => (
+                        <div key={`cardTech${index}`} className="col-md-4 mb-3">
+                            <div className="card card-custom-style">
+                                <div className="card-body">
+                                    <div dangerouslySetInnerHTML={{ __html: htmlDecode(item.img_name) }}></div>
+                                    <h4 className="card-title text-center">{item.name}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
     );
 };
 

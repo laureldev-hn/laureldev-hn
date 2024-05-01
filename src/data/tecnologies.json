@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Python",
+        "desc": "Lorem Ipsum",
+        "img_name": "<img src='/src/assets/img/icon-code/python.png' className='text-center' width={'20%'} alt='' loading='lazy'/>",
+        "items": [
+            "Lorem ipsum cool",
+            "Lorem ipsum cool",
+            "Lorem ipsum cool"
+        ]
+    },
+    {
+        "name": "Javascript",
+        "desc": "Lorem Ipsum",
+        "img_name": "<img src='/src/assets/img/icon-code/python.png' className='text-center' width={'20%'} alt='' loading='lazy'/>",
+        "items": [
+            "Lorem ipsum cool",
+            "Lorem ipsum cool",
+            "Lorem ipsum cool"
+        ]
+    },
+    {
+        "name": "C#",
+        "desc": "Lorem Ipsum",
+        "img_name": "<img src='/src/assets/img/icon-code/python.png' className='text-center' width={'20%'} alt='' loading='lazy'/>",
+        "items": [
+            "Lorem ipsum cool",
+            "Lorem ipsum cool",
+            "Lorem ipsum cool"
+        ]
+    },
+    {
+        "name": "AWS",
+        "desc": "Lorem Ipsum",
+        "img_name": "<img src='/src/assets/img/icon-code/python.png' className='text-center' width={'20%'} alt='' loading='lazy'/>",
+        "items": [
+            "Lorem ipsum cool",
+            "Lorem ipsum cool",
+            "Lorem ipsum cool"
+        ]
+    },
+    {
+        "name": "SQL",
+        "desc": "Lorem Ipsum",
+        "img_name": "<img src='/src/assets/img/icon-code/python.png' className='text-center' width={'20%'} alt='' loading='lazy'/>",
+        "items": [
+            "Lorem ipsum cool",
+            "Lorem ipsum cool",
+            "Lorem ipsum cool"
+        ]
+    },
+    {
+        "name": "Docker",
+        "img_name": "<img src='/src/assets/img/icon-code/python.png' className='text-center' width={'20%'} alt='' loading='lazy'/>",
+        "desc": "Lorem Ipsum",
+        "items": [
+            "Lorem ipsum cool",
+            "Lorem ipsum cool",
+            "Lorem ipsum cool"
+        ]
+    }
+]
