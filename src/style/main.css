@@ -1,31 +1,44 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Space Grotesk", sans-serif;
-    font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
 }
-body{
-    width: 100% !important;
-    max-width: 100%;
-    background-color: #ececec;
+
+body {
+  width: 100% !important;
+  max-width: 100%;
+  background-color: #ececec;
+  /* background-image: radial-gradient(#11385b 1px, transparent 2px), radial-gradient(#11385b 2px, transparent 1px);
+  background-size: 38px 38px;
+  background-position: 0 0, 19px 19px;
+  background-color: rgba(255, 255, 255, 0); */
 }
 
 .curved {
-    position: relative;
-    background: rgb(17, 56, 91);
-    height: 20vh;
-    border-bottom-left-radius: 50% 20%;
-    border-bottom-right-radius: 50% 20%;
-  }
+  position: relative;
+  background: rgb(17, 56, 91);
+  height: 20vh;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
 
-  .curved-inverted {
-    position: relative;
-    background: rgb(17, 56, 91);
-    height: 10vh;
-    border-top-left-radius: 50% 20%;
-    border-top-right-radius: 50% 20%;
-  }
+.curved-inverted {
+  position: relative;
+  background: rgb(17, 56, 91);
+  height: 10vh;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+}
 
-.section-v1{
-    background-color: #ffffff !important;
+/* .section-v1 {
+  background-image: radial-gradient(#fec53a 0.5px, transparent 0.5px), radial-gradient(#fec53a 0.5px, transparent 0.5px);
+  background-size: 38px 38px;
+  background-position: 0 0, 19px 19px;
+  background-color: #11385b;
+} */
+
+
+.section-v2 {
+  background-color: #dae3eb;
 }

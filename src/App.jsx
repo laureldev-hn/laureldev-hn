@@ -1,7 +1,8 @@
 import { AboutSection } from "./components/AboutSection";
-import { ServiceSection } from "./components/ServiceSection";
-// import { ServiceSection } from "./components/ServiceSection";
 // import { CustomerSection } from "./components/CustomerSection";
+import { ServiceSection } from "./components/ServiceSection";
+import TechnologiesSection from "./components/TechnologiesSection";
+
 
 
 
@@ -10,6 +11,7 @@ export const App = () => {
 
   return (
     <>
+      
       <div className="testindexBG">
 
       </div>
@@ -38,6 +40,7 @@ export const App = () => {
 
       <AboutSection />
       <ServiceSection />
+      <TechnologiesSection/>
       {/* <CustomerSection /> */}
       <section className="curved-inverted"></section>
       <footer className="footer-container">
