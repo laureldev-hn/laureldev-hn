@@ -5,7 +5,7 @@ export const ServiceSection = () => {
                 <div className="col-md-12">
                     <h1 id="title">Servicios</h1>
                 </div>
-                <div className="col-md-6">
+                <div className="mask-custom col-md-6">
                     <img src="/src/assets/img/bg_Services.jpg" alt="" width={'100%'} />
                 </div>
                 <div className="col-md-6">
