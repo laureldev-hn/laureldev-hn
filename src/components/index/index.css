@@ -1,0 +1,78 @@
+div#indexContainer{
+    width: 100% !important;
+    min-height: 700px !important;
+    background-image: url('../../assets/img/index_bg.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+}
+
+#index {
+    width: 100% !important;
+    min-height: 700px !important;
+    background-color: #11385b;
+    background: linear-gradient(to right, #11385b, #11385b, rgba(17, 56, 91, 0.83), rgba(17, 56, 91, 0.695), rgba(17, 56, 91, 0.495));
+}
+
+#divIndexTitle {
+    height: 700px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#indexTitle {
+    color: #FEC53A;
+    vertical-align: middle;
+    font-size: 6rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#indexTitle>span {
+    font-weight: 200 !important;
+}
+
+#indexSubTitle{
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+#indexSubTitle>span {
+    padding-bottom: 5px;
+    border-bottom: solid 1px #f0292c
+}
+
+
+#indexLaureldevLogo {
+    width: 280px;
+    height: 295px;
+    background-image: url('../../assets/img/logo_blanco.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 280px 295px;
+    background-color: transparent;
+    margin-top: 20vh !important;
+
+}
+
+
+@media only screen and (width <=767px) {
+    #indexLaureldevLogo {
+        width: 300px !important;
+        background-image: url('../../assets/img/logo_blanco.png');
+        background-position: center;
+        background-size: 300px 259px;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        margin-top: 20vh !important;
+    }
+
+    #titleHomeDiv {
+        margin-top: 50px !important;
+        text-align: center;
+    }
+}

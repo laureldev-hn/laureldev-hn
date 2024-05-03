@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+}
+
+body {
+    width: 100% !important;
+    max-width: 100%;
+    background-color: #fdfdfd;
+}
+
+
+.card-custom-style {
+    box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
+    -webkit-box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
+    border: none;
+}
+
+.curved {
+    position: relative;
+    background: #11385b;
+    height: 20vh;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+}
+
+.curved-inverted {
+    position: relative;
+    background: rgb(17, 56, 91);
+    height: 10vh;
+    border-top-left-radius: 50% 20%;
+    border-top-right-radius: 50% 20%;
+}
+
+.bg-laureldev-blue {
+    background-color: #11385b !important;
+}
