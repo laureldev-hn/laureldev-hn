@@ -4,8 +4,8 @@ import './customer.css'
 export const CustomerSection = () => {
     return (
         <>
-            <section  >
-                <div className="container mt-5">
+            <section>
+                <div className="container ">
                     <h1 id="title">Quienes Confian en Nosotros</h1>
                 </div>
                 <div className="container mt-5 overflow-hidden text-center">
@@ -63,6 +63,7 @@ export const CustomerSection = () => {
                             </div>
                         </div>
                     </div>
+                   
                 </div>
             </section>
 
