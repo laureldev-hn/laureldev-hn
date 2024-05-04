@@ -1,4 +1,3 @@
-import React from 'react'
 import './index.css'
 import { Navbar } from './Navbar'
 
@@ -9,7 +8,7 @@ export const Index = () => {
             <section id='index'>
                 <div className="container-fluid">
                     <div className="row ">
-                        <div className="col-md-6">
+                        <div className="col-md-6" id='coldivIndexTitle'>
                             <div id="divIndexTitle">
                                 <div>
                                     <h1 id="indexTitle">Laurel <span>Dev</span></h1>

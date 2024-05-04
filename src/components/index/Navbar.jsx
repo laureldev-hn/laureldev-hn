@@ -33,7 +33,7 @@ export const Navbar = () => {
 
                 <div className={`offcanvas offcanvas-end text-bg-dark ${showSidebar && 'show'}`} tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div className="offcanvas-header">
-                        <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                        <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Laurel Dev</h5>
                         <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" onClick={() => setShowSidebar(false)}></button>
                     </div>
                     <div className="offcanvas-body">
@@ -42,7 +42,16 @@ export const Navbar = () => {
                                 <a className="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Link</a>
+                                <a className="nav-link" href="#">Sobre Nosotros</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">Servicios</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">Nuestros Clientes</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">Nuestras Tecnologias</a>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

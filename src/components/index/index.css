@@ -8,11 +8,16 @@ div#indexContainer{
     background-size: 100% 700px;
 }
 
+
 #index {
     width: 100% !important;
     min-height: 700px !important;
     background-color: #11385b;
-    background: linear-gradient(to right, #11385b, #11385b, rgba(17, 56, 91, 0.83), rgba(17, 56, 91, 0.695), rgba(17, 56, 91, 0.495));
+    background-image: linear-gradient(to right, #11385b, #11385b, rgba(17, 56, 91, 0.5), rgba(17, 56, 91, 0.4)),
+    url('/src/assets/img/polygon_haikei.svg');
+    background-repeat: no-repeat;
+    background-position:center center;
+    opacity: 0.9;
 }
 
 #divIndexTitle {

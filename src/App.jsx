@@ -1,9 +1,10 @@
 
-import { AboutSection } from "./components/AboutSection";
-import { ServiceSection } from "./components/ServiceSection";
-import TechnologiesSection from "./components/TechnologiesSection";
+import { AboutSection } from "./components/AboutUs/AboutSection";
+import { ServiceSection } from "./components/Services/ServiceSection";
+import TechnologiesSection from "./components/Technologies/TechnologiesSection";
 import { Index } from "./components/index/Index";
-import { Navbar } from "./components/index/Navbar";
+import {CustomerSection} from "./components/Customers/CustomerSection"
+import Contact from "./components/ContactUs/Contact";
 
 
 
@@ -18,8 +19,9 @@ export const App = () => {
 
       <AboutSection />
       <ServiceSection />
+      <CustomerSection />
       <TechnologiesSection />
-      {/* <CustomerSection /> */}
+      <Contact/>
       <section className="curved-inverted"></section>
       <footer className="footer-container">
         <div className="container mt-5">
@@ -29,6 +31,9 @@ export const App = () => {
               <ul>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Nuestras Tecnologias</a></li>
+                <li><a href="#">Nuestros Clientes</a></li>
                 <li><a href="#">Contacto</a></li>
               </ul>
             </div>

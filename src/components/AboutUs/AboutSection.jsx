@@ -1,4 +1,4 @@
-
+import './about.css'
 
 export const AboutSection = () => {
   return (
@@ -9,13 +9,11 @@ export const AboutSection = () => {
           <div className="col-md-12">
             <h1 className="sectionTitle">SOBRE NOSOTROS</h1>
           </div> 
-          <div className="col-md-6" style={{minHeight: '800px'}}>
-            <div id="imgAbout" className="rounded float-start" >
-              
-            </div>
-            <div className="magicpattern"></div>
+          <div className="col-md-6" >
+            <img src="/src/assets/img/bg_about.jpg"  width={'100%'}/>
+           
           </div>
-          <div className="col-md-6 ">
+          <div className="col-md-6">
 
             <p className="stitlesP">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita nulla quod, dolorum ipsa qui a
               vero animi magnam veritatis voluptatibus eligendi debitis eos vitae vel suscipit molestias at quis

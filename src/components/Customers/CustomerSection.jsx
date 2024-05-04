@@ -1,15 +1,15 @@
-
+import './customer.css'
 
 
 export const CustomerSection = () => {
     return (
         <>
-            <section >
+            <section  >
                 <div className="container mt-5">
                     <h1 id="title">Quienes Confian en Nosotros</h1>
                 </div>
                 <div className="container mt-5 overflow-hidden text-center">
-                    <div className="row gy-5">
+                    <div className="row">
                         <div className="col-6">
                             <div className="p-3">
                                 <div className="card-style">
@@ -60,7 +60,6 @@ export const CustomerSection = () => {
                                         </p>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

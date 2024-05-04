@@ -1,4 +1,5 @@
-import tecnologies from './../data/tecnologies.json'
+import tecnologies from '../../data/tecnologies.json'
+import './tech.css'
 
 
 const TechnologiesSection = () => {
