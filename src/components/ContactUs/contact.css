@@ -1,10 +1,10 @@
-#sectioncontact{
+#contact {
     width: 100% !important;
     min-height: 700px !important;
-    background-color: #11385b;
-    background-image: linear-gradient(to right, #11385b, #11385b, rgba(17, 56, 91, 0.5), rgba(17, 56, 91, 0.4)),
-    url('/src/assets/img/blob-scene-haikei.svg');
+    /* background-color: #11385b; */
+    background-image: url('/src/assets/img/Hexagon.svg');
     background-repeat: no-repeat;
-    background-position:center center;
+    /* background-position:center; */
     opacity: 0.9;
 }
+

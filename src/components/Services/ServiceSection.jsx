@@ -1,18 +1,21 @@
+
 import './services.css'
 export const ServiceSection = () => {
     return (
-        <div className="container pt-5">
-            <div className="row">
-                <div className="col-md-12">
-                    <h1 id="title">Servicios</h1>
+        <>
+            <div className="container pt-5">
+                <div className="row">
+                    <div className="col-md-12">
+                        <h1 id="title">Servicios</h1>
+                    </div>
+                    <div className="col-md-6">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, modi voluptates. Tempora nihil repellat voluptatem doloremque aliquam eum natus nemo perspiciatis mollitia saepe, possimus aperiam corporis sit minus itaque veritatis asperiores culpa error laboriosam atque?</p>
+                    </div>
+                    <div className="mask-custom col-md-6">
+                        <img src="/src/assets/img/bg_Services.jpg" alt="" width={'100%'} />
+                    </div>
+
                 </div>
-                <div className="col-md-6">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, modi voluptates. Tempora nihil repellat voluptatem doloremque aliquam eum natus nemo perspiciatis mollitia saepe, possimus aperiam corporis sit minus itaque veritatis asperiores culpa error laboriosam atque?</p>
-                </div>
-                <div className="mask-custom col-md-6">
-                    <img src="/src/assets/img/bg_Services.jpg" alt="" width={'100%'} />
-                </div>
-                
             </div>
             <div >
                 <svg
@@ -32,6 +35,7 @@ export const ServiceSection = () => {
                     <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
                 </svg>
             </div>
-        </div>
+
+        </>
     )
 }
