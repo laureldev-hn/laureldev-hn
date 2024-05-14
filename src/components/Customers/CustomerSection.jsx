@@ -4,7 +4,7 @@ import './customer.css'
 export const CustomerSection = () => {
     return (
         <>
-            <div >
+            {/* <div >
                 <svg
                     preserveAspectRatio="none"
                     viewBox="0 0 1200 120"
@@ -21,66 +21,43 @@ export const CustomerSection = () => {
                     />
                     <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
                 </svg>
-            </div>
+            </div> */}
 
             <section>
                 <div className="container ">
                     <h1 id="title">Quienes Confian en Nosotros</h1>
                 </div>
                 <div className="container mt-5 overflow-hidden text-center">
-                    <div className="row">
-                        <div className="col-6">
-                            <div className="p-3">
-                                <div className="card-style">
-                                    <div className="content">
-                                        <p className="heading">Card</p>
-                                        <p className="para">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam
-                                            at voluptas minus culpa deserunt delectus sapiente inventore pariatur.
-                                        </p>
-                                    </div>
-                                </div>
+                    <div id="carouselExample" className="carousel slide">
+                        <div className="carousel-inner">
+                            <div className="carousel-item active">
+                                <img src="/src/assets/img/slider1.jpg" className="d-block w-100" alt="..." />
+                            </div>
+                            <div className="carousel-item">
+                                <img src="/src/assets/img/slider2.jpg" className="d-block w-100" alt="..." />
+                            </div>
+                            <div className="carousel-item">
+                                <img src="/src/assets/img/slider3.jpg" className="d-block w-100" alt="..." />
                             </div>
                         </div>
-                        <div className="col-6">
-                            <div className="p-3">
-                                <div className="card-style">
-                                    <div className="content">
-                                        <p className="heading">Card</p>
-                                        <p className="para">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam
-                                            at voluptas minus culpa deserunt delectus sapiente inventore pariatur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6">
-                            <div className="p-3">
-                                <div className="card-style">
-                                    <div className="content">
-                                        <p className="heading">Card</p>
-                                        <p className="para">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam
-                                            at voluptas minus culpa deserunt delectus sapiente inventore pariatur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6">
-                            <div className="p-3">
-                                <div className="card-style">
-                                    <div className="content">
-                                        <p className="heading">Card</p>
-                                        <p className="para">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam
-                                            at voluptas minus culpa deserunt delectus sapiente inventore pariatur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <button
+                            className="carousel-control-prev"
+                            type="button"
+                            data-bs-target="#carouselExample"
+                            data-bs-slide="prev"
+                        >
+                            <span className="carousel-control-prev-icon" aria-hidden="true" />
+                            <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button
+                            className="carousel-control-next"
+                            type="button"
+                            data-bs-target="#carouselExample"
+                            data-bs-slide="next"
+                        >
+                            <span className="carousel-control-next-icon" aria-hidden="true" />
+                            <span className="visually-hidden">Next</span>
+                        </button>
                     </div>
 
                 </div>

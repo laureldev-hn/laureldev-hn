@@ -1,9 +1,44 @@
-/* #contact { */
-    /* width: 100% !important;
-    min-height: 700px !important;
-    background-image: url('/src/assets/img/Hexagon.svg');
+#contact {
+    width: 100% !important;
+    min-height: none !important;
+    background-image: url('/src/assets/img/bg_contact.svg');
     background-repeat: no-repeat;
-    background-position:center;
+    background-size: cover;
     opacity: 0.9;
-} */
+}
+
+#h1 {
+    color: #FEC35A;
+}
+
+
+.input input,
+textarea {
+    font-size: 100%;
+    padding: 0.7em;
+    color: #FEC35A;
+    border: 0;
+    border-bottom: 2px solid #FEC35A;
+    background: transparent;
+    border-radius: 0;
+    width: 100%;
+    
+}
+.input input:focus, textarea:focus {
+    background-color: rgba(254, 195, 90, 0.1); 
+    color: #FEC35A;
+  }
+  
+
+.input label {
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    color: #FEC35A;
+    padding: 0.7em;
+    margin-left: 0.1em;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    
+}
 

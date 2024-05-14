@@ -13,7 +13,7 @@ div#indexContainer{
     width: 100% !important;
     min-height: 700px !important;
     background-color: #11385b;
-    background-image: linear-gradient(to right, #11385b, #11385b, rgba(17, 56, 91, 0.5), rgba(17, 56, 91, 0.4)),
+    background-image: linear-gradient(to right, #11385b, #11385b, rgb(17, 56, 91), rgb(17, 56, 91)),
     url('/src/assets/img/polygon_haikei.svg');
     background-repeat: no-repeat;
     background-position:center center;
