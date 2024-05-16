@@ -2,7 +2,7 @@ import './about.css'
 
 export const AboutSection = () => {
   return (
-    <section className="section-v1">
+    <section id="imgAbout">
       <div className="container pt-5">
 
         <div className="row">
