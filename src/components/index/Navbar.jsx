@@ -8,7 +8,7 @@ export const Navbar = () => {
     const [scroll, setScroll] = useState(false);
     useEffect(() => {
     window.addEventListener("scroll", () => {
-        setScroll(window.scrollY > 700);
+        setScroll(window.scrollY > 600);
     });
     }, []);
 
@@ -54,14 +54,9 @@ export const Navbar = () => {
                                 <a className="nav-link" href="#">Nuestras Tecnologias</a>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
+                                <a className="nav-link" href="#">
+                                    Contactanos
                                 </a>
-                                <ul className="dropdown-menu dropdown-menu-dark">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>

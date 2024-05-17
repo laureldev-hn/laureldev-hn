@@ -4,7 +4,6 @@ export const AboutSection = () => {
   return (
     <section id="imgAbout">
       <div className="container pt-5">
-
         <div className="row">
           <div className="col-md-12">
             <h1 className="sectionTitle">SOBRE NOSOTROS</h1>

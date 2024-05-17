@@ -1,7 +1,32 @@
 #imgAbout {
     background-position: center;
     background-repeat: no-repeat;
-    background-color: transparent;
-    background-image: url('./../../assets/img/Hexagon.svg');
   
+}
+
+.hex {
+    float: left;
+    margin-left: 3px;
+    margin-bottom: -26px;
+}
+.hex-row.even {
+    margin-left: 53px;
+}
+
+.hex .top {
+    width: 0;
+    border-bottom: 30px solid #6C6;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+}
+.hex .middle {
+    width: 104px;
+    height: 60px;
+    background: #6C6;
+}
+.hex .bottom {
+    width: 0;
+    border-top: 30px solid #6C6;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
 }

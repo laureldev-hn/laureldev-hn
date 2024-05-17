@@ -11,7 +11,13 @@ body {
     background-color: #fdfdfd;
 }
 
+.color-yellow-laureldev{
+    color: #fec53a;
+}
 
+.color-blue-laureldev{
+    color: #11385b;
+}
 
 .curved {
     position: relative;

@@ -1,48 +1,80 @@
+#contact-container{
+    background-color: #11385B;
+    width: 100%;
+    height: auto;
+} 
+
 #contact {
     width: 100% !important;
-    min-height: none !important;
-    background-image: url('/src/assets/img/bg_contact.svg');
+    background-image: url('/src/assets/img/polygon-scatter-haikei.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.9;
+
 }
 
 #h1 {
     color: #FEC53A;
 }
 
+.btn-contact {
+    background-color: #fec53a;
 
-.input input,
-textarea {
-    font-size: 100%;
-    padding: 0.7em;
+}
+
+.btn-contact:hover {
+    background-color: #FEC53A;
+}
+
+.form-floating input {
     color: #FEC53A;
     border: 0;
-    border-bottom: 2px solid #FEC35A;
+    border-bottom: 2px solid #FEC53A;
     background: transparent;
     border-radius: 0;
     width: 100%;
-
 }
 
-.input input:focus,
-textarea:focus, label:focus {
-    background-color: rgba(254, 195, 90, 0.1);
+.form-floating input:focus {
+    background-color: #11385B;
     color: #FEC53A;
+    border-color: #FEC53A;
+
 }
 
-.input label {
-    font-size: 100%;
-    position: absolute;
-    left: 0;
+.form-floating textarea{
     color: #FEC53A;
-}
-
-.input label::after {
-    position: absolute;
-    left: 0;
-    bottom: 1px;
+    border: 0;
+    border-bottom: 2px solid #FEC53A;
+    background: transparent;
+    border-radius: 0;
     width: 100%;
-    height: 100%;
-    transform: translateX(100%);
+}
+
+.form-floating textarea:focus{
+    color: #FEC53A !important;
+    background-color: transparent;
+    border-color:#FEC53A;
+}
+
+
+.formContactLabels {
+    color: #FEC53A !important;
+}
+
+.formContactLabels:focus {
+    color: #FEC53A !important;
+    background-color: transparent;
+}
+.formContactLabels::after {
+    color: #FEC53A !important;
+    background-color: transparent !important;
+}
+
+
+.formDivContInput {
+    outline: none;
+}
+
+.formDivContInput:focus-visible {
+    outline: none !important;
 }

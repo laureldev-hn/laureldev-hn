@@ -2,7 +2,7 @@
 import './services.css'
 export const ServiceSection = () => {
     return (
-        <>
+        <section>
             <div className="container pt-5">
                 <div className="row">
                     <div className="col-md-12">
@@ -19,6 +19,6 @@ export const ServiceSection = () => {
             </div>
            
 
-        </>
+        </section>
     )
 }

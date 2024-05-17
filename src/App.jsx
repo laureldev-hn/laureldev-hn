@@ -16,7 +16,6 @@ export const App = () => {
     <>
       {/* <Navbar/> */}
       <Index />
-
       <AboutSection />
       <ServiceSection />
       <CustomerSection />

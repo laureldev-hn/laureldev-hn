@@ -23,7 +23,7 @@ body {
 
 .curved-inverted {
   position: relative;
-  background: rgb(17, 56, 91);
+  background: #11385b;
   height: 10vh;
   border-top-left-radius: 50% 20%;
   border-top-right-radius: 50% 20%;
