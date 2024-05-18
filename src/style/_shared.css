@@ -8,7 +8,17 @@
 body {
     width: 100% !important;
     max-width: 100%;
-    background-color: #fdfdfd;
+    background-color: #fec53a;
+}
+
+#appContainer{
+    opacity: 0;
+}
+
+#appContainer.showAppContainer{
+    opacity: 1;
+    transition: all ease .6s;
+    background-color: #fff;
 }
 
 .color-yellow-laureldev{

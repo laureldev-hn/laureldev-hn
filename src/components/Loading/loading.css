@@ -1,0 +1,12 @@
+#loadingContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fec53a;
+    transition: opacity .3s;
+    opacity: 1;
+}
+
+#loadingContainer.hideLoading{
+    opacity: 0;
+    z-index: -1;
+}

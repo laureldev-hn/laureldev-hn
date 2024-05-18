@@ -9,7 +9,6 @@
     background-image: url('/src/assets/img/polygon-scatter-haikei.svg');
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 #h1 {
@@ -18,7 +17,6 @@
 
 .btn-contact {
     background-color: #fec53a;
-
 }
 
 .btn-contact:hover {
@@ -38,7 +36,6 @@
     background-color: #11385B;
     color: #FEC53A;
     border-color: #FEC53A;
-
 }
 
 .form-floating textarea{
@@ -56,7 +53,6 @@
     border-color:#FEC53A;
 }
 
-
 .formContactLabels {
     color: #FEC53A !important;
 }
@@ -65,11 +61,11 @@
     color: #FEC53A !important;
     background-color: transparent;
 }
+
 .formContactLabels::after {
     color: #FEC53A !important;
     background-color: transparent !important;
 }
-
 
 .formDivContInput {
     outline: none;
@@ -78,3 +74,6 @@
 .formDivContInput:focus-visible {
     outline: none !important;
 }
+
+
+
