@@ -1,21 +1,34 @@
 import './contact.css'
 import { useState } from 'react';
 import { supabase } from '../../helpers/clientes'
+import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [telphone, setTelphone] = useState('');
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await supabase.from('contacts').insert([
-                { name, email, message, telphone }])
+                { name, email, message, telphone }
+            ]);
+            setName('');
+            setEmail('');
+            setMessage('');
+            setTelphone('');
+            setError(null);
+            setSuccess(true);
+            navigate('/');
         } catch (error) {
-            console.error('No Funciona')
+            console.error(error);
+            setError('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
+            setSuccess(false);
         }
     }
 
@@ -32,6 +45,8 @@ const Contact = () => {
                         <div className="row justify-content-center">
                             <div className="col-md-8">
                                 <form onSubmit={handleSubmit} autoComplete='off'>
+                                    {error && <div className="alert alert-danger">{error}</div>}
+                                    {success && <div className="alert alert-success">¡Mensaje enviado exitosamente!</div>}
                                     <div className="row">
                                         <div className="col-md-12 mb-3">
                                             <div className="form-floating mb-3">
