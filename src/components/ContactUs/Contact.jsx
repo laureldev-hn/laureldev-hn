@@ -46,7 +46,13 @@ const Contact = () => {
                             <div className="col-md-8">
                                 <form onSubmit={handleSubmit} autoComplete='off'>
                                     {error && <div className="alert alert-danger">{error}</div>}
-                                    {success && <div className="alert alert-success">¡Mensaje enviado exitosamente!</div>}
+                                    {success && <div className="alert alert-success alert-dismissiblefade show" role="alert">¡Mensaje enviado exitosamente!
+                                        <button
+                                            type="button"
+                                            className="btn-close"
+                                            data-bs-dismiss="alert"
+                                            aria-label="Close"
+                                        /></div>}
                                     <div className="row">
                                         <div className="col-md-12 mb-3">
                                             <div className="form-floating mb-3">
