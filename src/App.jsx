@@ -33,7 +33,6 @@ export const App = () => {
       <ServiceSection />
       <CustomerSection />
       <TechnologiesSection />
-      <Contact />
       <Footer/>
     </div>
   );

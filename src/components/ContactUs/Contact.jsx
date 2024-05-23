@@ -4,6 +4,8 @@ import { supabase } from '../../helpers/clientes'
 import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
+
+    const [loading, setLoading] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
@@ -15,6 +17,7 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            setLoading(true)
             await supabase.from('contacts').insert([
                 { name, email, message, telphone }
             ]);
@@ -24,7 +27,7 @@ const Contact = () => {
             setTelphone('');
             setError(null);
             setSuccess(true);
-            navigate('/');
+            setLoading(false)
         } catch (error) {
             console.error(error);
             setError('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
@@ -38,21 +41,33 @@ const Contact = () => {
                 <section id="contact">
                     <div className="container px-5 mx-auto">
                         <div className="row justify-content-center">
-                            <div className=" mt-5 col text-center mb-5">
-                                <h1 className='color-yellow-laureldev'>CONTACTANOS</h1>
+                            <div className=" mt-5 col text-center mb-3">
+                                <h1 className='color-yellow-laureldev'>Contactanos</h1>
                             </div>
                         </div>
                         <div className="row justify-content-center">
                             <div className="col-md-8">
                                 <form onSubmit={handleSubmit} autoComplete='off'>
-                                    {error && <div className="alert alert-danger">{error}</div>}
-                                    {success && <div className="alert alert-success alert-dismissiblefade show" role="alert">¡Mensaje enviado exitosamente!
-                                        <button
-                                            type="button"
-                                            className="btn-close"
-                                            data-bs-dismiss="alert"
-                                            aria-label="Close"
-                                        /></div>}
+                                    {
+                                        error && <div className="alert alert-danger">{error}</div>
+                                    }
+                                    {
+                                        success &&
+                                        <div
+                                            className="alert alert-success alert-dismissible fade show"
+                                            role="alert"
+                                        >
+                                            ¡Mensaje enviado exitosamente!
+                                            <button
+                                                type="button"
+                                                className="btn-close"
+                                                data-bs-dismiss="alert"
+                                                aria-label="Close"
+                                                onClick={() => setSuccess(false)}
+                                            >
+                                            </button>
+                                        </div>
+                                    }
                                     <div className="row">
                                         <div className="col-md-12 mb-3">
                                             <div className="form-floating mb-3">
@@ -111,8 +126,12 @@ const Contact = () => {
                                     </div>
                                     <div className="row mt-5 mb-5">
                                         <div className="d-grid gap-2">
-                                            <button type="submit" className="btn-contact btn btn-block color-blue-laureldev fw-bold">
-                                                Enviar
+                                            <button type="submit" className="btn-contact btn btn-block color-blue-laureldev fw-bold rounded-0">
+                                                {
+                                                    loading
+                                                        ? 'Enviando...'
+                                                        : 'Enviar'
+                                                }
                                             </button>
                                         </div>
                                     </div>

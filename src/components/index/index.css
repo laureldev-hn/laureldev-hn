@@ -1,20 +1,18 @@
 div#indexContainer{
     width: 100% !important;
-    min-height: 700px !important;
+    min-height: 100vh !important;
     background-image: url('../../assets/img/index_bg.jpg');
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: 100% 700px;
+    background-size: 100% 100vh;
 }
 
 
 #index {
     width: 100% !important;
-    min-height: 700px !important;
+    min-height: 100vh !important;
     background-color: #11385b;
-    background-image: url('../../assets/img/polygon_haikei.svg');
-    background-repeat: no-repeat;
     background-position:center center;
     opacity: 0.9;
 }
