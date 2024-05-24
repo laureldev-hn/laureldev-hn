@@ -1,7 +1,7 @@
 import './contact.css'
 import { useState } from 'react';
 import { supabase } from '../../helpers/clientes'
-import { useNavigate } from 'react-router-dom';
+
 
 const Contact = () => {
 
@@ -12,7 +12,7 @@ const Contact = () => {
     const [telphone, setTelphone] = useState('');
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
-    const navigate = useNavigate();
+  
 
     const handleSubmit = async (e) => {
         e.preventDefault();

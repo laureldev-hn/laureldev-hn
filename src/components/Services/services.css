@@ -1,14 +1,4 @@
-#imgServices {
-    width: 500px;
-    height: 333px;
-    background-image: url('./../assets/img/bg_services.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-
-}
-
-.mask-custom {
+/* .mask-custom {
     mask-image: linear-gradient(to bottom, transparent, #000),
         linear-gradient(to bottom, #000, transparent), linear-gradient(to bottom,
             transparent,
@@ -21,4 +11,4 @@
     -ms-transition: all 0.5s linear;
     -o-transition: all 0.5s linear;
     transition: all 0.5s linear;
-}
+} */

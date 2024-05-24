@@ -6,7 +6,7 @@ export const Index = () => {
         <div id="indexContainer">
             <Navbar/>
             <section id="index">
-                <div className="container-fluid">
+                <div className="container-fluid mask-custom">
                     <div className="row ">
                         <div className="col-md-6" id='coldivIndexTitle'>
                             <div id="divIndexTitle">

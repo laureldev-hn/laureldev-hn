@@ -1,4 +1,5 @@
 import './about.css'
+import logo from './../../assets/img/bg_about.jpg';
 
 export const AboutSection = () => {
   return (
@@ -11,7 +12,7 @@ export const AboutSection = () => {
               <h1 className="sectionTitle">SOBRE NOSOTROS</h1>
             </div>
             <div className="col-md-6" >
-              <img src="/src/assets/img/bg_about.jpg" width={'100%'} />
+              <img src={logo} style={{ width: '100%' }} />
             </div>
             <div className="col-md-6">
 

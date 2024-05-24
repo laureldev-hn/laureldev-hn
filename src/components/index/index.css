@@ -1,4 +1,4 @@
-div#indexContainer{
+div#indexContainer {
     width: 100% !important;
     min-height: 100vh !important;
     background-image: url('../../assets/img/index_bg.jpg');
@@ -7,14 +7,14 @@ div#indexContainer{
     background-repeat: no-repeat;
     background-size: 100% 100vh;
     background-size: cover;
-}
+    }
 
 
 #index {
     width: 100% !important;
     min-height: 100vh !important;
     background-color: #11385b;
-    background-position:center center;
+    background-position: center center;
     opacity: 0.9;
 }
 
@@ -37,16 +37,18 @@ div#indexContainer{
     font-weight: 200 !important;
 }
 
-#indexSubTitle{
+#indexSubTitle {
     color: #ffffff;
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 40px;
+    transform: scale(0.94);
+    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
 
 #indexSubTitle>span {
     padding-bottom: 5px;
-    border-bottom: solid 1px #f0292c
+    border-bottom: solid 1px #f0292c;
 }
 
 
@@ -59,9 +61,7 @@ div#indexContainer{
     background-size: 280px 295px;
     background-color: transparent;
     margin-top: 20vh !important;
-
 }
-
 
 @media only screen and (width <=767px) {
     #indexLaureldevLogo {
@@ -72,10 +72,18 @@ div#indexContainer{
         background-repeat: no-repeat;
         background-color: transparent;
         margin-top: 20vh !important;
+       
     }
 
     #titleHomeDiv {
         margin-top: 50px !important;
         text-align: center;
+    }
+}
+
+
+@keyframes scale {
+    100% {
+        transform: scale(1);
     }
 }
