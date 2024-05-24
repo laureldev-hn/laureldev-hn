@@ -1,9 +1,7 @@
-#imgAbout {
-    width: 100% !important;
-    height: 700px !important;
-    background-color: transparent;
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
+.mask-img {
+    -webkit-mask-image: url(mask_bg.png);
+    mask-image: url(mask_bg.png);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     
 }
-

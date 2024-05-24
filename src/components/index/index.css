@@ -7,7 +7,8 @@ div#indexContainer {
     background-repeat: no-repeat;
     background-size: 100% 100vh;
     background-size: cover;
-    }
+    
+}
 
 
 #index {
@@ -72,7 +73,7 @@ div#indexContainer {
         background-repeat: no-repeat;
         background-color: transparent;
         margin-top: 20vh !important;
-       
+
     }
 
     #titleHomeDiv {

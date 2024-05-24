@@ -3,10 +3,11 @@ import { Navbar } from './Navbar'
 
 export const Index = () => {
     return (
+
         <div id="indexContainer">
-            <Navbar/>
+            <Navbar />
             <section id="index">
-                <div className="container-fluid mask-custom">
+                <div className="container-fluid">
                     <div className="row ">
                         <div className="col-md-6" id='coldivIndexTitle'>
                             <div id="divIndexTitle">

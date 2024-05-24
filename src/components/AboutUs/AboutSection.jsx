@@ -1,18 +1,17 @@
 import './about.css'
-import logo from './../../assets/img/bg_about.jpg';
+import imgAbout from './../../assets/img/bg_about.jpg';
 
 export const AboutSection = () => {
   return (
     <div>
-      <section id="imgAbout">
+      <section>
         <div className="container pt-5">
-
           <div className="row">
             <div className="col-md-12">
               <h1 className="sectionTitle">SOBRE NOSOTROS</h1>
             </div>
-            <div className="col-md-6" >
-              <img src={logo} style={{ width: '100%' }} />
+            <div className="col-md-6">
+              <img src={imgAbout} style={{ width: '100%' }} className='mask-img'/>
             </div>
             <div className="col-md-6">
 
@@ -26,7 +25,6 @@ export const AboutSection = () => {
                 fugiat vel hic quae voluptate, eius deserunt.</p>
             </div>
           </div>
-
         </div>
       </section>
     </div>
