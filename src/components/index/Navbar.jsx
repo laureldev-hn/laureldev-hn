@@ -16,7 +16,7 @@ export const Navbar = () => {
         <nav className={`navbar navbar-dark fixed-top ${scroll && 'bg-laureldev-blue'}`}>
             <div className="container-fluid">
                 <span></span>
-                <Link className="navbar-brand text-center">
+                <Link className="navbar-brand text-center link-logo-navbar">
                     <img src={iconNavbar} alt="" />
                 </Link>
                 <button

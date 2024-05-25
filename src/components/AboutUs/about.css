@@ -1,7 +1,16 @@
-.mask-img {
-    -webkit-mask-image: url(mask_bg.png);
-    mask-image: url(mask_bg.png);
-    -webkit-mask-repeat: no-repeat;
+/* #mask-img {
+  
+    mask-image: url('./../../assets/img/mask_bg.png');
     mask-repeat: no-repeat;
-    
+    -webkit-mask-image: url('./../../assets/img/mask_bg.png');
+    -webkit-mask-repeat: no-repeat;
+} */
+
+
+.aboutus-main {
+    background-color: #fec35a;
+    width: 100%;
+    min-height: 200px !important;
+    height: 200px !important;
+    color: #fff;
 }

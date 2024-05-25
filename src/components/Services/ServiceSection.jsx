@@ -15,11 +15,8 @@ export const ServiceSection = () => {
                     <div className="col-md-6">
                         <img src={logo} style={{ width: '100%' }} />
                     </div>
-
                 </div>
             </div>
-           
-
         </section>
     )
 }

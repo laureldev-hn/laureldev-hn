@@ -88,3 +88,8 @@ div#indexContainer {
         transform: scale(1);
     }
 }
+
+.link-logo-navbar{
+    margin-right: 0px !important;
+    padding-left: 55.6px !important;
+}
