@@ -4,8 +4,10 @@ import { Navbar } from './Navbar'
 export const Index = () => {
     return (
 
+        <>
+        <Navbar />
         <div id="indexContainer">
-            <Navbar />
+            
             <section id="index">
                 <div className="container-fluid">
                     <div className="row ">
@@ -23,5 +25,6 @@ export const Index = () => {
                 </div>
             </section>
         </div>
+        </>
     )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom";
 import iconNavbar from '../../assets/img/icon_navbar.png';
+import iconMenu from '../../assets/img/logo_navbar.png';
 import { useEffect } from 'react';
 
 export const Navbar = () => {
@@ -33,7 +34,7 @@ export const Navbar = () => {
 
                 <div className={`offcanvas offcanvas-end text-bg-dark ${showSidebar && 'show'}`} tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div className="offcanvas-header">
-                        <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Laurel Dev</h5>
+                        <img src={iconMenu} alt="" className="offcanvas-title" id="offcanvasDarkNavbarLabel" />
                         <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" onClick={() => setShowSidebar(false)}></button>
                     </div>
                     <div className="offcanvas-body">

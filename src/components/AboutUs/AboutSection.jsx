@@ -11,7 +11,8 @@ export const AboutSection = () => {
           <div className="col-md-12">
             <h1 className="sectionTitle">SOBRE NOSOTROS</h1>
           </div>
-          <div className="col-md-6">
+          <div className="card col-md-6">
+            <div className='circle mt-3'></div>
             <img src={imgAbout} style={{ width: '100%' }} id='mask-img'/>
           </div>
           <div className="col-md-6">
