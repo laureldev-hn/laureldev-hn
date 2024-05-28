@@ -12,12 +12,17 @@ const Contact = () => {
     const [telphone, setTelphone] = useState('');
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
-  
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            setLoading(true)
+            if (!name || !email || !message || !telphone) {
+                setError('Por favor, completa todos los campos.');
+                return;
+            }
+
+            setLoading(true);
             await supabase.from('contacts').insert([
                 { name, email, message, telphone }
             ]);
@@ -27,11 +32,12 @@ const Contact = () => {
             setTelphone('');
             setError(null);
             setSuccess(true);
-            setLoading(false)
+            setLoading(false);
         } catch (error) {
             console.error(error);
             setError('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
             setSuccess(false);
+
         }
     }
 

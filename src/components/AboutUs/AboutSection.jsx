@@ -3,7 +3,7 @@ import imgAbout from './../../assets/img/bg_about.jpg';
 
 export const AboutSection = () => {
   return (
-    <section>
+    <section className='section-about'>
       <div className='aboutus-main'>
       </div>
       <div className="container pt-5">
@@ -12,7 +12,7 @@ export const AboutSection = () => {
             <h1 className="sectionTitle">SOBRE NOSOTROS</h1>
           </div>
           <div className="col-md-6">
-            <img src={imgAbout} style={{ width: '100%' }} id='mask-img'/>
+            <img src={imgAbout} style={{ width: '100%' }} className='.tilt-in-top-1'/>
           </div>
           <div className="col-md-6">
             <p className="stitlesP">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita nulla quod, dolorum ipsa qui a

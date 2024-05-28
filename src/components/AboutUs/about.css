@@ -1,11 +1,13 @@
-/* #mask-img {
-  
-    mask-image: url('./../../assets/img/mask_bg.png');
-    mask-repeat: no-repeat;
-    -webkit-mask-image: url('./../../assets/img/mask_bg.png');
-    -webkit-mask-repeat: no-repeat;
-} */
+.section-about {
+    background-image: url('/src/assets/img/about_bg1.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* width: 100% !important; */
+    /* background-color: #11385b;
+    color: #fff; */
+    padding: 30px 0;
 
+}
 
 .aboutus-main {
     background-color: #fec35a;

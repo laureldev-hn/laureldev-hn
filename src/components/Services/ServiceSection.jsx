@@ -3,7 +3,7 @@ import logo from './../../assets/img/bg_Services.jpg'
 
 export const ServiceSection = () => {
     return (
-        <section>
+        <section className='section-service'>
             <div className="container pt-5">
                 <div className="row">
                     <div className="col-md-12">
