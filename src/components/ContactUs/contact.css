@@ -1,10 +1,20 @@
-#contact-container{ 
+#contact-container {
     width: 100%;
     height: auto;
     border-bottom: 2px solid #f0292c;
     margin-bottom: 70px;
     padding-bottom: 30px;
-} 
+    
+}
+
+#contact{
+    background: rgba(255, 250, 235, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(0.5px);
+    border: 1px solid #fee089;
+}
 
 #h1 {
     color: #FEC53A;
@@ -33,7 +43,7 @@
     border-color: #FEC53A;
 }
 
-.form-floating textarea{
+.form-floating textarea {
     color: #FEC53A;
     border: 0;
     border-bottom: 2px solid #FEC53A;
@@ -42,10 +52,10 @@
     width: 100%;
 }
 
-.form-floating textarea:focus{
+.form-floating textarea:focus {
     color: #FEC53A !important;
     background-color: transparent;
-    border-color:#FEC53A;
+    border-color: #FEC53A;
 }
 
 .formContactLabels {
