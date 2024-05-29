@@ -44,8 +44,8 @@ const Contact = () => {
     return (
         <>
             <div id='contact-container'>
-                <section id="contact">
-                    <div className="container px-5 mx-auto">
+                <section>
+                    <div className="container px-5 mx-auto" id='contact'>
                         <div className="row justify-content-center">
                             <div className=" mt-5 col text-center mb-3">
                                 <h1 className='color-yellow-laureldev'>Contactanos</h1>
