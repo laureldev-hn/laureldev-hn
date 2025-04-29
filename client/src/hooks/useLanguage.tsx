@@ -91,6 +91,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.sending': 'Sending...',
     'contact.success': 'Your message has been sent successfully!',
     'contact.error': 'There was an error sending your message. Please try again.',
+    'contact.followUs': 'Follow Us',
     
     // Footer
     'footer.rights': 'Copyright 2025 LaurelDev. All rights reserved.',
@@ -182,6 +183,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.sending': 'Enviando...',
     'contact.success': '¡Tu mensaje ha sido enviado con éxito!',
     'contact.error': 'Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.',
+    'contact.followUs': 'Síguenos',
     
     // Footer
     'footer.rights': 'Copyright 2025 LaurelDev. Todos los derechos reservados.',
