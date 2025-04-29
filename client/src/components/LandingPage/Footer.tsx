@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <a href="#" className="inline-block mb-6">
-              <img src="/assets/logo-white.svg" alt="LaurelDev Logo" className="h-10" />
+              <img src={logoPath} alt="LaurelDev Logo" className="h-12 brightness-0 invert" />
             </a>
             <p className="text-gray-400 mb-6">
               Transforming financial institutions through innovative technology solutions.
@@ -98,12 +98,12 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 mb-4 md:mb-0">
-              &copy; {currentYear} LaurelDev. All rights reserved.
+              &copy; 2025 LaurelDev. All rights reserved.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-500 hover:text-primary transition-all">Privacy Policy</a>
-              <a href="#" className="text-gray-500 hover:text-primary transition-all">Terms of Service</a>
-              <a href="#" className="text-gray-500 hover:text-primary transition-all">Sitemap</a>
+              <a href="#" className="text-secondary hover:text-primary transition-all">Privacy Policy</a>
+              <a href="#" className="text-secondary hover:text-primary transition-all">Terms of Service</a>
+              <a href="#" className="text-secondary hover:text-primary transition-all">Sitemap</a>
             </div>
           </div>
         </div>
