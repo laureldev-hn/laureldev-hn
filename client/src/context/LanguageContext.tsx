@@ -3,22 +3,7 @@ import React, { createContext, useState, useEffect, ReactNode } from 'react';
 // Define supported languages
 export type Language = 'en' | 'es';
 
-// Define the context structure
-type LanguageContextType = {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
-};
-
-// Create context with default values
-export const LanguageContext = createContext<LanguageContextType>({
-  language: 'en',
-  setLanguage: () => {},
-  t: (key: string) => key,
-});
-
-// Define translations
-export const translations: Record<Language, Record<string, string>> = {
+const TRANSLATIONS = {
   en: {
     // Navbar
     'nav.about': 'About',
@@ -42,17 +27,17 @@ export const translations: Record<Language, Record<string, string>> = {
     'services.title': 'Our Services',
     'services.subtitle': 'Comprehensive Solutions for Financial Institutions',
     'services.mobileBanking.title': 'Mobile Banking Solutions',
-    'services.mobileBanking.description': 'Custom mobile applications that provide seamless banking experiences for your customers, with features like mobile check deposit, account management, and secure transactions.',
+    'services.mobileBanking.description': 'Custom mobile applications that provide seamless banking experiences for your customers.',
     'services.security.title': 'Security & Compliance',
-    'services.security.description': 'Robust security solutions that protect sensitive financial data while ensuring compliance with industry regulations and standards like PCI DSS and GDPR.',
+    'services.security.description': 'Robust security solutions that protect sensitive financial data while ensuring compliance.',
     'services.dataAnalytics.title': 'Data Analytics',
-    'services.dataAnalytics.description': 'Advanced analytics tools that transform raw financial data into actionable insights, helping you make data-driven decisions and identify growth opportunities.',
+    'services.dataAnalytics.description': 'Advanced analytics tools that transform raw financial data into actionable insights.',
     'services.payments.title': 'Payment Processing',
-    'services.payments.description': 'Streamlined payment solutions that support various transaction methods, from traditional credit and debit cards to emerging payment technologies.',
+    'services.payments.description': 'Streamlined payment solutions that support various transaction methods.',
     'services.ai.title': 'AI & Machine Learning',
-    'services.ai.description': 'Innovative AI solutions for fraud detection, customer service automation, personalized banking experiences, and intelligent financial insights.',
+    'services.ai.description': 'Innovative AI solutions for fraud detection and automation.',
     'services.customDev.title': 'Custom Development',
-    'services.customDev.description': 'Tailored software solutions designed specifically for your institution\'s unique needs, ensuring perfect alignment with your business objectives.',
+    'services.customDev.description': 'Tailored software solutions designed specifically for your institution\'s unique needs.',
     'services.learnMore': 'Learn More',
     
     // Success Stories
@@ -115,9 +100,9 @@ export const translations: Record<Language, Record<string, string>> = {
     // Navbar
     'nav.about': 'Sobre Nosotros',
     'nav.services': 'Servicios',
-    'nav.successStories': 'Casos de Exito',
-    'nav.whyChooseUs': 'Por Que Elegirnos?',
-    'nav.contactUs': 'Contactanos',
+    'nav.successStories': 'Casos de Éxito',
+    'nav.whyChooseUs': '¿Por Qué Elegirnos?',
+    'nav.contactUs': 'Contáctanos',
     
     // Hero
     'hero.title': 'Transformando Instituciones Financieras',
@@ -127,24 +112,24 @@ export const translations: Record<Language, Record<string, string>> = {
     // About
     'about.title': 'Sobre Nosotros',
     'about.subtitle': 'Construyendo el Futuro de la Tecnología Financiera',
-    'about.description': 'LaurelDev es una empresa líder en tecnología especializada en crear soluciones de software personalizadas para instituciones financieras. Con más de 10 años de experiencia en la industria, hemos ayudado a cooperativas y organizaciones financieras a modernizar sus sistemas, mejorar la experiencia de sus miembros y mantenerse a la vanguardia en la era digital.',
-    'about.mission': 'Nuestra misión es potenciar a las instituciones financieras con tecnología innovadora que mejore sus operaciones y proporcione un valor excepcional a sus miembros.',
+    'about.description': 'LaurelDev es una empresa líder en tecnología especializada en crear soluciones de software personalizadas para instituciones financieras.',
+    'about.mission': 'Nuestra misión es potenciar a las instituciones financieras con tecnología innovadora.',
     
     // Services
     'services.title': 'Nuestros Servicios',
     'services.subtitle': 'Soluciones Integrales para Instituciones Financieras',
     'services.mobileBanking.title': 'Soluciones de Banca Móvil',
-    'services.mobileBanking.description': 'Aplicaciones móviles personalizadas que proporcionan experiencias bancarias fluidas para sus clientes, con funciones como depósito de cheques móviles, gestión de cuentas y transacciones seguras.',
+    'services.mobileBanking.description': 'Aplicaciones móviles personalizadas que proporcionan experiencias bancarias fluidas para sus clientes.',
     'services.security.title': 'Seguridad y Cumplimiento',
-    'services.security.description': 'Soluciones de seguridad robustas que protegen datos financieros sensibles y garantizan el cumplimiento de las regulaciones y estándares de la industria como PCI DSS y GDPR.',
+    'services.security.description': 'Soluciones de seguridad robustas que protegen datos financieros sensibles.',
     'services.dataAnalytics.title': 'Análisis de Datos',
-    'services.dataAnalytics.description': 'Herramientas de análisis avanzadas que transforman datos financieros brutos en información procesable, ayudándole a tomar decisiones basadas en datos e identificar oportunidades de crecimiento.',
+    'services.dataAnalytics.description': 'Herramientas de análisis avanzadas que transforman datos financieros brutos en información procesable.',
     'services.payments.title': 'Procesamiento de Pagos',
-    'services.payments.description': 'Soluciones de pago optimizadas que admiten varios métodos de transacción, desde tarjetas de crédito y débito tradicionales hasta tecnologías de pago emergentes.',
+    'services.payments.description': 'Soluciones de pago optimizadas que admiten varios métodos de transacción.',
     'services.ai.title': 'IA y Aprendizaje Automático',
-    'services.ai.description': 'Soluciones innovadoras de IA para detección de fraudes, automatización del servicio al cliente, experiencias bancarias personalizadas e información financiera inteligente.',
+    'services.ai.description': 'Soluciones innovadoras de IA para detección de fraudes y automatización.',
     'services.customDev.title': 'Desarrollo Personalizado',
-    'services.customDev.description': 'Soluciones de software a medida diseñadas específicamente para las necesidades únicas de su institución, asegurando una alineación perfecta con sus objetivos comerciales.',
+    'services.customDev.description': 'Soluciones de software a medida diseñadas específicamente para las necesidades únicas de su institución.',
     'services.learnMore': 'Más Información',
     
     // Success Stories
@@ -205,43 +190,84 @@ export const translations: Record<Language, Record<string, string>> = {
   },
 };
 
+// Define the context structure
+type LanguageContextType = {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+};
+
+// Create context with default values
+export const LanguageContext = createContext<LanguageContextType>({
+  language: 'en',
+  setLanguage: () => {},
+  t: (key: string) => key,
+});
+
 // Provider component
 interface LanguageProviderProps {
   children: ReactNode;
 }
 
-export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  // Get saved language from localStorage or use browser language or default to 'en'
+export function LanguageProvider({ children }: LanguageProviderProps) {
+  // Get initial language from localStorage or browser
   const getInitialLanguage = (): Language => {
-    if (typeof window === 'undefined') return 'en';
-    
-    const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage && ['en', 'es'].includes(savedLanguage)) {
-      return savedLanguage;
+    try {
+      if (typeof window !== 'undefined') {
+        const saved = localStorage.getItem('language');
+        if (saved === 'en' || saved === 'es') {
+          return saved as Language;
+        }
+        
+        const browserLang = navigator.language.substring(0, 2);
+        if (browserLang === 'es') return 'es';
+      }
+    } catch (error) {
+      console.error('Error getting initial language:', error);
     }
-    
-    const browserLang = navigator.language.substring(0, 2);
-    return browserLang === 'es' ? 'es' : 'en';
+    return 'en';
   };
 
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
 
-  // Save language preference to localStorage when it changes
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
+  // Update language preference in localStorage
+  const handleSetLanguage = (newLang: Language) => {
+    console.log('Setting language to:', newLang);
+    try {
+      localStorage.setItem('language', newLang);
+    } catch (error) {
+      console.error('Error saving language preference:', error);
+    }
+    setLanguage(newLang);
+  };
 
   // Translation function
-  const t = (key: string): string => {
-    if (!translations[language] || !translations[language][key]) {
+  const translate = (key: string): string => {
+    if (key === 'nav.about') {
+      console.log(
+        `Translating 'nav.about' with language=${language}:`, 
+        language === 'en' ? 'About' : 'Sobre Nosotros'
+      );
+    }
+    
+    try {
+      const translations = TRANSLATIONS[language] || TRANSLATIONS.en;
+      return translations[key] || key;
+    } catch (error) {
+      console.error('Translation error:', error);
       return key;
     }
-    return translations[language][key];
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider
+      value={{
+        language,
+        setLanguage: handleSetLanguage,
+        t: translate
+      }}
+    >
       {children}
     </LanguageContext.Provider>
   );
-};
+}
