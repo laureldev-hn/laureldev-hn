@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '../hooks/useLanguage';
 import { Button } from './ui/button';
 
 const LanguageSwitcher: React.FC = () => {
