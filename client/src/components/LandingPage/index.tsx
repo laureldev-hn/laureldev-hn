@@ -39,7 +39,7 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full overflow-hidden">
       <Navbar />
       <Hero />
       <About />
