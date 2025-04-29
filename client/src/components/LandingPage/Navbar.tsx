@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import logoPath from "@assets/logo_header_350w.png";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
@@ -28,7 +27,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="#" className="flex items-center">
-              <img src={logoPath} alt="LaurelDev Logo" className="h-12" />
+              <img src="/logo-updated.png" alt="LaurelDev Logo" className="h-12" />
             </a>
           </div>
 
