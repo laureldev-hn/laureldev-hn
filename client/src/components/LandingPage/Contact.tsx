@@ -10,14 +10,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { useLanguage } from "../../hooks/useLanguage";
 
 // Form validation schema
 const contactFormSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  company: z.string().min(2, { message: "Company name must be at least 2 characters" }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" }),
+  name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
+  email: z.string().email({ message: "Por favor, ingrese una dirección de correo electrónico válida" }),
+  company: z.string().min(2, { message: "El nombre de la empresa debe tener al menos 2 caracteres" }),
+  message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres" }),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -25,7 +24,6 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const { t } = useLanguage();
   
   // Initialize form
   const form = useForm<ContactFormValues>({
@@ -44,15 +42,15 @@ const Contact = () => {
     try {
       await apiRequest("POST", "/api/contact", data);
       toast({
-        title: t('contact.success'),
-        description: t('contact.success'),
+        title: "¡Tu mensaje ha sido enviado con éxito!",
+        description: "¡Tu mensaje ha sido enviado con éxito!",
         duration: 5000,
       });
       form.reset();
     } catch (error) {
       toast({
-        title: t('contact.error'),
-        description: t('contact.error'),
+        title: "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+        description: "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
         variant: "destructive",
       });
     } finally {
@@ -64,17 +62,17 @@ const Contact = () => {
   const contactItems = [
     {
       icon: <MapPin className="text-secondary" />,
-      title: t('contact.location'),
+      title: "Nuestra Ubicación",
       content: "123 Financial District, New York, NY 10004",
     },
     {
       icon: <Mail className="text-secondary" />,
-      title: t('contact.emailUs'),
+      title: "Correo Electrónico",
       content: "contact@laureldev.com",
     },
     {
       icon: <Phone className="text-secondary" />,
-      title: t('contact.callUs'),
+      title: "Llámanos",
       content: "+1 (555) 123-4567",
     },
   ];
@@ -97,10 +95,10 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">{t('contact.title')}</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">Ponte en Contacto</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-300">
-            {t('contact.subtitle')}
+            Nos Encantaría Saber de Ti
           </p>
         </motion.div>
         
@@ -119,7 +117,7 @@ const Contact = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">{t('contact.name')}</FormLabel>
+                      <FormLabel className="text-gray-700 font-medium">Nombre Completo</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
@@ -136,7 +134,7 @@ const Contact = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">{t('contact.email')}</FormLabel>
+                      <FormLabel className="text-gray-700 font-medium">Correo Electrónico</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
@@ -154,7 +152,7 @@ const Contact = () => {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">{t('contact.company')}</FormLabel>
+                      <FormLabel className="text-gray-700 font-medium">Empresa</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
@@ -171,7 +169,7 @@ const Contact = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">{t('contact.message')}</FormLabel>
+                      <FormLabel className="text-gray-700 font-medium">Mensaje</FormLabel>
                       <FormControl>
                         <Textarea 
                           {...field} 
@@ -189,7 +187,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   className="w-full bg-primary hover:bg-secondary text-secondary hover:text-white font-montserrat font-semibold py-6 rounded-lg transition-all"
                 >
-                  {isSubmitting ? t('contact.sending') : t('contact.submit')}
+                  {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                 </Button>
               </form>
             </Form>
@@ -202,7 +200,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="font-montserrat font-bold text-2xl mb-6">{t('contact.getInTouch')}</h3>
+            <h3 className="font-montserrat font-bold text-2xl mb-6">Ponte en Contacto</h3>
             
             <div className="space-y-6">
               {contactItems.map((item, index) => (
@@ -221,7 +219,7 @@ const Contact = () => {
             </div>
             
             <div className="mt-12">
-              <h3 className="font-montserrat font-bold text-2xl mb-6">{t('contact.followUs')}</h3>
+              <h3 className="font-montserrat font-bold text-2xl mb-6">Síguenos</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <a 

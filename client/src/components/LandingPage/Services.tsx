@@ -7,7 +7,6 @@ import {
   Bot, 
   Code 
 } from "lucide-react";
-import { useLanguage } from "../../hooks/useLanguage";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -17,7 +16,6 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ icon, title, description, delay }: ServiceCardProps) => {
-  const { t } = useLanguage();
   return (
     <motion.div 
       className="bg-white rounded-xl shadow-lg overflow-hidden service-card transition-all"
@@ -41,7 +39,7 @@ const ServiceCard = ({ icon, title, description, delay }: ServiceCardProps) => {
           href="#contact" 
           className="inline-flex items-center font-montserrat font-semibold text-accent hover:text-secondary transition-all"
         >
-          {t('services.learnMore')} <i className="fas fa-chevron-right ml-2 text-sm"></i>
+          Más Información
         </a>
       </div>
     </motion.div>
@@ -49,37 +47,36 @@ const ServiceCard = ({ icon, title, description, delay }: ServiceCardProps) => {
 };
 
 const Services = () => {
-  const { t } = useLanguage();
   const services = [
     {
       icon: <Smartphone className="h-16 w-16" />,
-      title: t('services.mobileBanking.title'),
-      description: t('services.mobileBanking.description'),
+      title: "Soluciones de Banca Móvil",
+      description: "Aplicaciones móviles personalizadas que proporcionan experiencias bancarias fluidas para sus clientes.",
     },
     {
       icon: <Shield className="h-16 w-16" />,
-      title: t('services.security.title'),
-      description: t('services.security.description'),
+      title: "Seguridad y Cumplimiento",
+      description: "Soluciones de seguridad robustas que protegen datos financieros sensibles y garantizan el cumplimiento.",
     },
     {
       icon: <BarChart3 className="h-16 w-16" />,
-      title: t('services.dataAnalytics.title'),
-      description: t('services.dataAnalytics.description'),
+      title: "Análisis de Datos",
+      description: "Herramientas de análisis avanzadas que transforman datos financieros brutos en información procesable.",
     },
     {
       icon: <Repeat className="h-16 w-16" />,
-      title: t('services.payments.title'),
-      description: t('services.payments.description'),
+      title: "Procesamiento de Pagos",
+      description: "Soluciones de pago optimizadas que admiten varios métodos de transacción.",
     },
     {
       icon: <Bot className="h-16 w-16" />,
-      title: t('services.ai.title'),
-      description: t('services.ai.description'),
+      title: "IA y Aprendizaje Automático",
+      description: "Soluciones innovadoras de IA para detección de fraudes y automatización del servicio al cliente.",
     },
     {
       icon: <Code className="h-16 w-16" />,
-      title: t('services.customDev.title'),
-      description: t('services.customDev.description'),
+      title: "Desarrollo Personalizado",
+      description: "Soluciones de software a medida diseñadas específicamente para las necesidades únicas de su institución.",
     },
   ];
 
@@ -93,10 +90,10 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">{t('services.title')}</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Nuestros Servicios</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            {t('services.subtitle')}
+            Soluciones Integrales para Instituciones Financieras
           </p>
         </motion.div>
         

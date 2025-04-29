@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Shield, Users, Cog, Headphones } from "lucide-react";
-import { useLanguage } from "../../hooks/useLanguage";
 
 interface FeatureProps {
   icon: React.ReactNode;
@@ -10,7 +9,6 @@ interface FeatureProps {
 }
 
 const Feature = ({ icon, title, description, delay }: FeatureProps) => {
-  const { t } = useLanguage();
   return (
     <motion.div 
       className="flex"
@@ -35,27 +33,26 @@ const Feature = ({ icon, title, description, delay }: FeatureProps) => {
 };
 
 const WhyChooseUs = () => {
-  const { t } = useLanguage();
   const features = [
     {
       icon: <Shield className="h-6 w-6 text-secondary" />,
-      title: t('why.security.title'),
-      description: t('why.security.description'),
+      title: "Seguridad Primero",
+      description: "Prácticas de seguridad robustas y cumplimiento de las regulaciones financieras.",
     },
     {
       icon: <Users className="h-6 w-6 text-secondary" />,
-      title: t('why.expertise.title'),
-      description: t('why.expertise.description'),
+      title: "Experiencia en la Industria",
+      description: "Conocimiento especializado en tecnología financiera y operaciones de cooperativas.",
     },
     {
       icon: <Cog className="h-6 w-6 text-secondary" />,
-      title: t('why.custom.title'),
-      description: t('why.custom.description'),
+      title: "Soluciones Personalizadas",
+      description: "Desarrollo de software a medida para satisfacer sus necesidades y objetivos específicos.",
     },
     {
       icon: <Headphones className="h-6 w-6 text-secondary" />,
-      title: t('why.support.title'),
-      description: t('why.support.description'),
+      title: "Soporte 24/7",
+      description: "Equipo dedicado que proporciona soporte y mantenimiento continuos.",
     },
   ];
 
@@ -69,10 +66,10 @@ const WhyChooseUs = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">{t('why.title')}</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">¿Por Qué Elegirnos?</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            {t('why.subtitle')}
+            Qué Nos Distingue
           </p>
         </motion.div>
         
