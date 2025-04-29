@@ -68,7 +68,7 @@ const SuccessStories = () => {
   ];
 
   return (
-    <section id="success-stories" className="py-20 bg-white">
+    <section id="success-stories" className="py-20 bg-primary text-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div 
           className="text-center mb-16"
@@ -78,8 +78,8 @@ const SuccessStories = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Success Stories</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-gray-700">
+          <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+          <p className="max-w-3xl mx-auto text-lg text-secondary/80">
             See how we've helped financial institutions transform their digital presence and improve customer experiences.
           </p>
         </motion.div>
@@ -149,7 +149,7 @@ const SuccessStories = () => {
             {testimonials.map((_, index) => (
               <button 
                 key={index}
-                className={`w-3 h-3 rounded-full mx-1 transition-colors ${index === currentIndex ? 'bg-primary' : 'bg-gray-300'}`}
+                className={`w-3 h-3 rounded-full mx-1 transition-colors ${index === currentIndex ? 'bg-secondary' : 'bg-secondary/30'}`}
                 onClick={() => goToTestimonial(index)}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
