@@ -49,10 +49,10 @@ const Technologies = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Technologies We Use</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Tecnologías que Utilizamos</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            We leverage cutting-edge technologies to build robust, scalable, and secure financial solutions.
+            Aprovechamos tecnologías de vanguardia para construir soluciones financieras robustas, escalables y seguras.
           </p>
         </motion.div>
         

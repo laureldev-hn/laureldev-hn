@@ -9,25 +9,25 @@ interface Testimonial {
   text: string;
 }
 
-// Testimonials data
+// Testimonios data
 const testimonials: Testimonial[] = [
   {
-    name: "First Community Credit Union",
-    service: "Mobile Banking Solution",
+    name: "Cooperativa de Crédito Community First",
+    service: "Solución de Banca Móvil",
     image: "https://images.unsplash.com/photo-1560264280-88b68371db39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80",
-    text: "\"LaurelDev transformed our outdated mobile banking experience into a modern, intuitive platform. Our customer satisfaction scores have increased by 47% and mobile engagement is up by 78% since implementation.\"",
+    text: "\"LaurelDev transformó nuestra anticuada experiencia de banca móvil en una plataforma moderna e intuitiva. Nuestra puntuación de satisfacción del cliente ha aumentado un 47% y la participación móvil ha subido un 78% desde la implementación.\"",
   },
   {
-    name: "Horizon Bank",
-    service: "Security & Compliance",
+    name: "Banco Horizon",
+    service: "Seguridad y Cumplimiento",
     image: "https://images.unsplash.com/photo-1554774853-719586f82d77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80",
-    text: "\"Working with LaurelDev on our security infrastructure has given us peace of mind. Their comprehensive approach ensured we not only met all regulatory requirements but exceeded them.\"",
+    text: "\"Trabajar con LaurelDev en nuestra infraestructura de seguridad nos ha dado tranquilidad. Su enfoque integral aseguró que no solo cumplimos con todos los requisitos regulatorios, sino que los superamos.\"",
   },
   {
     name: "Pacific Trust Financial",
-    service: "Data Analytics Platform",
+    service: "Plataforma de Análisis de Datos",
     image: "https://images.unsplash.com/photo-1573497161161-c3e73707e25c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80",
-    text: "\"The data analytics solution provided by LaurelDev has been revolutionary for our business intelligence capabilities. We can now make data-driven decisions faster and with greater confidence.\"",
+    text: "\"La solución de análisis de datos proporcionada por LaurelDev ha sido revolucionaria para nuestras capacidades de inteligencia empresarial. Ahora podemos tomar decisiones basadas en datos más rápido y con mayor confianza.\"",
   },
 ];
 
@@ -59,12 +59,12 @@ const SuccessStories = () => {
 
   const currentTestimonial = testimonials[currentIndex];
 
-  // Stats data
+  // Estadísticas
   const stats = [
-    { value: "25+", label: "Financial Institutions" },
-    { value: "98%", label: "Client Satisfaction" },
-    { value: "5M+", label: "End Users Served" },
-    { value: "68%", label: "Avg. Efficiency Increase" },
+    { value: "25+", label: "Instituciones Financieras" },
+    { value: "98%", label: "Satisfacción del Cliente" },
+    { value: "5M+", label: "Usuarios Finales Atendidos" },
+    { value: "68%", label: "Aumento Promedio de Eficiencia" },
   ];
 
   return (
@@ -77,10 +77,10 @@ const SuccessStories = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Success Stories</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Casos de Éxito</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            See how we've helped financial institutions transform their digital presence and improve customer experiences.
+            Descubre cómo hemos ayudado a instituciones financieras a transformar su presencia digital y mejorar la experiencia de sus clientes.
           </p>
         </motion.div>
         
