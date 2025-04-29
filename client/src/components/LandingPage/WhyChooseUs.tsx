@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Users, Cog, Headphones } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface FeatureProps {
   icon: React.ReactNode;
@@ -9,6 +10,7 @@ interface FeatureProps {
 }
 
 const Feature = ({ icon, title, description, delay }: FeatureProps) => {
+  const { t } = useLanguage();
   return (
     <motion.div 
       className="flex"
@@ -33,26 +35,27 @@ const Feature = ({ icon, title, description, delay }: FeatureProps) => {
 };
 
 const WhyChooseUs = () => {
+  const { t } = useLanguage();
   const features = [
     {
       icon: <Shield className="h-6 w-6 text-secondary" />,
-      title: "Security-First Approach",
-      description: "We prioritize security at every step of development, ensuring your financial data remains protected against evolving threats.",
+      title: t('why.security.title'),
+      description: t('why.security.description'),
     },
     {
       icon: <Users className="h-6 w-6 text-secondary" />,
-      title: "Industry Expertise",
-      description: "Our team includes former banking professionals who understand the unique challenges and regulations of the financial industry.",
+      title: t('why.expertise.title'),
+      description: t('why.expertise.description'),
     },
     {
       icon: <Cog className="h-6 w-6 text-secondary" />,
-      title: "Custom Solutions",
-      description: "We don't believe in one-size-fits-all. Our solutions are tailored to your specific needs, ensuring maximum value and impact.",
+      title: t('why.custom.title'),
+      description: t('why.custom.description'),
     },
     {
       icon: <Headphones className="h-6 w-6 text-secondary" />,
-      title: "Ongoing Support",
-      description: "Our relationship doesn't end at deployment. We provide continuous support, updates, and optimization to ensure long-term success.",
+      title: t('why.support.title'),
+      description: t('why.support.description'),
     },
   ];
 
@@ -66,10 +69,10 @@ const WhyChooseUs = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Why Choose LaurelDev</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">{t('why.title')}</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            Our unique approach to financial technology development sets us apart from the competition.
+            {t('why.subtitle')}
           </p>
         </motion.div>
         

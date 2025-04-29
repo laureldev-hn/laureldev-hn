@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
+import { useLanguage } from "@/hooks/useLanguage";
 
 // Form validation schema
 const contactFormSchema = z.object({
@@ -24,6 +25,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
   
   // Initialize form
   const form = useForm<ContactFormValues>({
