@@ -84,6 +84,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.company': 'Company',
     'contact.message': 'Message',
     'contact.submit': 'Send Message',
+    'contact.sending': 'Sending...',
     'contact.success': 'Your message has been sent successfully!',
     'contact.error': 'There was an error sending your message. Please try again.',
     
@@ -170,6 +171,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.company': 'Empresa',
     'contact.message': 'Mensaje',
     'contact.submit': 'Enviar Mensaje',
+    'contact.sending': 'Enviando...',
     'contact.success': '¡Tu mensaje ha sido enviado con éxito!',
     'contact.error': 'Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.',
     

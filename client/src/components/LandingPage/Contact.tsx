@@ -44,15 +44,15 @@ const Contact = () => {
     try {
       await apiRequest("POST", "/api/contact", data);
       toast({
-        title: "Message sent!",
-        description: "Thank you for contacting us. We'll get back to you soon.",
+        title: t('contact.success'),
+        description: t('contact.success'),
         duration: 5000,
       });
       form.reset();
     } catch (error) {
       toast({
-        title: "Something went wrong",
-        description: "There was an error sending your message. Please try again.",
+        title: t('contact.error'),
+        description: t('contact.error'),
         variant: "destructive",
       });
     } finally {
@@ -97,10 +97,10 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">Contact Us</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">{t('contact.title')}</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-300">
-            Ready to transform your financial technology? Get in touch with our team to discuss your needs.
+            {t('contact.subtitle')}
           </p>
         </motion.div>
         
@@ -119,7 +119,7 @@ const Contact = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Full Name</FormLabel>
+                      <FormLabel className="text-gray-700 font-medium">{t('contact.name')}</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
@@ -189,7 +189,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   className="w-full bg-primary hover:bg-secondary text-secondary hover:text-white font-montserrat font-semibold py-6 rounded-lg transition-all"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? t('contact.sending') : t('contact.submit')}
                 </Button>
               </form>
             </Form>
