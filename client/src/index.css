@@ -2,92 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 20 14.3% 4.1%;
-  --muted: 60 4.8% 95.9%;
-  --muted-foreground: 25 5.3% 44.7%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 20 14.3% 4.1%;
-  --card: 0 0% 100%;
-  --card-foreground: 20 14.3% 4.1%;
-  --border: 20 5.9% 90%;
-  --input: 20 5.9% 90%;
-  --primary: 43 99% 62%; /* #fec53a */
-  --primary-foreground: 211 100% 99%;
-  --secondary: 209 69% 21%; /* #11385b */
-  --secondary-foreground: 0 0% 100%;
-  --accent: 355 94% 49%; /* #F0290C */
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 60 9.1% 97.8%;
-  --ring: 20 14.3% 4.1%;
-  --radius: 0.5rem;
-  --chart-1: 43 99% 62%;
-  --chart-2: 209 69% 21%;
-  --chart-3: 355 94% 49%;
-  --chart-4: 0 0% 13%; /* #212222 */
-  --chart-5: 0 0% 45%;
-}
-
-.dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --primary: 43 99% 62%;
-  --primary-foreground: 211 100% 99%;
-  --secondary: 209 69% 21%;
-  --secondary-foreground: 0 0% 98%;
-  --accent: 355 94% 49%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --ring: 240 4.9% 83.9%;
-  --radius: 0.5rem;
-}
-
 @layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    /* Brand Colors */
+    --primary: 42 99% 61%; /* #fec53a */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 211 69% 21%; /* #11385b */
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 6 87% 49%; /* #F0290C */
+    --accent-foreground: 0 0% 100%;
+    
+    --dark: 0 0% 13%; /* #212222 */
+    
+    /* Shadcn System Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --ring: 42 99% 61%;
+    --radius: 0.5rem;
+  }
+ 
   * {
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
   }
 }
 
-/* Custom classes for Laureldev */
-.font-montserrat {
-  font-family: 'Montserrat', sans-serif;
+@layer components {
+  .clip-diagonal-top {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+  
+  .clip-diagonal-bottom {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+  }
+  
+  .bg-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0290c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
 }
 
-.font-inter {
-  font-family: 'Inter', sans-serif;
-}
-
-.hero-gradient {
-  background: linear-gradient(135deg, #11385b 0%, #0a2440 100%);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.transition-all {
-  transition: all 0.3s ease-in-out;
-}
-
-.service-card:hover {
-  transform: translateY(-10px);
-}
-
-.testimonial-card {
-  transition: opacity 0.3s ease;
+@layer utilities {
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: theme('colors.primary.DEFAULT');
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
 }
