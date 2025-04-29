@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   // Handle scroll event to add shadow
   useEffect(() => {
@@ -36,32 +39,33 @@ const Navbar = () => {
               href="#about" 
               className="text-secondary hover:text-accent font-medium transition-all"
             >
-              About
+              {t('nav.about')}
             </a>
             <a 
               href="#services" 
               className="text-secondary hover:text-accent font-medium transition-all"
             >
-              Services
+              {t('nav.services')}
             </a>
             <a 
               href="#success-stories" 
               className="text-secondary hover:text-accent font-medium transition-all"
             >
-              Success Stories
+              {t('nav.successStories')}
             </a>
             <a 
               href="#why-us" 
               className="text-secondary hover:text-accent font-medium transition-all"
             >
-              Why Choose Us
+              {t('nav.whyChooseUs')}
             </a>
             <a 
               href="#contact" 
-              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold transition-all"
+              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold transition-all mr-4"
             >
-              Contact Us
+              {t('nav.contactUs')}
             </a>
+            <LanguageSwitcher />
           </div>
 
           <div className="md:hidden">
@@ -87,36 +91,39 @@ const Navbar = () => {
               className="text-secondary hover:text-accent font-medium py-2 transition-all"
               onClick={handleNavItemClick}
             >
-              About
+              {t('nav.about')}
             </a>
             <a 
               href="#services" 
               className="text-secondary hover:text-accent font-medium py-2 transition-all"
               onClick={handleNavItemClick}
             >
-              Services
+              {t('nav.services')}
             </a>
             <a 
               href="#success-stories" 
               className="text-secondary hover:text-accent font-medium py-2 transition-all"
               onClick={handleNavItemClick}
             >
-              Success Stories
+              {t('nav.successStories')}
             </a>
             <a 
               href="#why-us" 
               className="text-secondary hover:text-accent font-medium py-2 transition-all"
               onClick={handleNavItemClick}
             >
-              Why Choose Us
+              {t('nav.whyChooseUs')}
             </a>
             <a 
               href="#contact" 
-              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold text-center transition-all"
+              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold text-center transition-all mb-4"
               onClick={handleNavItemClick}
             >
-              Contact Us
+              {t('nav.contactUs')}
             </a>
+            <div className="flex justify-center">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       </nav>

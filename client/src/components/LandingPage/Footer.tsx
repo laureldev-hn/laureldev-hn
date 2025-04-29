@@ -1,7 +1,9 @@
 import { Link } from "wouter";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
   
   const footerLinks = {
     services: [
@@ -36,7 +38,7 @@ const Footer = () => {
               <img src="/logo-updated.png" alt="LaurelDev Logo" className="h-12 brightness-0 invert" />
             </a>
             <p className="text-gray-400 mb-6">
-              Transforming financial institutions through innovative technology solutions.
+              {t('footer.tagline')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-primary transition-all">
@@ -55,7 +57,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">Services</h4>
+            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">{t('footer.services')}</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
@@ -68,7 +70,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">Company</h4>
+            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">{t('footer.company')}</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
