@@ -5,29 +5,31 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
   
-  const footerLinks = {
+  const getFooterLinks = () => ({
     services: [
-      { name: "Mobile Banking", href: "#services" },
-      { name: "Security & Compliance", href: "#services" },
-      { name: "Data Analytics", href: "#services" },
-      { name: "Payment Processing", href: "#services" },
-      { name: "AI & Machine Learning", href: "#services" },
+      { name: t('services.mobile.title'), href: "#services" },
+      { name: t('services.security.title'), href: "#services" },
+      { name: t('services.analytics.title'), href: "#services" },
+      { name: t('services.payments.title'), href: "#services" },
+      { name: t('services.ai.title'), href: "#services" },
     ],
     company: [
-      { name: "About Us", href: "#about" },
-      { name: "Why Choose Us", href: "#why-us" },
-      { name: "Success Stories", href: "#success-stories" },
-      { name: "Careers", href: "#" },
-      { name: "Blog", href: "#" },
+      { name: t('footer.about'), href: "#about" },
+      { name: t('footer.whyUs'), href: "#why-us" },
+      { name: t('footer.stories'), href: "#success-stories" },
+      { name: t('footer.careers'), href: "#" },
+      { name: t('footer.blog'), href: "#" },
     ],
     legal: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Cookie Policy", href: "#" },
-      { name: "Security", href: "#" },
-      { name: "Compliance", href: "#" },
+      { name: t('footer.privacy'), href: "#" },
+      { name: t('footer.terms'), href: "#" },
+      { name: t('footer.cookies'), href: "#" },
+      { name: t('footer.security'), href: "#" },
+      { name: t('footer.compliance'), href: "#" },
     ],
-  };
+  });
+  
+  const footerLinks = getFooterLinks();
 
   return (
     <footer className="bg-dark py-12">
@@ -83,7 +85,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">Legal</h4>
+            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">{t('footer.legal')}</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
@@ -99,12 +101,12 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 mb-4 md:mb-0">
-              &copy; 2025 LaurelDev. All rights reserved.
+              {t('footer.rights')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-secondary hover:text-primary transition-all">Privacy Policy</a>
-              <a href="#" className="text-secondary hover:text-primary transition-all">Terms of Service</a>
-              <a href="#" className="text-secondary hover:text-primary transition-all">Sitemap</a>
+              <a href="#" className="text-secondary hover:text-primary transition-all">{t('footer.privacy')}</a>
+              <a href="#" className="text-secondary hover:text-primary transition-all">{t('footer.terms')}</a>
+              <a href="#" className="text-secondary hover:text-primary transition-all">{t('footer.sitemap')}</a>
             </div>
           </div>
         </div>
