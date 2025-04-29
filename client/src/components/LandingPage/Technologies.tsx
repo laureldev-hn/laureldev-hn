@@ -40,7 +40,7 @@ const Technologies = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-primary text-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div 
           className="text-center mb-16"
@@ -50,8 +50,8 @@ const Technologies = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Technologies We Use</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-gray-700">
+          <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+          <p className="max-w-3xl mx-auto text-lg text-secondary/80">
             We leverage cutting-edge technologies to build robust, scalable, and secure financial solutions.
           </p>
         </motion.div>
