@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,9 +7,9 @@ const Footer = () => {
   
   const getFooterLinks = () => ({
     services: [
-      { name: t('services.mobile.title'), href: "#services" },
+      { name: t('services.mobileBanking.title'), href: "#services" },
       { name: t('services.security.title'), href: "#services" },
-      { name: t('services.analytics.title'), href: "#services" },
+      { name: t('services.dataAnalytics.title'), href: "#services" },
       { name: t('services.payments.title'), href: "#services" },
       { name: t('services.ai.title'), href: "#services" },
     ],

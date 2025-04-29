@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Users, Cog, Headphones } from "lucide-react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 interface FeatureProps {
   icon: React.ReactNode;

@@ -7,7 +7,7 @@ import {
   Bot, 
   Code 
 } from "lucide-react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
