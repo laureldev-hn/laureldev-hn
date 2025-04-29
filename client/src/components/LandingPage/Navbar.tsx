@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="#" className="flex items-center">
-              <img src="/logo_header_350w.png" alt="LaurelDev Logo" className="h-12" />
+              <img src="/assets/laureldev_logo.png" alt="LaurelDev Logo" className="h-12" />
             </a>
           </div>
 

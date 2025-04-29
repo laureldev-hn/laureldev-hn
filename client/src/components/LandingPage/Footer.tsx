@@ -33,7 +33,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <a href="#" className="inline-block mb-6">
-              <img src="/logo_header_350w.png" alt="LaurelDev Logo" className="h-12 brightness-0 invert" />
+              <img src="/assets/laureldev_logo.png" alt="LaurelDev Logo" className="h-12" />
             </a>
             <p className="text-gray-400 mb-6">
               Transformando instituciones financieras a través de soluciones tecnológicas innovadoras.
