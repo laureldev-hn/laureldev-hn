@@ -64,17 +64,17 @@ const Contact = () => {
   const contactItems = [
     {
       icon: <MapPin className="text-secondary" />,
-      title: "Our Location",
+      title: t('contact.location'),
       content: "123 Financial District, New York, NY 10004",
     },
     {
       icon: <Mail className="text-secondary" />,
-      title: "Email Us",
+      title: t('contact.emailUs'),
       content: "contact@laureldev.com",
     },
     {
       icon: <Phone className="text-secondary" />,
-      title: "Call Us",
+      title: t('contact.callUs'),
       content: "+1 (555) 123-4567",
     },
   ];
@@ -136,7 +136,7 @@ const Contact = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Email Address</FormLabel>
+                      <FormLabel className="text-gray-700 font-medium">{t('contact.email')}</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
@@ -154,7 +154,7 @@ const Contact = () => {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Company Name</FormLabel>
+                      <FormLabel className="text-gray-700 font-medium">{t('contact.company')}</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
@@ -171,7 +171,7 @@ const Contact = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Message</FormLabel>
+                      <FormLabel className="text-gray-700 font-medium">{t('contact.message')}</FormLabel>
                       <FormControl>
                         <Textarea 
                           {...field} 
@@ -202,7 +202,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="font-montserrat font-bold text-2xl mb-6">Get In Touch</h3>
+            <h3 className="font-montserrat font-bold text-2xl mb-6">{t('contact.getInTouch')}</h3>
             
             <div className="space-y-6">
               {contactItems.map((item, index) => (
@@ -221,7 +221,7 @@ const Contact = () => {
             </div>
             
             <div className="mt-12">
-              <h3 className="font-montserrat font-bold text-2xl mb-6">Follow Us</h3>
+              <h3 className="font-montserrat font-bold text-2xl mb-6">{t('contact.followUs')}</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <a 

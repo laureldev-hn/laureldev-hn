@@ -77,9 +77,13 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact
     'contact.title': 'Get In Touch',
+    'contact.getInTouch': 'Get In Touch',
     'contact.subtitle': 'We Would Love to Hear from You',
     'contact.name': 'Full Name',
     'contact.email': 'Email Address',
+    'contact.location': 'Our Location',
+    'contact.emailUs': 'Email Us',
+    'contact.callUs': 'Call Us',
     'contact.phone': 'Phone Number',
     'contact.company': 'Company',
     'contact.message': 'Message',
@@ -164,12 +168,16 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact
     'contact.title': 'Ponte en Contacto',
+    'contact.getInTouch': 'Ponte en Contacto',
     'contact.subtitle': 'Nos Encantaría Saber de Ti',
     'contact.name': 'Nombre Completo',
     'contact.email': 'Correo Electrónico',
     'contact.phone': 'Número de Teléfono',
     'contact.company': 'Empresa',
     'contact.message': 'Mensaje',
+    'contact.location': 'Nuestra Ubicación',
+    'contact.emailUs': 'Correo Electrónico',
+    'contact.callUs': 'Llámanos',
     'contact.submit': 'Enviar Mensaje',
     'contact.sending': 'Enviando...',
     'contact.success': '¡Tu mensaje ha sido enviado con éxito!',
