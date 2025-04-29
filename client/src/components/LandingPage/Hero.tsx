@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="hero-gradient text-white">
+    <section className="hero-gradient text-secondary">
       <div className="container mx-auto px-4 md:px-6 py-20 md:py-28">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <motion.div 
@@ -15,19 +15,19 @@ const Hero = () => {
             <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
               Transforming Financial Technology
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-200 max-w-lg">
+            <p className="text-lg md:text-xl mb-8 text-secondary/80 max-w-lg">
               We build innovative solutions that empower credit unions and banks to thrive in the digital age.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
                 href="#services" 
-                className="bg-primary hover:bg-white text-secondary font-montserrat font-semibold py-3 px-8 rounded-full text-center transition-all transform hover:scale-105"
+                className="bg-secondary hover:bg-accent text-white font-montserrat font-semibold py-3 px-8 rounded-full text-center transition-all transform hover:scale-105"
               >
                 Our Services
               </a>
               <a 
                 href="#contact" 
-                className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-montserrat font-semibold py-3 px-8 rounded-full text-center transition-all"
+                className="bg-transparent hover:bg-secondary/10 border-2 border-secondary text-secondary font-montserrat font-semibold py-3 px-8 rounded-full text-center transition-all"
               >
                 Contact Us
               </a>

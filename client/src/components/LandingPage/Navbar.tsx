@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 w-full bg-white ${scrolled ? "shadow-md" : ""} transition-shadow duration-300`}>
+    <header className={`sticky top-0 z-50 w-full bg-primary ${scrolled ? "shadow-md" : ""} transition-shadow duration-300`}>
       <nav className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
@@ -59,7 +59,7 @@ const Navbar = () => {
             </a>
             <a 
               href="#contact" 
-              className="bg-primary hover:bg-secondary text-secondary hover:text-white py-2 px-6 rounded-full font-montserrat font-semibold transition-all"
+              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold transition-all"
             >
               Contact Us
             </a>
@@ -67,7 +67,7 @@ const Navbar = () => {
 
           <div className="md:hidden">
             <button 
-              className="text-secondary focus:outline-none" 
+              className="text-secondary hover:text-accent focus:outline-none" 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -113,7 +113,7 @@ const Navbar = () => {
             </a>
             <a 
               href="#contact" 
-              className="bg-primary text-secondary py-2 px-6 rounded-full font-montserrat font-semibold text-center transition-all"
+              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold text-center transition-all"
               onClick={handleNavItemClick}
             >
               Contact Us
