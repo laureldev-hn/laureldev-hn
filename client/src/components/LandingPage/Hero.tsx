@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "../../hooks/useLanguage";
 
 const Hero = () => {
-  const { t } = useLanguage();
   return (
     <section className="hero-gradient text-secondary">
       <div className="container mx-auto px-4 md:px-6 py-20 md:py-28">
@@ -15,23 +13,23 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-              {t('hero.title')}
+              Transformando Instituciones Financieras
             </h1>
             <p className="text-lg md:text-xl mb-8 text-secondary/80 max-w-lg">
-              {t('hero.subtitle')}
+              Desarrollamos soluciones innovadoras para cooperativas y organizaciones financieras.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
                 href="#services" 
                 className="bg-secondary hover:bg-accent text-white font-montserrat font-semibold py-3 px-8 rounded-full text-center transition-all transform hover:scale-105"
               >
-                {t('nav.services')}
+                Servicios
               </a>
               <a 
                 href="#contact" 
                 className="bg-transparent hover:bg-secondary/10 border-2 border-secondary text-secondary font-montserrat font-semibold py-3 px-8 rounded-full text-center transition-all"
               >
-                {t('nav.contactUs')}
+                Contáctanos
               </a>
             </div>
           </motion.div>

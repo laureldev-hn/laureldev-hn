@@ -2,13 +2,10 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useLanguage } from "../../hooks/useLanguage";
-import LanguageSwitcher from "../LanguageSwitcher";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useLanguage();
 
   // Handle scroll event to add shadow
   useEffect(() => {
@@ -39,33 +36,32 @@ const Navbar = () => {
               href="#about" 
               className="text-secondary hover:text-accent font-medium transition-all"
             >
-              {t('nav.about')}
+              Sobre Nosotros
             </a>
             <a 
               href="#services" 
               className="text-secondary hover:text-accent font-medium transition-all"
             >
-              {t('nav.services')}
+              Servicios
             </a>
             <a 
               href="#success-stories" 
               className="text-secondary hover:text-accent font-medium transition-all"
             >
-              {t('nav.successStories')}
+              Casos de Éxito
             </a>
             <a 
               href="#why-us" 
               className="text-secondary hover:text-accent font-medium transition-all"
             >
-              {t('nav.whyChooseUs')}
+              ¿Por Qué Elegirnos?
             </a>
             <a 
               href="#contact" 
-              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold transition-all mr-4"
+              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold transition-all"
             >
-              {t('nav.contactUs')}
+              Contáctanos
             </a>
-            <LanguageSwitcher />
           </div>
 
           <div className="md:hidden">
@@ -91,39 +87,36 @@ const Navbar = () => {
               className="text-secondary hover:text-accent font-medium py-2 transition-all"
               onClick={handleNavItemClick}
             >
-              {t('nav.about')}
+              Sobre Nosotros
             </a>
             <a 
               href="#services" 
               className="text-secondary hover:text-accent font-medium py-2 transition-all"
               onClick={handleNavItemClick}
             >
-              {t('nav.services')}
+              Servicios
             </a>
             <a 
               href="#success-stories" 
               className="text-secondary hover:text-accent font-medium py-2 transition-all"
               onClick={handleNavItemClick}
             >
-              {t('nav.successStories')}
+              Casos de Éxito
             </a>
             <a 
               href="#why-us" 
               className="text-secondary hover:text-accent font-medium py-2 transition-all"
               onClick={handleNavItemClick}
             >
-              {t('nav.whyChooseUs')}
+              ¿Por Qué Elegirnos?
             </a>
             <a 
               href="#contact" 
               className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold text-center transition-all mb-4"
               onClick={handleNavItemClick}
             >
-              {t('nav.contactUs')}
+              Contáctanos
             </a>
-            <div className="flex justify-center">
-              <LanguageSwitcher />
-            </div>
           </div>
         </div>
       </nav>
