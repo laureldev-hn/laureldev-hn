@@ -24,7 +24,7 @@ const Feature = ({ icon, title, description, delay }: FeatureProps) => {
       </div>
       <div>
         <h3 className="font-montserrat font-bold text-xl text-secondary mb-2">{title}</h3>
-        <p className="text-secondary/80">
+        <p className="text-gray-700">
           {description}
         </p>
       </div>
@@ -57,7 +57,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="why-us" className="py-20 bg-primary text-secondary">
+    <section id="why-us" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div 
           className="text-center mb-16"
@@ -67,8 +67,8 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Why Choose LaurelDev</h2>
-          <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-secondary/80">
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <p className="max-w-3xl mx-auto text-lg text-gray-700">
             Our unique approach to financial technology development sets us apart from the competition.
           </p>
         </motion.div>

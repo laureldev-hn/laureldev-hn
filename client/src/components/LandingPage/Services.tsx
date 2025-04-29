@@ -81,7 +81,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-primary text-secondary">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div 
           className="text-center mb-16"
@@ -91,8 +91,8 @@ const Services = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Our Services</h2>
-          <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-secondary/80">
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <p className="max-w-3xl mx-auto text-lg text-gray-700">
             We offer a comprehensive suite of financial technology solutions tailored to the needs of modern banking institutions.
           </p>
         </motion.div>

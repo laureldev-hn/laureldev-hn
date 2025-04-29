@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-primary text-secondary">
+    <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div 
           className="text-center mb-16"
@@ -13,8 +13,8 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">About LaurelDev</h2>
-          <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-secondary/80">
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <p className="max-w-3xl mx-auto text-lg text-gray-700">
             We are a team of passionate developers and financial experts dedicated to revolutionizing how financial institutions serve their customers.
           </p>
         </motion.div>
@@ -40,27 +40,27 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-secondary mb-6">Our Mission</h3>
-            <p className="text-secondary/80 mb-6">
+            <p className="text-gray-700 mb-6">
               At LaurelDev, we believe in democratizing financial technology. Our mission is to empower credit unions and banks with innovative solutions that enhance customer experience, streamline operations, and drive growth.
             </p>
             <div className="space-y-4">
               <div className="flex items-start">
-                <div className="bg-secondary p-2 rounded-full mr-4 mt-1">
-                  <Check className="h-4 w-4 text-white" />
+                <div className="bg-primary p-2 rounded-full mr-4 mt-1">
+                  <Check className="h-4 w-4 text-secondary" />
                 </div>
-                <p className="text-secondary/80">Developing secure, reliable financial technology solutions</p>
+                <p className="text-gray-700">Developing secure, reliable financial technology solutions</p>
               </div>
               <div className="flex items-start">
-                <div className="bg-secondary p-2 rounded-full mr-4 mt-1">
-                  <Check className="h-4 w-4 text-white" />
+                <div className="bg-primary p-2 rounded-full mr-4 mt-1">
+                  <Check className="h-4 w-4 text-secondary" />
                 </div>
-                <p className="text-secondary/80">Creating intuitive user experiences for financial applications</p>
+                <p className="text-gray-700">Creating intuitive user experiences for financial applications</p>
               </div>
               <div className="flex items-start">
-                <div className="bg-secondary p-2 rounded-full mr-4 mt-1">
-                  <Check className="h-4 w-4 text-white" />
+                <div className="bg-primary p-2 rounded-full mr-4 mt-1">
+                  <Check className="h-4 w-4 text-secondary" />
                 </div>
-                <p className="text-secondary/80">Supporting institutions through digital transformation</p>
+                <p className="text-gray-700">Supporting institutions through digital transformation</p>
               </div>
             </div>
             
