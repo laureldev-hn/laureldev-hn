@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import logoPath from "@assets/logo_header_350w.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
