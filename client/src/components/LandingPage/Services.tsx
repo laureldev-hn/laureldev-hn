@@ -7,6 +7,7 @@ import {
   Bot, 
   Code 
 } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -16,6 +17,7 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ icon, title, description, delay }: ServiceCardProps) => {
+  const { t } = useLanguage();
   return (
     <motion.div 
       className="bg-white rounded-xl shadow-lg overflow-hidden service-card transition-all"
@@ -39,7 +41,7 @@ const ServiceCard = ({ icon, title, description, delay }: ServiceCardProps) => {
           href="#contact" 
           className="inline-flex items-center font-montserrat font-semibold text-accent hover:text-secondary transition-all"
         >
-          Learn More <i className="fas fa-chevron-right ml-2 text-sm"></i>
+          {t('services.learnMore')} <i className="fas fa-chevron-right ml-2 text-sm"></i>
         </a>
       </div>
     </motion.div>
@@ -47,36 +49,37 @@ const ServiceCard = ({ icon, title, description, delay }: ServiceCardProps) => {
 };
 
 const Services = () => {
+  const { t } = useLanguage();
   const services = [
     {
       icon: <Smartphone className="h-16 w-16" />,
-      title: "Mobile Banking Solutions",
-      description: "Custom mobile applications that provide seamless banking experiences for your customers, with features like mobile check deposit, account management, and secure transactions.",
+      title: t('services.mobileBanking.title'),
+      description: t('services.mobileBanking.description'),
     },
     {
       icon: <Shield className="h-16 w-16" />,
-      title: "Security & Compliance",
-      description: "Robust security solutions that protect sensitive financial data while ensuring compliance with industry regulations and standards like PCI DSS and GDPR.",
+      title: t('services.security.title'),
+      description: t('services.security.description'),
     },
     {
       icon: <BarChart3 className="h-16 w-16" />,
-      title: "Data Analytics",
-      description: "Advanced analytics tools that transform raw financial data into actionable insights, helping you make data-driven decisions and identify growth opportunities.",
+      title: t('services.dataAnalytics.title'),
+      description: t('services.dataAnalytics.description'),
     },
     {
       icon: <Repeat className="h-16 w-16" />,
-      title: "Payment Processing",
-      description: "Streamlined payment solutions that support various transaction methods, from traditional credit and debit cards to emerging payment technologies.",
+      title: t('services.payments.title'),
+      description: t('services.payments.description'),
     },
     {
       icon: <Bot className="h-16 w-16" />,
-      title: "AI & Machine Learning",
-      description: "Innovative AI solutions for fraud detection, customer service automation, personalized banking experiences, and intelligent financial insights.",
+      title: t('services.ai.title'),
+      description: t('services.ai.description'),
     },
     {
       icon: <Code className="h-16 w-16" />,
-      title: "Custom Development",
-      description: "Tailored software solutions designed specifically for your institution's unique needs, ensuring perfect alignment with your business objectives.",
+      title: t('services.customDev.title'),
+      description: t('services.customDev.description'),
     },
   ];
 
@@ -90,10 +93,10 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Our Services</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">{t('services.title')}</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            We offer a comprehensive suite of financial technology solutions tailored to the needs of modern banking institutions.
+            {t('services.subtitle')}
           </p>
         </motion.div>
         
