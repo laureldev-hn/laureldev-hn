@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const About = () => {
+  const { t } = useLanguage();
   return (
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -12,10 +14,10 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">About LaurelDev</h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">{t('about.title')}</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            We are a team of passionate developers and financial experts dedicated to revolutionizing how financial institutions serve their customers.
+            {t('about.description')}
           </p>
         </motion.div>
         
@@ -39,9 +41,9 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-secondary mb-6">Our Mission</h3>
+            <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-secondary mb-6">{t('about.subtitle')}</h3>
             <p className="text-gray-700 mb-6">
-              At LaurelDev, we believe in democratizing financial technology. Our mission is to empower credit unions and banks with innovative solutions that enhance customer experience, streamline operations, and drive growth.
+              {t('about.mission')}
             </p>
             <div className="space-y-4">
               <div className="flex items-start">
