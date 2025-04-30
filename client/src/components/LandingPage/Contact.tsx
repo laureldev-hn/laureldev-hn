@@ -26,7 +26,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   
-  // Initialize form
+  // Initialize form with default values
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -36,6 +36,7 @@ const Contact = () => {
       subject: "",
       message: "",
     },
+    mode: "onChange",
   });
 
   // Form submission handler
@@ -166,22 +167,20 @@ const Contact = () => {
                   )}
                 />
                 
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Asunto</FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-gray-700 font-medium block">Asunto</label>
+                  <input 
+                    type="text"
+                    id="subject"
+                    placeholder="Ingresa el asunto de tu mensaje"
+                    value={form.getValues().subject}
+                    onChange={(e) => form.setValue("subject", e.target.value, { shouldValidate: true })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {form.formState.errors.subject && (
+                    <p className="text-sm font-medium text-destructive">{form.formState.errors.subject.message}</p>
                   )}
-                />
+                </div>
                 
                 <FormField
                   control={form.control}
