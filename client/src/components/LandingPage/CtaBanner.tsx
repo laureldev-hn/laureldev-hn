@@ -13,10 +13,10 @@ const CtaBanner = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="font-montserrat font-bold text-2xl md:text-3xl text-secondary mb-4">
-              Ready to transform your financial services?
+              ¿Listo para transformar tus servicios financieros?
             </h2>
             <p className="text-gray-800 max-w-xl">
-              Let's discuss how our solutions can help you stay ahead in the competitive financial landscape.
+              Conversemos sobre cómo nuestras soluciones pueden ayudarte a mantenerte a la vanguardia en el competitivo panorama financiero.
             </p>
           </motion.div>
           
@@ -29,7 +29,7 @@ const CtaBanner = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             whileHover={{ scale: 1.05 }}
           >
-            Get Started
+            Comenzar
           </motion.a>
         </div>
       </div>

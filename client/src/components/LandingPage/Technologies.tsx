@@ -34,7 +34,7 @@ const Technologies = () => {
     { icon: <FaReact />, name: "React" },
     { icon: <FaNodeJs />, name: "Node.js" },
     { icon: <FaAws />, name: "AWS" },
-    { icon: <FaDatabase />, name: "MongoDB" },
+    { icon: <FaDatabase />, name: "Base de Datos" },
     { icon: <FaPython />, name: "Python" },
     { icon: <FaShieldAlt />, name: "Blockchain" },
   ];
