@@ -1,4 +1,5 @@
 import { MailService } from '@sendgrid/mail';
+import type { MailDataRequired } from '@sendgrid/mail';
 
 // Verificar que exista la clave API de SendGrid
 if (!process.env.SENDGRID_API_KEY) {
@@ -32,12 +33,16 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       return false;
     }
 
-    const message = {
+    // SendGrid requiere al menos text o html
+    const text = params.text || '';
+    const html = params.html || '';
+
+    const message: MailDataRequired = {
       to: params.to,
       from: params.from,
       subject: params.subject,
-      text: params.text || '',
-      html: params.html || '',
+      text,
+      html,
     };
 
     await mailService.send(message);
