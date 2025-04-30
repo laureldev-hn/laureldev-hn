@@ -71,8 +71,10 @@ export async function sendContactNotification(contactData: {
   // Correo destinatario (administrador del sitio)
   const adminEmail = 'contact@laureldev.hn';
   
-  // Correo que aparecerá como remitente
-  const fromEmail = 'noreply@laureldev.hn';
+  // Correo que aparecerá como remitente (usar un correo verificado en SendGrid)
+  // Si tienes problemas con el dominio, puedes usar tu email personal o una dirección de Gmail 
+  // que esté autorizada en tu cuenta de SendGrid
+  const fromEmail = process.env.SENDGRID_FROM_EMAIL || 'noreply@laureldev.hn';
   
   // Asunto del correo
   const emailSubject = `Nuevo mensaje de contacto: ${contactData.subject}`;
