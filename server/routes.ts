@@ -2,6 +2,7 @@ import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
+import { sendContactNotification } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form endpoint
@@ -10,17 +11,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Validate the request body
       const contactData = insertContactSchema.parse(req.body);
       
-      // In a production environment, we'd store this in a database
-      // For this demo, we'll just log it
-      console.log("Contact form submission:", contactData);
+      // Log the form submission
+      console.log("Formulario de contacto recibido:", contactData);
       
-      res.status(200).json({ 
-        message: "Message received! We will contact you shortly." 
-      });
+      // Enviar correo de notificación
+      const emailSent = await sendContactNotification(contactData);
+      
+      if (emailSent) {
+        res.status(200).json({ 
+          message: "¡Mensaje recibido! Nos pondremos en contacto contigo pronto." 
+        });
+      } else {
+        // Si el correo no se envía correctamente, aún así aceptamos el formulario
+        // pero registramos el error
+        console.warn("El formulario se recibió pero el correo no pudo enviarse");
+        res.status(200).json({ 
+          message: "¡Mensaje recibido! Nos pondremos en contacto contigo pronto.",
+          warning: "No se pudo enviar la notificación por correo electrónico."
+        });
+      }
     } catch (error) {
-      console.error("Contact form error:", error);
+      console.error("Error en formulario de contacto:", error);
       res.status(400).json({ 
-        message: "Invalid form data. Please check your inputs and try again." 
+        message: "Datos del formulario inválidos. Por favor, verifica tus entradas e intenta nuevamente." 
       });
     }
   });
