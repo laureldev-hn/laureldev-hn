@@ -63,17 +63,17 @@ const Contact = () => {
     {
       icon: <MapPin className="text-secondary" />,
       title: "Nuestra Ubicación",
-      content: "123 Financial District, New York, NY 10004",
+      content: "Goascorán, Valle",
     },
     {
       icon: <Mail className="text-secondary" />,
       title: "Correo Electrónico",
-      content: "contact@laureldev.com",
+      content: "contact@laureldev.hn",
     },
     {
       icon: <Phone className="text-secondary" />,
       title: "Llámanos",
-      content: "+1 (555) 123-4567",
+      content: "+504 3160-3102",
     },
   ];
 
