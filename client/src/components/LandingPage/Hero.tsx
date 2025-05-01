@@ -12,28 +12,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center mb-4">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="mr-3"
-              >
-                <img 
-                  src="/logo.png" 
-                  alt="Logo de Laureldev" 
-                  className="w-14 h-14 object-contain"
-                />
-              </motion.div>
-              <motion.h2 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="text-lg font-semibold text-primary"
-              >
-                LaurelDev
-              </motion.h2>
-            </div>
+            {/* Eliminado el logo pequeño */}
             
             <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
               Transformando Instituciones Financieras
