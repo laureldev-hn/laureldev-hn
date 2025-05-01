@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Database, FileCode, Hammer, Wrench } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -20,9 +20,9 @@ const Hero = () => {
                 className="mr-3"
               >
                 <img 
-                  src="/woodpecker-logo.png" 
-                  alt="Pájaro Carpintero - Logo de Laureldev" 
-                  className="w-12 h-12 object-contain"
+                  src="/logo.png" 
+                  alt="Logo de Laureldev" 
+                  className="w-14 h-14 object-contain"
                 />
               </motion.div>
               <motion.h2 
@@ -31,7 +31,7 @@ const Hero = () => {
                 transition={{ delay: 0.4, duration: 0.5 }}
                 className="text-lg font-semibold text-primary"
               >
-                WoodPeacker DEV
+                LaurelDev
               </motion.h2>
             </div>
             
@@ -57,8 +57,8 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          <div className="order-1 md:order-2 flex justify-center relative">
-            {/* Imagen principal de ilustración */}
+          <div className="order-1 md:order-2 flex justify-center">
+            {/* Imagen principal del logo */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -66,48 +66,10 @@ const Hero = () => {
               className="relative z-10"
             >
               <img 
-                src="/hero-illustration.png" 
-                alt="Desarrollador de software creando aplicaciones" 
-                className="rounded-xl shadow-xl max-w-full md:max-w-md h-auto object-cover relative z-10" 
+                src="/logo-header.png" 
+                alt="Logo de Laureldev" 
+                className="max-w-full md:max-w-md h-auto object-contain" 
               />
-            </motion.div>
-            
-            {/* Elementos de carpintería flotantes */}
-            <motion.div 
-              className="absolute -top-8 -right-8 z-0 text-primary opacity-90"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.85, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-            >
-              <Hammer size={32} className="drop-shadow-md" />
-            </motion.div>
-            
-            <motion.div 
-              className="absolute bottom-16 -left-6 z-20 text-accent opacity-80"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 0.85, x: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-            >
-              <Wrench size={36} className="drop-shadow-md" />
-            </motion.div>
-            
-            {/* Elementos de código flotantes */}
-            <motion.div 
-              className="absolute -bottom-4 right-12 z-20 text-secondary opacity-80"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 0.85, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.5 }}
-            >
-              <FileCode size={36} className="drop-shadow-md" />
-            </motion.div>
-            
-            <motion.div 
-              className="absolute top-12 -left-10 z-0 text-primary opacity-80"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 0.85, x: 0 }}
-              transition={{ delay: 1.1, duration: 0.5 }}
-            >
-              <Database size={28} className="drop-shadow-md" />
             </motion.div>
           </div>
         </div>
