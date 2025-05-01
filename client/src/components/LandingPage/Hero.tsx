@@ -1,9 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Laptop, Database, FileCode, Hammer, Wrench } from "lucide-react";
-
-// Importaciones para las imágenes
-import heroIllustration from "../../assets/hero-illustration.png";
-import woodpeckerLogo from "../../assets/woodpecker-logo.png";
+import { Database, FileCode, Hammer, Wrench } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -24,7 +20,7 @@ const Hero = () => {
                 className="mr-3"
               >
                 <img 
-                  src={woodpeckerLogo} 
+                  src="/woodpecker-logo.png" 
                   alt="Pájaro Carpintero - Logo de Laureldev" 
                   className="w-12 h-12 object-contain"
                 />
@@ -70,7 +66,7 @@ const Hero = () => {
               className="relative z-10"
             >
               <img 
-                src={heroIllustration} 
+                src="/hero-illustration.png" 
                 alt="Desarrollador de software creando aplicaciones" 
                 className="rounded-xl shadow-xl max-w-full md:max-w-md h-auto object-cover relative z-10" 
               />
