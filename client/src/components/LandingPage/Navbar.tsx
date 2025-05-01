@@ -27,44 +27,44 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="#" className="flex items-center">
-              <img src="/assets/laureldev_logo.png" alt="LaurelDev Logo" className="h-12" />
+              <img src="/logo.png" alt="LaurelDev Logo" className="h-10" />
             </a>
           </div>
 
-          <div className="hidden md:flex space-x-8 items-center">
+          <div className="hidden lg:flex items-center space-x-1 md:space-x-2 lg:space-x-6 text-sm md:text-base">
             <a 
               href="#about" 
-              className="text-secondary hover:text-accent font-medium transition-all"
+              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
             >
               Sobre Nosotros
             </a>
             <a 
               href="#services" 
-              className="text-secondary hover:text-accent font-medium transition-all"
+              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1"
             >
               Servicios
             </a>
             <a 
               href="#success-stories" 
-              className="text-secondary hover:text-accent font-medium transition-all"
+              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
             >
               Casos de Éxito
             </a>
             <a 
               href="#why-us" 
-              className="text-secondary hover:text-accent font-medium transition-all"
+              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
             >
               ¿Por Qué Elegirnos?
             </a>
             <a 
               href="#contact" 
-              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold transition-all"
+              className="bg-secondary hover:bg-accent text-white py-2 px-4 md:px-6 rounded-full font-montserrat font-semibold transition-all ml-2 text-center whitespace-nowrap"
             >
               Contáctanos
             </a>
           </div>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button 
               className="text-secondary hover:text-accent focus:outline-none" 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -80,7 +80,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden ${mobileMenuOpen ? "block" : "hidden"} mt-4 pb-4`}>
+        <div className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"} mt-4 pb-4`}>
           <div className="flex flex-col space-y-4">
             <a 
               href="#about" 
