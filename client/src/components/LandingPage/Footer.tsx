@@ -39,17 +39,17 @@ const Footer = () => {
               Transformando instituciones financieras a través de soluciones tecnológicas innovadoras.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-[#11385b] hover:text-white transition-all">
-                <i className="fab fa-linkedin-in"></i>
+              <a href="#" className="bg-[#f0290c] p-2.5 flex items-center justify-center w-10 h-10 rounded-full text-white hover:bg-[#d32409] transition-all">
+                <i className="fab fa-linkedin-in text-sm"></i>
               </a>
-              <a href="#" className="text-[#11385b] hover:text-white transition-all">
-                <i className="fab fa-twitter"></i>
+              <a href="#" className="bg-[#f0290c] p-2.5 flex items-center justify-center w-10 h-10 rounded-full text-white hover:bg-[#d32409] transition-all">
+                <i className="fab fa-twitter text-sm"></i>
               </a>
-              <a href="#" className="text-[#11385b] hover:text-white transition-all">
-                <i className="fab fa-facebook-f"></i>
+              <a href="#" className="bg-[#f0290c] p-2.5 flex items-center justify-center w-10 h-10 rounded-full text-white hover:bg-[#d32409] transition-all">
+                <i className="fab fa-facebook-f text-sm"></i>
               </a>
-              <a href="#" className="text-[#11385b] hover:text-white transition-all">
-                <i className="fab fa-instagram"></i>
+              <a href="#" className="bg-[#f0290c] p-2.5 flex items-center justify-center w-10 h-10 rounded-full text-white hover:bg-[#d32409] transition-all">
+                <i className="fab fa-instagram text-sm"></i>
               </a>
             </div>
           </div>
