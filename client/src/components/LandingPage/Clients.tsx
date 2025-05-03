@@ -10,7 +10,7 @@ const Clients = () => {
   const clients: ClientProps[] = [
     {
       name: "Cooperativa Chorotega",
-      logo: "/assets/clients/chorotega.png", // Logo real
+      logo: "/assets/clients/chorotega_azul.png", // Logo real (versión azul)
     },
     {
       name: "Cooperativa ECOSABA",
