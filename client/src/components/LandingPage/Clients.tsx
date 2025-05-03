@@ -13,20 +13,8 @@ const Clients = () => {
       logo: "/assets/clients/chorotega_azul.png", // Logo real (versión azul)
     },
     {
-      name: "Cooperativa ECOSABA",
-      logo: "/assets/clients/client2.png", // Placeholder
-    },
-    {
-      name: "Cooperativa Taulabé",
-      logo: "/assets/clients/client3.png", // Placeholder
-    },
-    {
-      name: "BANCOVI",
-      logo: "/assets/clients/client4.png", // Placeholder
-    },
-    {
-      name: "Unión de Cooperativas",
-      logo: "/assets/clients/client5.png", // Placeholder
+      name: "Cooperativa Sagrada Familia",
+      logo: "/assets/clients/safa.png", // Logo real
     },
   ];
 
@@ -49,26 +37,20 @@ const Clients = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-12">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 lg:gap-20">
           {clients.map((client, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-all"
+              className="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-all w-64"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="flex items-center justify-center mb-4">
-                {client.name === "Cooperativa Chorotega" ? (
-                  <div className="w-40 h-24 flex items-center justify-center">
-                    <img src={client.logo} alt={client.name} className="w-full h-auto object-contain" />
-                  </div>
-                ) : (
-                  <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold text-gray-400">
-                    {client.name.substring(0, 2)}
-                  </div>
-                )}
+                <div className="w-40 h-24 flex items-center justify-center">
+                  <img src={client.logo} alt={client.name} className="w-full h-auto object-contain" />
+                </div>
               </div>
               <h4 className="font-montserrat font-semibold text-center text-[#11385b]">
                 {client.name}
