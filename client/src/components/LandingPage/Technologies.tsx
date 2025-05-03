@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
-import { 
-  FaReact, 
-  FaNodeJs, 
-  FaAws, 
-  FaDatabase, 
-  FaPython,
-  FaShieldAlt
-} from 'react-icons/fa';
+import { FaPython, FaDatabase, FaAws, FaDocker } from 'react-icons/fa';
+import { SiKubernetes, SiJavascript, SiApachekafka } from 'react-icons/si';
+import { BsFillDatabaseFill } from 'react-icons/bs';
 
 interface TechCardProps {
   icon: React.ReactNode;
@@ -31,12 +26,14 @@ const TechCard = ({ icon, name, delay }: TechCardProps) => {
 
 const Technologies = () => {
   const technologies = [
-    { icon: <FaReact />, name: "React" },
-    { icon: <FaNodeJs />, name: "Node.js" },
-    { icon: <FaAws />, name: "AWS" },
-    { icon: <FaDatabase />, name: "Base de Datos" },
+    { icon: <SiJavascript />, name: "Javascript" },
     { icon: <FaPython />, name: "Python" },
-    { icon: <FaShieldAlt />, name: "Blockchain" },
+    { icon: <BsFillDatabaseFill />, name: "Bases de datos" },
+    { icon: <SiApachekafka />, name: "Kafka" },
+    { icon: <FaDocker />, name: "Docker" },
+    { icon: <SiKubernetes />, name: "Kubernetes" },
+    { icon: <FaAws />, name: "AWS" },
+    { icon: <FaDatabase />, name: "ETL" },
   ];
 
   return (
@@ -56,7 +53,7 @@ const Technologies = () => {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {technologies.map((tech, index) => (
             <TechCard 
               key={index}
