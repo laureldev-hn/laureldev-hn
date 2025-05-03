@@ -81,9 +81,9 @@ const WhyChooseUs = () => {
             transition={{ duration: 0.6 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-              alt="Banking Technology" 
-              className="rounded-xl shadow-lg w-full h-auto object-cover"
+              src="/distingue.png" 
+              alt="Lo que nos distingue - Desarrollador con tecnología de vanguardia" 
+              className="rounded-xl shadow-lg w-full h-auto object-contain bg-white p-4"
             />
           </motion.div>
           
