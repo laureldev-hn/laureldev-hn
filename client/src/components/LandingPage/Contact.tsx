@@ -243,7 +243,7 @@ const Contact = () => {
                   <a 
                     key={index}
                     href={social.url} 
-                    className="flex items-center justify-center w-12 h-12 bg-primary/20 hover:bg-primary rounded-full transition-all"
+                    className="flex items-center justify-center w-12 h-12 bg-[#f0290c] hover:bg-[#d32409] rounded-full transition-all"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
