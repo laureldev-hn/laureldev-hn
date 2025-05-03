@@ -10,23 +10,23 @@ const Clients = () => {
   const clients: ClientProps[] = [
     {
       name: "Cooperativa Chorotega",
-      logo: "/assets/clients/client1.png", // Placeholder - se puede reemplazar con logos reales
+      logo: "/assets/clients/chorotega.png", // Logo real
     },
     {
       name: "Cooperativa ECOSABA",
-      logo: "/assets/clients/client2.png",
+      logo: "/assets/clients/client2.png", // Placeholder
     },
     {
       name: "Cooperativa Taulabé",
-      logo: "/assets/clients/client3.png",
+      logo: "/assets/clients/client3.png", // Placeholder
     },
     {
       name: "BANCOVI",
-      logo: "/assets/clients/client4.png",
+      logo: "/assets/clients/client4.png", // Placeholder
     },
     {
       name: "Unión de Cooperativas",
-      logo: "/assets/clients/client5.png",
+      logo: "/assets/clients/client5.png", // Placeholder
     },
   ];
 
@@ -60,12 +60,13 @@ const Clients = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="w-24 h-24 flex items-center justify-center mb-4">
-                {/* Aquí se puede usar un div con fondo gris como placeholder hasta que estén los logos reales */}
-                <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold text-gray-400">
-                  {client.name.substring(0, 2)}
-                </div>
-                {/* Cuando tengas los logos reales, usa esta línea en lugar del div anterior */}
-                {/* <img src={client.logo} alt={client.name} className="w-full h-auto object-contain" /> */}
+                {client.name === "Cooperativa Chorotega" ? (
+                  <img src={client.logo} alt={client.name} className="w-full h-auto object-contain" />
+                ) : (
+                  <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold text-gray-400">
+                    {client.name.substring(0, 2)}
+                  </div>
+                )}
               </div>
               <h4 className="font-montserrat font-semibold text-center text-[#11385b]">
                 {client.name}
