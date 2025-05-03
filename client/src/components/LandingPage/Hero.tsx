@@ -37,7 +37,7 @@ const Hero = () => {
           </motion.div>
           
           <div className="order-1 md:order-2 flex justify-center">
-            {/* Imagen principal del logo */}
+            {/* Imagen principal que ilustra el desarrollo de software */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -45,9 +45,9 @@ const Hero = () => {
               className="relative z-10"
             >
               <img 
-                src="/logo-header.png" 
-                alt="Logo de Laureldev" 
-                className="max-w-full md:max-w-md h-auto object-contain" 
+                src="/hero.png" 
+                alt="Desarrollador trabajando en una plataforma financiera" 
+                className="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain" 
               />
             </motion.div>
           </div>
