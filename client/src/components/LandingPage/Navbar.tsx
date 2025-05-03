@@ -57,6 +57,12 @@ const Navbar = () => {
               ¿Por Qué Elegirnos?
             </a>
             <a 
+              href="#clients" 
+              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
+            >
+              Nuestros Clientes
+            </a>
+            <a 
               href="#contact" 
               className="bg-secondary hover:bg-accent text-white py-2 px-4 md:px-6 rounded-full font-montserrat font-semibold transition-all ml-2 text-center whitespace-nowrap"
             >
@@ -109,6 +115,13 @@ const Navbar = () => {
               onClick={handleNavItemClick}
             >
               ¿Por Qué Elegirnos?
+            </a>
+            <a 
+              href="#clients" 
+              className="text-secondary hover:text-accent font-medium py-2 transition-all"
+              onClick={handleNavItemClick}
+            >
+              Nuestros Clientes
             </a>
             <a 
               href="#contact" 

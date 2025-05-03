@@ -7,6 +7,7 @@ import CtaBanner from "./CtaBanner";
 import SuccessStories from "./SuccessStories";
 import Technologies from "./Technologies";
 import WhyChooseUs from "./WhyChooseUs";
+import Clients from "./Clients";
 import Contact from "./Contact";
 import Footer from "./Footer";
 
@@ -48,6 +49,7 @@ const LandingPage = () => {
       <SuccessStories />
       <Technologies />
       <WhyChooseUs />
+      <Clients />
       <Contact />
       <Footer />
     </div>
