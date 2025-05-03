@@ -59,11 +59,13 @@ const Clients = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="w-24 h-24 flex items-center justify-center mb-4">
+              <div className="flex items-center justify-center mb-4">
                 {client.name === "Cooperativa Chorotega" ? (
-                  <img src={client.logo} alt={client.name} className="w-full h-auto object-contain" />
+                  <div className="w-40 h-24 flex items-center justify-center">
+                    <img src={client.logo} alt={client.name} className="w-full h-auto object-contain" />
+                  </div>
                 ) : (
-                  <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold text-gray-400">
+                  <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold text-gray-400">
                     {client.name.substring(0, 2)}
                   </div>
                 )}
