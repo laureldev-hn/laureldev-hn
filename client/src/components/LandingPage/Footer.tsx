@@ -35,20 +35,20 @@ const Footer = () => {
             <a href="#" className="inline-block mb-6">
               <img src="/assets/laureldev_logo.png" alt="LaurelDev Logo" className="h-12" />
             </a>
-            <p className="text-gray-300 mb-6">
+            <p className="text-[#11385b] mb-6 font-medium">
               Transformando instituciones financieras a través de soluciones tecnológicas innovadoras.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white transition-all">
+              <a href="#" className="text-[#11385b] hover:text-[#fec53a] transition-all">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-all">
+              <a href="#" className="text-[#11385b] hover:text-[#fec53a] transition-all">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-all">
+              <a href="#" className="text-[#11385b] hover:text-[#fec53a] transition-all">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-all">
+              <a href="#" className="text-[#11385b] hover:text-[#fec53a] transition-all">
                 <i className="fab fa-instagram"></i>
               </a>
             </div>
@@ -59,7 +59,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-300 hover:text-white transition-all">
+                  <a href={link.href} className="text-[#11385b] hover:text-[#fec53a] transition-all font-medium">
                     {link.name}
                   </a>
                 </li>
@@ -72,7 +72,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-300 hover:text-white transition-all">
+                  <a href={link.href} className="text-[#11385b] hover:text-[#fec53a] transition-all font-medium">
                     {link.name}
                   </a>
                 </li>
@@ -85,7 +85,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-300 hover:text-white transition-all">
+                  <a href={link.href} className="text-[#11385b] hover:text-[#fec53a] transition-all font-medium">
                     {link.name}
                   </a>
                 </li>
@@ -96,13 +96,13 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-300 mb-4 md:mb-0">
+            <p className="text-[#11385b] mb-4 md:mb-0 font-medium">
               Copyright 2025 LaurelDev. Todos los derechos reservados.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white transition-all">Política de Privacidad</a>
-              <a href="#" className="text-gray-300 hover:text-white transition-all">Términos de Servicio</a>
-              <a href="#" className="text-gray-300 hover:text-white transition-all">Mapa del Sitio</a>
+              <a href="#" className="text-[#11385b] hover:text-[#fec53a] transition-all font-medium">Política de Privacidad</a>
+              <a href="#" className="text-[#11385b] hover:text-[#fec53a] transition-all font-medium">Términos de Servicio</a>
+              <a href="#" className="text-[#11385b] hover:text-[#fec53a] transition-all font-medium">Mapa del Sitio</a>
             </div>
           </div>
         </div>
