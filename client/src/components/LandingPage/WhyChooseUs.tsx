@@ -83,7 +83,7 @@ const WhyChooseUs = () => {
             <img 
               src="/distingue.png" 
               alt="Lo que nos distingue - Desarrollador con tecnología de vanguardia" 
-              className="rounded-xl shadow-lg w-full h-auto object-contain bg-white p-4"
+              className="w-full h-auto object-contain"
             />
           </motion.div>
           

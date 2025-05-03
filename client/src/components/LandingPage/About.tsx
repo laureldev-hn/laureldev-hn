@@ -29,7 +29,7 @@ const About = () => {
             <img 
               src="/construyendo.png" 
               alt="Construyendo soluciones financieras con tecnología moderna" 
-              className="rounded-xl shadow-lg w-full h-auto object-contain bg-white"
+              className="w-full h-auto object-contain"
             />
           </motion.div>
           
