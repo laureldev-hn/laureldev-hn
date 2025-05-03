@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaPython, FaDatabase, FaAws, FaDocker } from 'react-icons/fa';
+import { FaPython, FaDatabase, FaAws, FaDocker, FaGithub } from 'react-icons/fa';
 import { SiKubernetes, SiJavascript, SiApachekafka } from 'react-icons/si';
 import { BsFillDatabaseFill } from 'react-icons/bs';
 
@@ -33,7 +33,7 @@ const Technologies = () => {
     { icon: <FaDocker />, name: "Docker" },
     { icon: <SiKubernetes />, name: "Kubernetes" },
     { icon: <FaAws />, name: "AWS" },
-    { icon: <FaDatabase />, name: "ETL" },
+    { icon: <FaGithub />, name: "GitHub" },
   ];
 
   return (
