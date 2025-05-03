@@ -44,12 +44,7 @@ const Navbar = () => {
             >
               Servicios
             </a>
-            <a 
-              href="#success-stories" 
-              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
-            >
-              Casos de Éxito
-            </a>
+
             <a 
               href="#why-us" 
               className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
@@ -102,13 +97,7 @@ const Navbar = () => {
             >
               Servicios
             </a>
-            <a 
-              href="#success-stories" 
-              className="text-secondary hover:text-accent font-medium py-2 transition-all"
-              onClick={handleNavItemClick}
-            >
-              Casos de Éxito
-            </a>
+
             <a 
               href="#why-us" 
               className="text-secondary hover:text-accent font-medium py-2 transition-all"

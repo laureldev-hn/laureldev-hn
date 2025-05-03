@@ -46,7 +46,6 @@ const LandingPage = () => {
       <About />
       <Services />
       <CtaBanner />
-      <SuccessStories />
       <Technologies />
       <WhyChooseUs />
       <Clients />
