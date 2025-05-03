@@ -47,7 +47,7 @@ const Hero = () => {
               <img 
                 src="/hero.png" 
                 alt="Desarrollador trabajando en una plataforma financiera" 
-                className="w-4/5 md:w-full mx-auto max-w-xs md:max-w-md lg:max-w-lg h-auto object-contain" 
+                className="w-[95%] md:w-full mx-auto max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain" 
               />
             </motion.div>
           </div>
