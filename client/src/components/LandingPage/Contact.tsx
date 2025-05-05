@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 
 // Form validation schema
 const contactFormSchema = z.object({
@@ -39,21 +38,46 @@ const Contact = () => {
     mode: "onChange",
   });
 
+  // URL del Google Script
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxYPHi5GQGIdTRkqlI7VW1T6NOAXzDomDreRZ0Yf0mBlZxdAvcrqCvqZ4AFS4896Oy/exec";
+
   // Form submission handler
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
+    
     try {
-      await apiRequest("POST", "/api/contact", data);
+      // Formatear los datos según la estructura requerida
+      const formattedData = {
+        nombre: data.name,
+        email: data.email,
+        asunto: data.subject,
+        empresa: data.company,
+        mensaje: data.message
+      };
+      
+      // Enviar datos al Google Script
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formattedData),
+        mode: "no-cors" // Necesario para peticiones a Google Scripts
+      });
+      
+      // Dado que mode: 'no-cors' no permite leer la respuesta, asumimos éxito
       toast({
-        title: "¡Tu mensaje ha sido enviado con éxito!",
-        description: "¡Tu mensaje ha sido enviado con éxito!",
+        title: "¡Mensaje enviado con éxito!",
+        description: "Gracias por contactarnos. Te responderemos lo antes posible.",
         duration: 5000,
       });
+      
       form.reset();
     } catch (error) {
+      console.error("Error al enviar el formulario:", error);
       toast({
-        title: "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
-        description: "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+        title: "Error al enviar el mensaje",
+        description: "Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente por teléfono.",
         variant: "destructive",
       });
     } finally {
