@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 w-full bg-primary ${scrolled ? "shadow-md" : ""} transition-shadow duration-300`}>
+    <header className={`fixed top-0 z-50 w-full bg-primary ${scrolled ? "shadow-md" : ""} transition-shadow duration-300`}>
       <nav className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">

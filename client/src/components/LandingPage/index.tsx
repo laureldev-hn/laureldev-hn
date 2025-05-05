@@ -24,9 +24,14 @@ const LandingPage = () => {
         
         const targetElement = document.querySelector(targetId as string);
         if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          // Calcular posición con offset para el navbar fijo
+          const navbarHeight = 70; // Altura aproximada del navbar en píxeles
+          const yOffset = -navbarHeight;
+          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth'
           });
         }
       }
@@ -40,7 +45,7 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen w-full overflow-hidden">
+    <div className="flex flex-col min-h-screen w-full overflow-hidden pt-16">
       <Navbar />
       <Hero />
       <About />
