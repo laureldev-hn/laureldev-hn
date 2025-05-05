@@ -44,9 +44,33 @@ function startVite() {
 }
 
 // Creamos un servidor mínimo en el puerto 5000 para satisfacer la condición de waitForPort
+// Esta vez simplemente mostramos un mensaje con enlaces a ambos protocolos
 const server = createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Servidor de redirección a Vite');
+  const hostname = req.headers.host?.replace(/:\d+/, '') || 'localhost';
+  
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Redireccionando a LaurelDev</title>
+      <meta http-equiv="refresh" content="0;URL=http://${hostname}:5173">
+      <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        a { display: inline-block; margin: 10px; padding: 10px 20px; background-color: #fec53a; color: #11385b; text-decoration: none; border-radius: 5px; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Redireccionando a LaurelDev...</h1>
+        <p>Si no eres redirigido automáticamente, haz clic en uno de los siguientes enlaces:</p>
+        <a href="http://${hostname}:5173">Acceder con HTTP</a>
+        <a href="https://${hostname}:5173">Acceder con HTTPS</a>
+      </div>
+    </body>
+    </html>
+  `);
 });
 
 server.listen(5000, '0.0.0.0', () => {

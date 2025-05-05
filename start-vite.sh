@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Navegamos al directorio donde se encuentra el proyecto
-cd "$(dirname "$0")"
+# Script para iniciar directamente Vite en el puerto 5000
+# Esto evita problemas de redirección entre HTTP y HTTPS
 
-# Ejecutamos vite con el host configurado para ser accesible desde el exterior
-npx vite --host 0.0.0.0
+echo "Iniciando Vite directamente en el puerto 5000..."
+cd "$(dirname "$0")/client"
+npx vite --host 0.0.0.0 --port 5000
