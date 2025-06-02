@@ -46,6 +46,29 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    color-scheme: light !important;
+  }
+
+  body {
+    color-scheme: light !important;
+    background-color: #fec53a !important;
+  }
+
+  /* Force light theme for all elements */
+  *, *::before, *::after {
+    color-scheme: light !important;
+  }
+
+  /* Prevent dark mode auto-detection */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: light !important;
+    }
+    
+    body {
+      background-color: #fec53a !important;
+      color: #212222 !important;
+    }
   }
   
   body {
