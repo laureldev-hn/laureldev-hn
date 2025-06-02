@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background -->
+  <rect width="1200" height="630" fill="#000000"/>
+  
+  <!-- Logo container - centered with ample padding -->
+  <g transform="translate(600, 200)">
+    <!-- Your logo positioned to be fully visible -->
+    <image x="-150" y="-100" width="300" height="200" href="../../../attached_assets/Recurso 1@4x.png" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+  
+  <!-- Company name -->
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="#fec53a">LaurelDev</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#ffffff">Soluciones Tecnológicas Financieras</text>
+  
+  <!-- Additional spacing elements for visual balance -->
+  <circle cx="150" cy="150" r="3" fill="#fec53a" opacity="0.3"/>
+  <circle cx="1050" cy="480" r="3" fill="#fec53a" opacity="0.3"/>
+</svg>

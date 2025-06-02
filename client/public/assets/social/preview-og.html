@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .og-preview {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .logo-container {
+            max-width: 350px;
+            max-height: 280px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .title {
+            color: #fec53a;
+            font-size: 54px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .subtitle {
+            color: #ffffff;
+            font-size: 32px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .scale-preview {
+            transform: scale(0.3);
+            transform-origin: top left;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Vista previa de imagen para redes sociales:</h2>
+    <div class="og-preview scale-preview">
+        <div class="logo-container">
+            <img src="original-logo.png" class="logo" alt="LaurelDev Logo">
+        </div>
+        <div class="title">LaurelDev</div>
+        <div class="subtitle">Soluciones Tecnológicas Financieras</div>
+    </div>
+    <p>Dimensiones: 1200x630 píxeles (óptimo para WhatsApp, Facebook, Twitter)</p>
+</body>
+</html>
