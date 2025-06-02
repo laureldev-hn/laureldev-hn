@@ -14,23 +14,15 @@ const Footer = () => {
     company: [
       { name: "Sobre Nosotros", href: "#about" },
       { name: "¿Por Qué Elegirnos?", href: "#why-us" },
-      { name: "Casos de Éxito", href: "#success-stories" },
-      { name: "Carreras", href: "#" },
-      { name: "Blog", href: "#" },
-    ],
-    legal: [
-      { name: "Política de Privacidad", href: "#" },
-      { name: "Términos de Servicio", href: "#" },
-      { name: "Política de Cookies", href: "#" },
-      { name: "Seguridad", href: "#" },
-      { name: "Cumplimiento", href: "#" },
+      { name: "Nuestros Clientes", href: "#clients" },
+      { name: "Contáctanos", href: "#contact" },
     ],
   };
 
   return (
     <footer className="bg-dark py-12">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div>
             <a href="#" className="inline-block mb-6">
               <img src="/assets/laureldev_logo.png" alt="LaurelDev Logo" className="h-12" />
@@ -79,31 +71,13 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          
-          <div>
-            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">Legal</h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-[#11385b] hover:text-white transition-all font-medium">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
         
         <div className="border-t border-gray-800 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-[#11385b] mb-4 md:mb-0 font-medium">
+          <div className="flex flex-col md:flex-row justify-center items-center">
+            <p className="text-[#11385b] font-medium text-center">
               Copyright 2025 LaurelDev. Todos los derechos reservados.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-[#11385b] hover:text-white transition-all font-medium">Política de Privacidad</a>
-              <a href="#" className="text-[#11385b] hover:text-white transition-all font-medium">Términos de Servicio</a>
-              <a href="#" className="text-[#11385b] hover:text-white transition-all font-medium">Mapa del Sitio</a>
-            </div>
           </div>
         </div>
       </div>
