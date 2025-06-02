@@ -1,0 +1,49 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Logo centered with more space -->
+  <g transform="translate(600, 315)">
+    <!-- Woodpecker silhouette based on the design -->
+    <g transform="translate(-120, -120) scale(2.0)">
+      <!-- Main body shape -->
+      <path d="M20 80 Q15 75 20 70 L25 65 Q30 60 35 65 L40 70 Q45 75 50 80 L55 85 Q60 90 65 95 L70 100 Q75 105 80 110 L85 115 Q90 120 85 125 L80 130 Q75 135 70 130 L65 125 Q60 120 55 115 L50 110 Q45 105 40 100 L35 95 Q30 90 25 85 Z" fill="#4a4a4a"/>
+      
+      <!-- Head -->
+      <circle cx="25" cy="40" r="15" fill="#4a4a4a"/>
+      
+      <!-- Beak -->
+      <polygon points="15,35 5,40 15,45" fill="#4a4a4a"/>
+      
+      <!-- Red crest -->
+      <path d="M20 25 Q25 20 30 25 Q35 30 30 35 Q25 30 20 35 Z" fill="#F0290C"/>
+      
+      <!-- Eye -->
+      <circle cx="30" cy="38" r="3" fill="#000000"/>
+      
+      <!-- Tail feathers -->
+      <path d="M85 115 Q95 120 100 125 Q105 130 95 135 Q85 130 80 125" fill="#4a4a4a"/>
+      
+      <!-- Legs -->
+      <line x1="45" y1="110" x2="40" y2="125" stroke="#4a4a4a" stroke-width="3"/>
+      <line x1="55" y1="110" x2="60" y2="125" stroke="#4a4a4a" stroke-width="3"/>
+    </g>
+  </g>
+  
+  <!-- Text content -->
+  <text x="600" y="480" text-anchor="middle" fill="#fec53a" font-family="Arial, sans-serif" font-size="54" font-weight="bold">LaurelDev</text>
+  <text x="600" y="530" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="32">Soluciones Tecnológicas Financieras</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="150" r="3" fill="#fec53a" opacity="0.3"/>
+  <circle cx="1050" cy="480" r="4" fill="#fec53a" opacity="0.2"/>
+  <circle cx="100" cy="500" r="2" fill="#F0290C" opacity="0.4"/>
+  <circle cx="1100" cy="120" r="3" fill="#F0290C" opacity="0.3"/>
+</svg>
