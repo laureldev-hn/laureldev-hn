@@ -1,0 +1,133 @@
+================================================================================
+CONFIGURACION DNS PARA laureldev.hn - GITHUB PAGES
+================================================================================
+
+Dominio: laureldev.hn
+Proveedor DNS: BITAIN (Buro Internacional de Tecnologias)
+Proposito: Migracion de Replit a GitHub Pages
+Fecha: Diciembre 2025
+
+================================================================================
+PASO 1: ELIMINAR REGISTROS ANTIGUOS DE REPLIT
+================================================================================
+
+IMPORTANTE: Primero eliminar estos registros DNS que ya no se necesitan:
+
+Tipo: A
+Hostname: @
+Record: 34.111.179.208
+Accion: ELIMINAR
+
+Tipo: TXT
+Hostname: @
+Record: replit-verify=9a9b76c3-5979-40c0-9111-136fc52ee7d1
+Accion: ELIMINAR
+
+Tipo: A
+Hostname: www
+Record: 34.111.179.208
+Accion: ELIMINAR
+
+Tipo: TXT
+Hostname: www
+Record: replit-verify=9a9b76c3-5979-40c0-9111-136fc52ee7d1
+Accion: ELIMINAR
+
+================================================================================
+PASO 2: AGREGAR NUEVOS REGISTROS PARA GITHUB PAGES
+================================================================================
+
+PARA EL DOMINIO RAIZ (laureldev.hn):
+------------------------------------
+Crear 4 registros tipo A con las siguientes IPs:
+
+Registro 1:
+Tipo: A
+Hostname: @
+Record: 185.199.108.153
+TTL: 3600 (o Auto)
+
+Registro 2:
+Tipo: A
+Hostname: @
+Record: 185.199.109.153
+TTL: 3600 (o Auto)
+
+Registro 3:
+Tipo: A
+Hostname: @
+Record: 185.199.110.153
+TTL: 3600 (o Auto)
+
+Registro 4:
+Tipo: A
+Hostname: @
+Record: 185.199.111.153
+TTL: 3600 (o Auto)
+
+Nota: Se requieren los 4 registros A para redundancia y balanceo de carga.
+
+PARA EL SUBDOMINIO WWW (www.laureldev.hn):
+-------------------------------------------
+Crear 1 registro tipo CNAME:
+
+Tipo: CNAME
+Hostname: www
+Record: laureldev-hn.github.io
+TTL: 3600 (o Auto)
+
+Nota: Si el nombre de la organizacion/usuario en GitHub es diferente,
+reemplazar "laureldev-hn" por el nombre correcto.
+
+================================================================================
+RESUMEN DE CONFIGURACION FINAL
+================================================================================
+
+Despues de realizar los cambios, los registros DNS deben quedar asi:
+
+1. A     @     185.199.108.153        (NUEVO)
+2. A     @     185.199.109.153        (NUEVO)
+3. A     @     185.199.110.153        (NUEVO)
+4. A     @     185.199.111.153        (NUEVO)
+5. CNAME www   laureldev-hn.github.io (NUEVO)
+
+================================================================================
+TIEMPO DE PROPAGACION
+================================================================================
+
+- Los cambios DNS pueden tardar entre 5 minutos y 24 horas en propagarse
+- Normalmente se reflejan en 1-2 horas
+- Puedes verificar usando: nslookup laureldev.hn o dig laureldev.hn
+
+================================================================================
+VERIFICACION
+================================================================================
+
+Una vez configurados los registros, verificar que apunten correctamente:
+
+nslookup laureldev.hn
+nslookup www.laureldev.hn
+
+Deberias ver las IPs de GitHub Pages en los resultados.
+
+================================================================================
+INSTRUCCIONES ADICIONALES
+================================================================================
+
+1. No eliminar otros registros DNS que no esten relacionados con Replit
+   (como MX para correo, etc.)
+2. Mantener el TTL en 3600 segundos (1 hora) o Auto
+3. Verificar que no haya conflictos con otros servicios
+
+================================================================================
+CONTACTO
+================================================================================
+
+Si tienes dudas sobre esta configuracion, por favor contacta al equipo de
+desarrollo.
+
+================================================================================
+Documento generado: Diciembre 2024
+Version: 1.0
+================================================================================
+
