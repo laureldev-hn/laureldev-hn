@@ -1,0 +1,23 @@
+# Dockerfile para desarrollo (versión estándar de Node, no Alpine)
+FROM node:20
+
+WORKDIR /app
+
+# Copiar archivos de dependencias
+COPY package.json ./
+COPY package-lock.json* ./
+
+# Validar JSON y limpiar caché de npm e instalar dependencias
+RUN node -e "JSON.parse(require('fs').readFileSync('package.json', 'utf8'))" && \
+    npm cache clean --force && \
+    npm install --legacy-peer-deps
+
+# Copiar el resto de los archivos
+COPY . .
+
+# Exponer el puerto de Vite
+EXPOSE 5173
+
+# Comando por defecto: modo desarrollo
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+
