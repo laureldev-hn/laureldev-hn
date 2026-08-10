@@ -1,71 +1,47 @@
-# Docker Setup - LaurelDev Landing
+# Docker — LaurelDev Landing
 
-Este proyecto está dockerizado para que puedas ejecutarlo sin necesidad de tener Node.js o npm instalado localmente.
+Ejecuta el proyecto sin instalar Node.js en el host.
 
 ## Requisitos
 
-- Docker instalado
-- Docker Compose instalado (viene incluido con Docker Desktop)
+- Docker Desktop (incluye Compose)
 
-## Modo Desarrollo
-
-Para ejecutar el proyecto en modo desarrollo con hot-reload:
+## Desarrollo (hot-reload)
 
 ```bash
-docker-compose up landing-dev
+docker compose up landing-dev
 ```
 
-O usando Docker directamente:
+Abre http://localhost:5173
 
 ```bash
-docker build -t laureldev-landing-dev .
-docker run -p 5173:5173 -v $(pwd):/app -v /app/node_modules laureldev-landing-dev
+# Segundo plano
+docker compose up -d landing-dev
+
+# Logs
+docker compose logs -f landing-dev
+
+# Parar
+docker compose down
+
+# Reconstruir imagen
+docker compose up --build landing-dev
 ```
 
-El proyecto estará disponible en: `http://localhost:5173`
-
-## Modo Producción
-
-Para construir y ejecutar la versión de producción:
+## Producción (nginx)
 
 ```bash
-docker-compose up landing-prod
+docker compose up landing-prod
 ```
 
-O usando Docker directamente:
-
-```bash
-docker build -f Dockerfile.prod -t laureldev-landing-prod .
-docker run -p 80:80 laureldev-landing-prod
-```
-
-El proyecto estará disponible en: `http://localhost`
-
-## Comandos Útiles
-
-### Ver logs
-```bash
-docker-compose logs -f landing-dev
-```
-
-### Detener contenedores
-```bash
-docker-compose down
-```
-
-### Reconstruir imágenes
-```bash
-docker-compose build --no-cache
-```
-
-### Ejecutar comandos dentro del contenedor
-```bash
-docker-compose exec landing-dev npm run build
-```
+Abre http://localhost
 
 ## Notas
 
-- En modo desarrollo, los cambios en los archivos se reflejan automáticamente gracias al volumen montado
-- En modo producción, los archivos se sirven con nginx para mejor rendimiento
-- El puerto puede cambiarse modificando `docker-compose.yml`
+- En desarrollo, el código se monta como volumen: los cambios se recargan solos.
+- El volumen anónimo `/app/node_modules` evita que el `node_modules` del host pise el del contenedor.
+- Para regenerar `package-lock.json` alineado con `package.json`:
 
+```bash
+docker compose run --rm landing-dev npm install --legacy-peer-deps
+```

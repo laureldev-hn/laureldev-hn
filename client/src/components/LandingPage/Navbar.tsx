@@ -1,126 +1,94 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SectionLink } from "@/components/SectionLink";
+import { navItems } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll event to add shadow
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 16);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle nav item click to close mobile menu
-  const handleNavItemClick = () => {
-    setMobileMenuOpen(false);
-  };
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   return (
-    <header className={`fixed top-0 z-50 w-full bg-primary ${scrolled ? "shadow-md" : ""} transition-shadow duration-300`}>
-      <nav className="container mx-auto px-4 md:px-6 py-4">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <a href="#" className="flex items-center">
-              <img src="/logo.png" alt="LaurelDev Logo" className="h-10" />
-            </a>
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        scrolled || mobileMenuOpen
+          ? "border-b border-border bg-white/95 backdrop-blur"
+          : "border-b border-transparent bg-white"
+      )}
+    >
+      <nav className="container mx-auto px-4 md:px-6" aria-label="Principal">
+        <div className="flex h-20 items-center justify-between gap-6">
+          <Link href="/" className="flex shrink-0 items-center" aria-label="LaurelDev, ir al inicio">
+            <img src="/logo-header.png" alt="LaurelDev" className="h-9 w-auto" />
+          </Link>
+
+          <div className="hidden items-center gap-8 lg:flex">
+            {navItems.map((item) => (
+              <SectionLink
+                key={item.href}
+                href={item.href}
+                className="nav-link font-montserrat text-sm font-semibold text-ink/80 transition-colors hover:text-navy"
+              >
+                {item.label}
+              </SectionLink>
+            ))}
           </div>
 
-          <div className="hidden lg:flex items-center space-x-1 md:space-x-2 lg:space-x-6 text-sm md:text-base">
-            <a 
-              href="#about" 
-              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
-            >
-              Sobre Nosotros
-            </a>
-            <a 
-              href="#services" 
-              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1"
-            >
-              Servicios
-            </a>
-
-            <a 
-              href="#why-us" 
-              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
-            >
-              ¿Por Qué Elegirnos?
-            </a>
-            <a 
-              href="#clients" 
-              className="text-secondary hover:text-accent font-medium transition-all px-2 py-1 whitespace-nowrap"
-            >
-              Nuestros Clientes
-            </a>
-            <a 
-              href="#contact" 
-              className="bg-secondary hover:bg-accent text-white py-2 px-4 md:px-6 rounded-full font-montserrat font-semibold transition-all ml-2 text-center whitespace-nowrap"
-            >
-              Contáctanos
-            </a>
+          <div className="hidden items-center gap-3 lg:flex">
+            <Button asChild size="default">
+              <SectionLink href="/#contacto">Agendar diagnóstico</SectionLink>
+            </Button>
           </div>
 
-          <div className="lg:hidden">
-            <button 
-              className="text-secondary hover:text-accent focus:outline-none" 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
+          <button
+            type="button"
+            className="text-navy lg:hidden"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"} mt-4 pb-4`}>
-          <div className="flex flex-col space-y-4">
-            <a 
-              href="#about" 
-              className="text-secondary hover:text-accent font-medium py-2 transition-all"
-              onClick={handleNavItemClick}
-            >
-              Sobre Nosotros
-            </a>
-            <a 
-              href="#services" 
-              className="text-secondary hover:text-accent font-medium py-2 transition-all"
-              onClick={handleNavItemClick}
-            >
-              Servicios
-            </a>
-
-            <a 
-              href="#why-us" 
-              className="text-secondary hover:text-accent font-medium py-2 transition-all"
-              onClick={handleNavItemClick}
-            >
-              ¿Por Qué Elegirnos?
-            </a>
-            <a 
-              href="#clients" 
-              className="text-secondary hover:text-accent font-medium py-2 transition-all"
-              onClick={handleNavItemClick}
-            >
-              Nuestros Clientes
-            </a>
-            <a 
-              href="#contact" 
-              className="bg-secondary hover:bg-accent text-white py-2 px-6 rounded-full font-montserrat font-semibold text-center transition-all mb-4"
-              onClick={handleNavItemClick}
-            >
-              Contáctanos
-            </a>
+        {mobileMenuOpen ? (
+          <div className="border-t border-border py-6 lg:hidden">
+            <div className="flex flex-col gap-1">
+              {navItems.map((item) => (
+                <SectionLink
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="rounded-md px-2 py-3 font-montserrat text-base font-semibold text-ink transition-colors hover:bg-surface hover:text-navy"
+                >
+                  {item.label}
+                </SectionLink>
+              ))}
+              <Button asChild size="lg" className="mt-4">
+                <SectionLink href="/#contacto" onClick={() => setMobileMenuOpen(false)}>
+                  Agendar diagnóstico
+                </SectionLink>
+              </Button>
+            </div>
           </div>
-        </div>
+        ) : null}
       </nav>
     </header>
   );

@@ -1,82 +1,62 @@
-import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Section, SectionHeading } from "@/components/ui/section";
+import { Reveal } from "@/components/ui/reveal";
+import { team, teamStory } from "@/data/team";
 
-const About = () => {
-  return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Sobre Nosotros</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            LaurelDev es una empresa líder en tecnología especializada en crear soluciones de software personalizadas para instituciones financieras. Con más de 10 años de experiencia en la industria, hemos ayudado a cooperativas y organizaciones financieras a modernizar sus sistemas, mejorar la experiencia de sus miembros y mantenerse a la vanguardia en la era digital.
-          </p>
-        </motion.div>
-        
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <img 
-              src="/construyendo.png" 
-              alt="Construyendo soluciones financieras con tecnología moderna" 
-              className="w-full h-auto object-contain"
-            />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-secondary mb-6">Construyendo el Futuro de la Tecnología Financiera</h3>
-            <p className="text-gray-700 mb-6">
-              Nuestra misión es potenciar a las instituciones financieras con tecnología innovadora que mejore sus operaciones y proporcione un valor excepcional a sus miembros.
+const initials = (name: string) =>
+  name
+    .split(" ")
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+
+const About = () => (
+  <Section id="nosotros" tone="navy">
+    <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
+      <Reveal>
+        <SectionHeading onDark eyebrow={teamStory.eyebrow} title={teamStory.title} />
+        <div className="mt-8 space-y-5">
+          {teamStory.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="leading-relaxed text-white/70 text-pretty">
+              {paragraph}
             </p>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <div className="bg-primary p-2 rounded-full mr-4 mt-1">
-                  <Check className="h-4 w-4 text-secondary" />
-                </div>
-                <p className="text-gray-700">Desarrollando soluciones financieras seguras y confiables</p>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-primary p-2 rounded-full mr-4 mt-1">
-                  <Check className="h-4 w-4 text-secondary" />
-                </div>
-                <p className="text-gray-700">Creando experiencias de usuario intuitivas para aplicaciones financieras</p>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-primary p-2 rounded-full mr-4 mt-1">
-                  <Check className="h-4 w-4 text-secondary" />
-                </div>
-                <p className="text-gray-700">Apoyando a instituciones en su transformación digital</p>
-              </div>
-            </div>
-            
-            <div className="mt-8">
-              <a 
-                href="#services" 
-                className="inline-flex items-center font-montserrat font-semibold text-secondary hover:text-accent transition-all"
-              >
-                Explorar Nuestros Servicios 
-              </a>
-            </div>
-          </motion.div>
+          ))}
         </div>
+      </Reveal>
+
+      <div className="grid gap-6 sm:grid-cols-2">
+        {team.map((member, index) => (
+          <Reveal
+            key={`${member.name}-${member.role}`}
+            delay={(index % 2) * 0.08}
+            className="rounded-xl border border-white/12 bg-white/[0.04] p-6"
+          >
+            {member.photo ? (
+              <img
+                src={member.photo}
+                alt={member.name}
+                loading="lazy"
+                className="h-16 w-16 rounded-full object-cover"
+              />
+            ) : (
+              <div
+                aria-hidden
+                className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10 font-montserrat text-lg font-bold text-gold"
+              >
+                {initials(member.name)}
+              </div>
+            )}
+
+            <h3 className="mt-5 font-montserrat text-base font-bold text-white">{member.name}</h3>
+            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-gold">
+              {member.role}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-white/60">{member.bio}</p>
+          </Reveal>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </Section>
+);
 
 export default About;

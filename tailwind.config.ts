@@ -5,12 +5,23 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["'Open Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
+        montserrat: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      letterSpacing: {
+        tightest: "-0.04em",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        navy: "hsl(var(--navy))",
+        ink: "hsl(var(--ink))",
+        gold: "hsl(var(--gold))",
+        surface: "hsl(var(--surface))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

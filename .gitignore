@@ -1,9 +1,16 @@
 node_modules
 dist
 .DS_Store
-server/public
-vite.config.ts.*
+.env
+.env.local
 *.tar.gz
+vite.config.ts.*
+
+# Legacy / tooling leftovers
+.replit
+.config
+attached_assets
+generated-icon.png
 
 # Docker
 .dockerignore

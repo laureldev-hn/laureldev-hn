@@ -1,71 +1,56 @@
-import { motion } from "framer-motion";
-import { FaPython, FaDatabase, FaAws, FaDocker, FaGithub } from 'react-icons/fa';
-import { SiKubernetes, SiJavascript, SiApachekafka } from 'react-icons/si';
-import { BsFillDatabaseFill } from 'react-icons/bs';
+import { Check } from "lucide-react";
+import { Section, SectionHeading } from "@/components/ui/section";
+import { Reveal } from "@/components/ui/reveal";
+import { technologies, integrations } from "@/data/technologies";
 
-interface TechCardProps {
-  icon: React.ReactNode;
-  name: string;
-  delay: number;
-}
+const Technologies = () => (
+  <Section id="tecnologia">
+    <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+      <div>
+        <SectionHeading
+          eyebrow="Tecnología"
+          title="Herramientas maduras, elegidas por lo que sostienen a largo plazo"
+          description="Trabajamos con tecnología probada en producción y con soporte de largo plazo, porque el sistema que construimos hoy tiene que seguir funcionando dentro de diez años."
+        />
 
-const TechCard = ({ icon, name, delay }: TechCardProps) => {
-  return (
-    <motion.div 
-      className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay }}
-    >
-      <div className="text-5xl text-secondary mb-4">{icon}</div>
-      <span className="font-medium text-gray-700">{name}</span>
-    </motion.div>
-  );
-};
-
-const Technologies = () => {
-  const technologies = [
-    { icon: <SiJavascript />, name: "Javascript" },
-    { icon: <FaPython />, name: "Python" },
-    { icon: <BsFillDatabaseFill />, name: "Bases de datos" },
-    { icon: <SiApachekafka />, name: "Kafka" },
-    { icon: <FaDocker />, name: "Docker" },
-    { icon: <SiKubernetes />, name: "Kubernetes" },
-    { icon: <FaAws />, name: "AWS" },
-    { icon: <FaGithub />, name: "GitHub" },
-  ];
-
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary mb-4">Tecnologías que Utilizamos</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-gray-700">
-            Aprovechamos tecnologías de vanguardia para construir soluciones financieras robustas, escalables y seguras.
-          </p>
-        </motion.div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {technologies.map((tech, index) => (
-            <TechCard 
-              key={index}
-              icon={tech.icon}
-              name={tech.name}
-              delay={index * 0.1}
-            />
-          ))}
-        </div>
+        <ul className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-border sm:grid-cols-3 lg:grid-cols-5">
+          {technologies.map((tech, index) => {
+            const Icon = tech.icon;
+            return (
+              <li key={tech.name} className="bg-background">
+                <Reveal
+                  delay={(index % 5) * 0.05}
+                  className="flex h-full flex-col items-center justify-center gap-3 px-3 py-7 text-center"
+                >
+                  <Icon className="h-7 w-7 text-navy" aria-hidden />
+                  <span className="text-xs font-semibold text-ink/70">{tech.name}</span>
+                </Reveal>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </section>
-  );
-};
+
+      <Reveal className="rounded-2xl border border-border bg-surface p-8 md:p-10">
+        <h3 className="font-montserrat text-xl font-bold text-navy">
+          Integramos con lo que ya tienes
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          No te pedimos que reemplaces tu core para poder trabajar contigo. Construimos sobre la
+          infraestructura que tu institución ya opera y ya conoce.
+        </p>
+
+        <ul className="mt-8 space-y-4">
+          {integrations.map((integration) => (
+            <li key={integration} className="flex items-start gap-3">
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
+              <span className="text-sm text-ink/80">{integration}</span>
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+    </div>
+  </Section>
+);
 
 export default Technologies;

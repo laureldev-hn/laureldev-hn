@@ -1,60 +1,131 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Activity, GitBranch } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Eyebrow } from "@/components/ui/section";
+import { SectionLink } from "@/components/SectionLink";
 
-const Hero = () => {
-  return (
-    <section className="hero-gradient text-secondary overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 py-10 md:py-28">
-        <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center">
-          <motion.div 
-            className="order-2 md:order-1"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Eliminado el logo pequeño */}
-            
-            <h1 className="font-montserrat font-bold text-3xl md:text-5xl lg:text-6xl leading-tight mb-3 md:mb-6">
-              Transformando Instituciones Financieras
-            </h1>
-            <p className="text-lg md:text-xl mb-4 md:mb-8 text-secondary/80 max-w-lg">
-              Desarrollamos soluciones innovadoras para cooperativas y organizaciones financieras, con la precisión de un carpintero y la innovación de un desarrollador.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="#services" 
-                className="bg-secondary hover:bg-accent text-white font-montserrat font-semibold py-3 px-8 rounded-full text-center transition-all transform hover:scale-105"
-              >
-                Servicios
-              </a>
-              <a 
-                href="#contact" 
-                className="bg-transparent hover:bg-secondary/10 border-2 border-secondary text-secondary font-montserrat font-semibold py-3 px-8 rounded-full text-center transition-all"
-              >
-                Contáctanos
-              </a>
-            </div>
-          </motion.div>
-          
-          <div className="order-1 md:order-2 flex justify-center mb-2 md:mb-0">
-            {/* Imagen principal que ilustra el desarrollo de software */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7 }}
-              className="relative z-10"
-            >
-              <img 
-                src="/hero.png" 
-                alt="Desarrollador trabajando en una plataforma financiera" 
-                className="w-[95%] md:w-full mx-auto max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain" 
-              />
-            </motion.div>
+const trustPoints = [
+  { icon: ShieldCheck, label: "Controles de grado bancario" },
+  { icon: Activity, label: "Onboarding y firma digital" },
+  { icon: GitBranch, label: "El código queda en tu institución" },
+];
+
+const panelRows = [
+  { label: "Canales digitales", value: "Operando", tone: "ok" as const },
+  { label: "Integración con core", value: "Sincronizada", tone: "ok" as const },
+  { label: "Bitácora de auditoría", value: "Completa", tone: "ok" as const },
+  { label: "Tiempo de respuesta", value: "120 ms", tone: "neutral" as const },
+];
+
+const Hero = () => (
+  <section className="relative overflow-hidden bg-navy pb-20 pt-32 text-white md:pb-28 md:pt-40">
+    <div aria-hidden className="absolute inset-0 bg-grid-dark opacity-70" />
+    <div
+      aria-hidden
+      className="absolute -right-32 -top-40 h-[36rem] w-[36rem] rounded-full bg-white/5 blur-3xl"
+    />
+
+    <div className="container relative mx-auto px-4 md:px-6">
+      <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Eyebrow onDark>Socio tecnológico de cooperativas, banca e instituciones</Eyebrow>
+
+          <h1 className="mt-6 font-montserrat text-4xl font-bold leading-[1.05] tracking-tightest text-balance md:text-6xl lg:text-7xl">
+            Tecnología de grado bancario para instituciones que{" "}
+            <span className="relative whitespace-nowrap">
+              no pueden fallar
+              <span aria-hidden className="absolute inset-x-0 -bottom-1 h-1 bg-gold" />
+            </span>
+          </h1>
+
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75 text-pretty">
+            Diseñamos y construimos infraestructura digital para cooperativas y bancos en Honduras y
+            Centroamérica —y también para organismos e instituciones que necesitan onboarding digital,
+            firma electrónica avanzada y plataformas con la trazabilidad que exige un ente regulador.
+          </p>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Button asChild variant="gold" size="xl">
+              <SectionLink href="/#contacto">
+                Agendar un diagnóstico
+                <ArrowRight className="ml-1" />
+              </SectionLink>
+            </Button>
+            <Button asChild variant="onDark" size="xl">
+              <SectionLink href="/#casos">Ver casos de éxito</SectionLink>
+            </Button>
           </div>
-        </div>
+
+          <ul className="mt-12 grid gap-4 sm:grid-cols-3">
+            {trustPoints.map(({ icon: Icon, label }) => (
+              <li key={label} className="flex items-start gap-3 text-sm text-white/70">
+                <Icon className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                {label}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 36 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
+        >
+          <div className="rounded-2xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-sm md:p-8">
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
+              <div>
+                <p className="font-montserrat text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+                  Estado de la plataforma
+                </p>
+                <p className="mt-2 font-montserrat text-xl font-bold">Institución financiera</p>
+              </div>
+              <span className="flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                Estable
+              </span>
+            </div>
+
+            <dl className="divide-y divide-white/10">
+              {panelRows.map((row) => (
+                <div key={row.label} className="flex items-center justify-between py-4">
+                  <dt className="text-sm text-white/60">{row.label}</dt>
+                  <dd
+                    className={
+                      row.tone === "ok"
+                        ? "font-montserrat text-sm font-semibold text-white"
+                        : "font-montserrat text-sm font-semibold text-gold"
+                    }
+                  >
+                    {row.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-2 grid grid-cols-3 gap-4 rounded-xl bg-white/[0.04] p-5">
+              <div>
+                <p className="font-montserrat text-2xl font-bold">+10</p>
+                <p className="mt-1 text-xs text-white/55">años de experiencia</p>
+              </div>
+              <div>
+                <p className="font-montserrat text-2xl font-bold">HN</p>
+                <p className="mt-1 text-xs text-white/55">y toda la región</p>
+              </div>
+              <div>
+                <p className="font-montserrat text-2xl font-bold">24/7</p>
+                <p className="mt-1 text-xs text-white/55">soporte acordado</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Hero;

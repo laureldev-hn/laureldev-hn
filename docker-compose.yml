@@ -1,26 +1,9 @@
-version: '3.8'
-
 services:
   landing-dev:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: laureldev-landing-dev
-    ports:
-      - "5173:5173"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-    stdin_open: true
-    tty: true
-
-  landing-dev-standard:
-    build:
-      context: .
-      dockerfile: Dockerfile.standard
-    container_name: laureldev-landing-dev-standard
     ports:
       - "5173:5173"
     volumes:
@@ -39,4 +22,3 @@ services:
     ports:
       - "80:80"
     restart: unless-stopped
-
