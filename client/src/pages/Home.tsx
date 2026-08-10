@@ -1,11 +1,12 @@
-import { useEffect } from "react";
 import LandingPage from "@/components/LandingPage";
+import { useDocumentMeta } from "@/hooks/use-document-meta";
+import { siteConfig } from "@/data/site";
 
 export default function Home() {
-  useEffect(() => {
-    // Set page title
-    document.title = "LaurelDev - Financial Technology Solutions";
-  }, []);
+  useDocumentMeta({
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+  });
 
   return <LandingPage />;
 }

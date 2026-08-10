@@ -1,31 +1,55 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { MapPin, Mail, Phone, Check } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Section, SectionHeading } from "@/components/ui/section";
+import { Reveal } from "@/components/ui/reveal";
 import { useToast } from "@/hooks/use-toast";
+import { siteConfig } from "@/data/site";
 
-// Form validation schema
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
-  email: z.string().email({ message: "Por favor, ingrese una dirección de correo electrónico válida" }),
-  company: z.string().min(2, { message: "El nombre de la empresa debe tener al menos 2 caracteres" }),
+  email: z.string().email({ message: "Ingresa un correo electrónico válido" }),
+  company: z.string().min(2, { message: "Indica el nombre de tu institución" }),
   subject: z.string().min(3, { message: "El asunto debe tener al menos 3 caracteres" }),
-  message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres" }),
+  message: z.string().min(10, { message: "Cuéntanos un poco más, al menos 10 caracteres" }),
+  website: z.string().max(0).optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
+const CONTACT_ENDPOINT =
+  import.meta.env.VITE_CONTACT_ENDPOINT ??
+  "https://script.google.com/macros/s/AKfycbwxYPHi5GQGIdTRkqlI7VW1T6NOAXzDomDreRZ0Yf0mBlZxdAvcrqCvqZ4AFS4896Oy/exec";
+
+const expectations = [
+  "Respondemos en menos de un día hábil.",
+  "La primera conversación es un diagnóstico para entender tu situación.",
+  "Firmamos acuerdo de confidencialidad antes de revisar información sensible.",
+];
+
+const contactItems = [
+  { icon: MapPin, label: "Ubicación", value: siteConfig.location, href: undefined },
+  { icon: Mail, label: "Correo", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
+  { icon: Phone, label: "Teléfono", value: siteConfig.phone, href: `tel:${siteConfig.phoneHref}` },
+];
+
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  
-  // Initialize form with default values
+
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -34,50 +58,47 @@ const Contact = () => {
       company: "",
       subject: "",
       message: "",
+      website: "",
     },
     mode: "onChange",
   });
 
-  // URL del Google Script
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxYPHi5GQGIdTRkqlI7VW1T6NOAXzDomDreRZ0Yf0mBlZxdAvcrqCvqZ4AFS4896Oy/exec";
-
-  // Form submission handler
   const onSubmit = async (data: ContactFormValues) => {
+    // Campo trampa: si viene lleno, es un bot. Simulamos éxito y descartamos.
+    if (data.website) {
+      form.reset();
+      return;
+    }
+
     setIsSubmitting(true);
-    
+
     try {
-      // Formatear los datos según la estructura requerida
-      const formattedData = {
-        nombre: data.name,
-        email: data.email,
-        asunto: data.subject,
-        empresa: data.company,
-        mensaje: data.message
-      };
-      
-      // Enviar datos al Google Script
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+      await fetch(CONTACT_ENDPOINT, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formattedData),
-        mode: "no-cors" // Necesario para peticiones a Google Scripts
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: data.name,
+          email: data.email,
+          asunto: data.subject,
+          empresa: data.company,
+          mensaje: data.message,
+        }),
+        // Google Apps Script no expone cabeceras CORS, así que la respuesta no es legible.
+        mode: "no-cors",
       });
-      
-      // Dado que mode: 'no-cors' no permite leer la respuesta, asumimos éxito
+
       toast({
-        title: "¡Mensaje enviado con éxito!",
-        description: "Gracias por contactarnos. Te responderemos lo antes posible.",
+        title: "Mensaje enviado",
+        description: "Gracias por escribirnos. Te respondemos en menos de un día hábil.",
         duration: 5000,
       });
-      
+
       form.reset();
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       toast({
-        title: "Error al enviar el mensaje",
-        description: "Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente por teléfono.",
+        title: "No pudimos enviar tu mensaje",
+        description: `Intenta de nuevo o escríbenos directamente a ${siteConfig.email}.`,
         variant: "destructive",
       });
     } finally {
@@ -85,204 +106,154 @@ const Contact = () => {
     }
   };
 
-  // Contact information items
-  const contactItems = [
-    {
-      icon: <MapPin className="text-secondary" />,
-      title: "Nuestra Ubicación",
-      content: "Goascorán, Valle",
-    },
-    {
-      icon: <Mail className="text-secondary" />,
-      title: "Correo Electrónico",
-      content: "contact@laureldev.hn",
-    },
-    {
-      icon: <Phone className="text-secondary" />,
-      title: "Llámanos",
-      content: "+504 3160-3102",
-    },
-  ];
-
-  // Social media links
-  const socialLinks = [
-    { icon: <Linkedin className="text-xl text-white" />, url: "#" },
-    { icon: <Twitter className="text-xl text-white" />, url: "#" },
-    { icon: <Facebook className="text-xl text-white" />, url: "#" },
-    { icon: <Instagram className="text-xl text-white" />, url: "#" },
-  ];
-
   return (
-    <section id="contact" className="py-20 bg-secondary">
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">Ponte en Contacto</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-gray-300">
-            Nos Encantaría Saber de Ti
-          </p>
-        </motion.div>
-        
-        <div className="grid md:grid-cols-2 gap-12">
-          <motion.div 
-            className="bg-white rounded-xl shadow-lg p-8"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+    <Section id="contacto" tone="surface">
+      <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Hablemos"
+            title="Agenda un diagnóstico sin costo para tu institución"
+            description="Cuéntanos qué te está frenando hoy. Revisamos tu situación con un arquitecto y te proponemos el mejor camino para avanzar."
+          />
+
+          <ul className="mt-10 space-y-4">
+            {expectations.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
+                <span className="text-sm text-ink/80">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <dl className="mt-12 grid gap-6 border-t border-border pt-10 sm:grid-cols-3 lg:grid-cols-1">
+            {contactItems.map(({ icon: Icon, label, value, href }) => (
+              <div key={label} className="flex items-start gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-navy/15 bg-background">
+                  <Icon className="h-4 w-4 text-navy" aria-hidden />
+                </span>
+                <div>
+                  <dt className="font-montserrat text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    {label}
+                  </dt>
+                  <dd className="mt-1 text-sm text-ink">
+                    {href ? (
+                      <a href={href} className="transition-colors hover:text-navy">
+                        {value}
+                      </a>
+                    ) : (
+                      value
+                    )}
+                  </dd>
+                </div>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+
+        <Reveal delay={0.1} className="rounded-2xl border border-border bg-background p-8 md:p-10">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
+              <div className="grid gap-6 sm:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Nombre Completo</FormLabel>
+                      <FormLabel>Nombre completo</FormLabel>
                       <FormControl>
-                        <Input 
-                          {...field} 
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                        />
+                        <Input {...field} autoComplete="name" className="h-12" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Correo Electrónico</FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          type="email" 
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
+
                 <FormField
                   control={form.control}
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Empresa</FormLabel>
+                      <FormLabel>Institución</FormLabel>
                       <FormControl>
-                        <Input 
-                          {...field} 
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                        />
+                        <Input {...field} autoComplete="organization" className="h-12" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Asunto</FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                          placeholder="Ingresa el asunto de tu mensaje"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Mensaje</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          {...field} 
-                          rows={4} 
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <Button 
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-secondary text-secondary hover:text-white font-montserrat font-semibold py-6 rounded-lg transition-all"
-                >
-                  {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
-                </Button>
-              </form>
-            </Form>
-          </motion.div>
-          
-          <motion.div 
-            className="text-white"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="font-montserrat font-bold text-2xl mb-6">Ponte en Contacto</h3>
-            
-            <div className="space-y-6">
-              {contactItems.map((item, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-full">
-                      {item.icon}
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="font-montserrat font-semibold text-lg">{item.title}</h4>
-                    <p className="text-gray-300 mt-1">{item.content}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-12">
-              <h3 className="font-montserrat font-bold text-2xl mb-6">Síguenos</h3>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a 
-                    key={index}
-                    href={social.url} 
-                    className="flex items-center justify-center w-12 h-12 bg-[#f0290c] hover:bg-[#d32409] rounded-full transition-all"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {social.icon}
-                  </a>
-                ))}
               </div>
-            </div>
-          </motion.div>
-        </div>
+
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Correo corporativo</FormLabel>
+                    <FormControl>
+                      <Input {...field} type="email" autoComplete="email" className="h-12" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Asunto</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        className="h-12"
+                        placeholder="Ej. Canal digital para asociados"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>¿Qué necesitas resolver?</FormLabel>
+                    <FormControl>
+                      <Textarea {...field} rows={5} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="website"
+                render={({ field }) => (
+                  <FormItem className="hidden" aria-hidden>
+                    <FormControl>
+                      <Input {...field} tabIndex={-1} autoComplete="off" />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <Button type="submit" size="xl" disabled={isSubmitting} className="w-full">
+                {isSubmitting ? "Enviando..." : "Solicitar diagnóstico"}
+              </Button>
+
+              <p className="text-xs text-muted-foreground">
+                Al enviar aceptas que te contactemos para dar seguimiento a tu solicitud. No
+                compartimos tus datos con terceros.
+              </p>
+            </form>
+          </Form>
+        </Reveal>
       </div>
-    </section>
+    </Section>
   );
 };
 

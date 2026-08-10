@@ -40,6 +40,11 @@ jobs:
             cp client/public/CNAME dist/CNAME
           fi
 
+      # GitHub Pages no reescribe rutas, así que servimos la SPA desde 404.html
+      # para que /servicios/:slug y /casos/:slug funcionen con enlace directo.
+      - name: Add SPA fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

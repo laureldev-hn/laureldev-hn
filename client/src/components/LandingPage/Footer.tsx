@@ -1,88 +1,128 @@
 import { Link } from "wouter";
+import { Linkedin, Facebook, Instagram, Github, Mail, Phone, MapPin } from "lucide-react";
+import { SectionLink } from "@/components/SectionLink";
+import { services } from "@/data/services";
+import { siteConfig, navItems } from "@/data/site";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
-  const footerLinks = {
-    services: [
-      { name: "Soluciones de Banca Móvil", href: "#services" },
-      { name: "Seguridad y Cumplimiento", href: "#services" },
-      { name: "Análisis de Datos", href: "#services" },
-      { name: "Procesamiento de Pagos", href: "#services" },
-      { name: "IA y Aprendizaje Automático", href: "#services" },
-    ],
-    company: [
-      { name: "Sobre Nosotros", href: "#about" },
-      { name: "¿Por Qué Elegirnos?", href: "#why-us" },
-      { name: "Nuestros Clientes", href: "#clients" },
-      { name: "Contáctanos", href: "#contact" },
-    ],
-  };
+const socialLinks = [
+  { icon: Linkedin, label: "LinkedIn", href: siteConfig.social.linkedin },
+  { icon: Facebook, label: "Facebook", href: siteConfig.social.facebook },
+  { icon: Instagram, label: "Instagram", href: siteConfig.social.instagram },
+  { icon: Github, label: "GitHub", href: siteConfig.social.github },
+];
 
-  return (
-    <footer className="bg-dark py-12">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div>
-            <a href="#" className="inline-block mb-6">
-              <img src="/assets/laureldev_logo.png" alt="LaurelDev Logo" className="h-12" />
-            </a>
-            <p className="text-[#11385b] mb-6 font-medium">
-              Transformando instituciones financieras a través de soluciones tecnológicas innovadoras.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-[#11385b] hover:text-white transition-all">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" className="text-[#11385b] hover:text-white transition-all">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="text-[#11385b] hover:text-white transition-all">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="text-[#11385b] hover:text-white transition-all">
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">Servicios</h4>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-[#11385b] hover:text-white transition-all font-medium">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-montserrat font-semibold text-white text-lg mb-6">Empresa</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-[#11385b] hover:text-white transition-all font-medium">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+const Footer = () => (
+  <footer className="bg-ink text-white">
+    <div className="container mx-auto px-4 py-16 md:px-6 md:py-20">
+      <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div>
+          <Link href="/" aria-label="LaurelDev, ir al inicio">
+            {/* El logo institucional es azul marino, lo pasamos a blanco para el fondo oscuro */}
+            <img
+              src="/logo-header.png"
+              alt="LaurelDev"
+              loading="lazy"
+              className="h-10 w-auto brightness-0 invert"
+            />
+          </Link>
+          <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/60">
+            {siteConfig.description}
+          </p>
+
+          <ul className="mt-8 flex gap-3">
+            {socialLinks.map(({ icon: Icon, label, href }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-gold hover:text-gold"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        
-        <div className="border-t border-gray-800 pt-6">
-          <div className="flex flex-col md:flex-row justify-center items-center">
-            <p className="text-[#11385b] font-medium text-center">
-              Copyright 2025 LaurelDev. Todos los derechos reservados.
-            </p>
-          </div>
+
+        <nav aria-label="Servicios">
+          <h2 className="font-montserrat text-xs font-semibold uppercase tracking-[0.16em] text-white/40">
+            Servicios
+          </h2>
+          <ul className="mt-6 space-y-3">
+            {services.map((service) => (
+              <li key={service.slug}>
+                <Link
+                  href={`/servicios/${service.slug}`}
+                  className="text-sm text-white/70 transition-colors hover:text-gold"
+                >
+                  {service.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Compañía">
+          <h2 className="font-montserrat text-xs font-semibold uppercase tracking-[0.16em] text-white/40">
+            Compañía
+          </h2>
+          <ul className="mt-6 space-y-3">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <SectionLink
+                  href={item.href}
+                  className="text-sm text-white/70 transition-colors hover:text-gold"
+                >
+                  {item.label}
+                </SectionLink>
+              </li>
+            ))}
+            <li>
+              <SectionLink
+                href="/#faq"
+                className="text-sm text-white/70 transition-colors hover:text-gold"
+              >
+                Preguntas frecuentes
+              </SectionLink>
+            </li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 className="font-montserrat text-xs font-semibold uppercase tracking-[0.16em] text-white/40">
+            Contacto
+          </h2>
+          <ul className="mt-6 space-y-4 text-sm text-white/70">
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
+              {siteConfig.location}
+            </li>
+            <li className="flex items-start gap-3">
+              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
+              <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-gold">
+                {siteConfig.email}
+              </a>
+            </li>
+            <li className="flex items-start gap-3">
+              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
+              <a href={`tel:${siteConfig.phoneHref}`} className="transition-colors hover:text-gold">
+                {siteConfig.phone}
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          Copyright {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
+        </p>
+        <p>Hecho en Honduras para cooperativas, banca e instituciones de la región.</p>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

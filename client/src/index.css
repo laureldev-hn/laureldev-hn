@@ -4,41 +4,44 @@
 
 @layer base {
   :root {
-    --background: 42 99% 61%; /* #fec53a - primary color as background */
-    --foreground: 222 47% 11%;
-    
-    /* Brand Colors */
-    --primary: 42 99% 61%; /* #fec53a */
-    --primary-foreground: 211 69% 21%; /* #11385b text on primary */
-    
-    --secondary: 211 69% 21%; /* #11385b */
-    --secondary-foreground: 0 0% 100%;
-    
-    --accent: 6 87% 49%; /* #F0290C */
-    --accent-foreground: 0 0% 100%;
-    
-    --dark: 0 0% 13%; /* #212222 */
-    
-    /* Shadcn System Colors */
+    --background: 0 0% 100%;
+    --foreground: 180 2% 13%; /* #212222 */
+
+    /* Brand */
+    --navy: 207 68% 21%; /* #113858 */
+    --ink: 180 2% 13%; /* #212222 */
+    --gold: 42 99% 61%; /* #fec53a - reservado para acentos */
+    --surface: 220 20% 97%; /* #f6f7f9 */
+
+    --primary: 207 68% 21%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 97%;
+    --secondary-foreground: 207 68% 21%;
+
+    /* accent = estado hover neutro de los primitivos shadcn, no el dorado */
+    --accent: 220 20% 95%;
+    --accent-foreground: 207 68% 21%;
+
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    
+    --card-foreground: 180 2% 13%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    
-    --ring: 42 99% 61%;
+    --popover-foreground: 180 2% 13%;
+
+    --muted: 220 16% 96%;
+    --muted-foreground: 215 14% 42%;
+
+    --border: 214 20% 91%;
+    --input: 214 20% 89%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 207 68% 21%;
     --radius: 0.5rem;
   }
- 
+
   * {
     @apply border-border;
   }
@@ -46,31 +49,10 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-    color-scheme: light !important;
+    scroll-padding-top: 6rem;
+    color-scheme: light only;
   }
 
-  body {
-    color-scheme: light !important;
-    background-color: #fec53a !important;
-  }
-
-  /* Force light theme for all elements */
-  *, *::before, *::after {
-    color-scheme: light !important;
-  }
-
-  /* Prevent dark mode auto-detection */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: light !important;
-    }
-    
-    body {
-      background-color: #fec53a !important;
-      color: #212222 !important;
-    }
-  }
-  
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Open Sans', sans-serif;
@@ -81,24 +63,35 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
   }
+
+  ::selection {
+    background-color: hsl(var(--navy));
+    color: #fff;
+  }
 }
 
 @layer components {
-  .clip-diagonal-top {
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  /* Retícula técnica tenue: da sensación de ingeniería sin recurrir al color */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--navy) / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--navy) / 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
   }
-  
-  .clip-diagonal-bottom {
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
   }
-  
-  .bg-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0290c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  .mask-fade-y {
+    mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
   }
-  
-  .hero-gradient {
-    background-color: #fec53a; /* Primary gold color */
-    background-image: linear-gradient(135deg, #fec53a 0%, #fec53a 100%);
+
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
 }
 
@@ -106,19 +99,42 @@
   .nav-link {
     position: relative;
   }
-  
+
   .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -4px;
+    bottom: -6px;
     left: 0;
-    background-color: theme('colors.primary.DEFAULT');
-    transition: width 0.3s ease;
+    background-color: hsl(var(--gold));
+    transition: width 0.25s ease;
   }
-  
-  .nav-link:hover::after {
+
+  .nav-link:hover::after,
+  .nav-link[data-active='true']::after {
     width: 100%;
   }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee { animation: none; }
 }
