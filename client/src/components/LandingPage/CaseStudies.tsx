@@ -29,7 +29,7 @@ const CaseStudies = () => (
               {featuredCase.headline}
             </h3>
             <p className="mt-2 font-montserrat text-sm font-semibold text-ink/60">
-              {featuredCase.client}
+              {featuredCase.clientProfile}
             </p>
 
             <dl className="mt-10 space-y-7">

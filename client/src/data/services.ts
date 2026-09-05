@@ -37,7 +37,7 @@ export const services: Service[] = [
       "Panel administrativo para tu equipo de operaciones",
     ],
     stack: ["React Native", "Node.js", "PostgreSQL", "AWS"],
-    relatedCases: ["cooperativa-chorotega"],
+    relatedCases: ["banca-movil-con-soft-token", "canales-digitales-unificados"],
   },
   {
     slug: "seguridad-y-cumplimiento",
@@ -55,7 +55,7 @@ export const services: Service[] = [
       "Documentación técnica para el ente regulador",
     ],
     stack: ["OWASP ASVS", "Keycloak", "HashiCorp Vault", "SIEM"],
-    relatedCases: ["cooperativa-sagrada-familia"],
+    relatedCases: ["banca-movil-con-soft-token", "plataforma-de-integracion-microservicios"],
   },
   {
     slug: "datos-y-analitica",
@@ -73,7 +73,7 @@ export const services: Service[] = [
       "Reportería regulatoria automatizada",
     ],
     stack: ["Python", "Apache Kafka", "PostgreSQL", "Metabase"],
-    relatedCases: ["cooperativa-chorotega"],
+    relatedCases: ["plataforma-de-integracion-microservicios"],
   },
   {
     slug: "pagos-e-integraciones",
@@ -91,7 +91,11 @@ export const services: Service[] = [
       "Monitoreo de disponibilidad de servicios",
     ],
     stack: ["REST / ISO 8583", "Apache Kafka", "Docker", "Kubernetes"],
-    relatedCases: ["cooperativa-sagrada-familia"],
+    relatedCases: [
+      "plataforma-de-integracion-microservicios",
+      "canales-digitales-unificados",
+      "banca-movil-con-soft-token",
+    ],
   },
   {
     slug: "onboarding-y-firma-electronica",
@@ -109,7 +113,7 @@ export const services: Service[] = [
       "Expediente digital listo para operaciones y cumplimiento",
     ],
     stack: ["TypeScript", "React", "UANATACA", "AWS"],
-    relatedCases: ["cooperativa-chorotega"],
+    relatedCases: ["banca-movil-con-soft-token"],
   },
   {
     slug: "desarrollo-a-la-medida",
@@ -127,7 +131,11 @@ export const services: Service[] = [
       "Soporte y evolución continua",
     ],
     stack: ["TypeScript", "React", "Node.js", "PostgreSQL"],
-    relatedCases: ["cooperativa-chorotega", "cooperativa-sagrada-familia"],
+    relatedCases: [
+      "plataforma-de-integracion-microservicios",
+      "canales-digitales-unificados",
+      "banca-movil-con-soft-token",
+    ],
   },
 ];
 

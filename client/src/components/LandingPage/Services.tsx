@@ -21,12 +21,7 @@ const Services = () => (
             delay={(index % 3) * 0.08}
             className="group relative flex flex-col bg-background p-8 transition-colors hover:bg-surface"
           >
-            <div className="flex items-start justify-between">
-              <Icon className="h-7 w-7 text-navy" aria-hidden />
-              <span className="font-montserrat text-xs font-semibold tracking-[0.18em] text-muted-foreground/60">
-                {service.code}
-              </span>
-            </div>
+            <Icon className="h-7 w-7 text-navy" aria-hidden />
 
             <h3 className="mt-6 font-montserrat text-xl font-bold text-navy">{service.title}</h3>
 
