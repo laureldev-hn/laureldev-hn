@@ -14,18 +14,21 @@ export const metrics: Metric[] = [
     detail: "Construyendo y sosteniendo sistemas críticos para instituciones reguladas.",
   },
   {
-    value: "00",
+    value: "+10",
     label: "Instituciones atendidas",
-    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    detail:
+      "Cooperativas, banca y organismos con los que hemos construido o sostenido sistemas en producción.",
   },
   {
-    value: "00%",
+    value: "99.9%",
     label: "Disponibilidad de plataformas",
-    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    detail:
+      "Canales digitales en producción, con monitoreo continuo para que el afiliado/cliente encuentre el servicio cuando lo necesita.",
   },
   {
-    value: "00k",
-    label: "Asociados impactados",
-    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    value: "+500k",
+    label: "Personas impactadas",
+    detail:
+      "Asociados de cooperativas y beneficiarios de programas institucionales a los que llegan las plataformas que construimos.",
   },
 ];

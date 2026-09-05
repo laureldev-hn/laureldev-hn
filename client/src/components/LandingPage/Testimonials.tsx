@@ -54,7 +54,7 @@ const Testimonials = () => {
           </button>
 
           <span className="font-montserrat text-sm font-semibold tabular-nums text-muted-foreground">
-            {String(index + 1).padStart(2, "0")} — {String(total).padStart(2, "0")}
+            {index + 1} — {total}
           </span>
 
           <button

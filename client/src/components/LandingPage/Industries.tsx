@@ -20,12 +20,7 @@ const Industries = () => (
             delay={(index % 2) * 0.1}
             className="border-t border-white/15 pt-8"
           >
-            <div className="flex items-center gap-4">
-              <span className="font-montserrat text-sm font-semibold text-gold">
-                {industry.code}
-              </span>
-              <Icon className="h-5 w-5 text-white/50" aria-hidden />
-            </div>
+            <Icon className="h-5 w-5 text-white/50" aria-hidden />
 
             <h3 className="mt-5 font-montserrat text-2xl font-bold text-white">{industry.name}</h3>
             <p className="mt-4 max-w-md leading-relaxed text-white/70">{industry.description}</p>

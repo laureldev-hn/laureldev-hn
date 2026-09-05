@@ -22,12 +22,12 @@ export const faqs: FaqItem[] = [
   {
     question: "¿Cómo cobran y cómo son los contratos?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Trabajamos por proyecto cerrado o por equipo dedicado mensual, según el tipo de iniciativa. Definimos alcance y entregables antes de firmar.",
+      "Según el tipo de iniciativa: implementación de nuestras plataformas, desarrollo a la medida pagado por fases, o un equipo con bolsa de horas para un proyecto puntual. El contrato fija un alcance determinado —ampliable si hace falta—, entregables por hito en ambientes de pruebas y producción, y un acuerdo de confidencialidad. En el trabajo a la medida el código es de la institución; en una implementación podemos dejarlo en tu custodia para continuidad del servicio. Arrancamos con tu requerimiento o términos de referencia, un diagnóstico para despejar dudas y una propuesta concreta; el esquema habitual es un anticipo y pagos al completar cada hito.",
   },
   {
     question: "¿Qué pasa después de que el sistema entra en producción?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ofrecemos acuerdos de soporte con tiempos de respuesta definidos, monitoreo de disponibilidad y un plan de evolución trimestral.",
+      "El pase a producción no es el final del acompañamiento. En cada propuesta incluimos soporte posterior, garantía sobre nuestro trabajo —con una duración que se acuerda según la criticidad del sistema— y presencia en los pilotajes, para que la institución no quede sola cuando los asociados empiezan a usar el canal.",
   },
   {
     question: "¿Trabajan con instituciones fuera de Honduras?",

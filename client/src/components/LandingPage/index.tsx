@@ -6,6 +6,7 @@ import Industries from "./Industries";
 import CaseStudies from "./CaseStudies";
 import Metrics from "./Metrics";
 import Security from "./Security";
+import Partnership from "./Partnership";
 import Process from "./Process";
 import Technologies from "./Technologies";
 import About from "./About";
@@ -23,6 +24,7 @@ const LandingPage = () => (
     <CaseStudies />
     <Metrics />
     <Security />
+    <Partnership />
     <Process />
     <Technologies />
     <About />

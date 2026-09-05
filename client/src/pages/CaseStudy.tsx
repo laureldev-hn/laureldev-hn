@@ -15,7 +15,7 @@ const CaseStudyPage = () => {
 
   useDocumentMeta({
     title: study
-      ? `${study.client} — Caso de éxito | ${siteConfig.name}`
+      ? `${study.headline} — Caso de éxito | ${siteConfig.name}`
       : `Caso no encontrado | ${siteConfig.name}`,
     description: study?.summary,
   });
@@ -33,9 +33,9 @@ const CaseStudyPage = () => {
         breadcrumbs={[
           { label: "Inicio", href: "/" },
           { label: "Casos de éxito", href: "/#casos" },
-          { label: study.client },
+          { label: study.sector },
         ]}
-        meta={[study.client, study.sector, study.year]}
+        meta={[study.clientProfile, study.sector, study.year]}
       />
 
       <Section>
@@ -129,7 +129,7 @@ const CaseStudyPage = () => {
                 className="group flex flex-col rounded-xl border border-border bg-background p-8 transition-colors hover:border-navy/30"
               >
                 <span className="font-montserrat text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                  {item.client}
+                  {item.sector}
                 </span>
                 <h3 className="mt-4 font-montserrat text-xl font-bold text-navy">{item.headline}</h3>
                 <span className="mt-6 inline-flex items-center gap-2 font-montserrat text-sm font-semibold text-navy">

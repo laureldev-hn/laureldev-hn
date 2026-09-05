@@ -40,7 +40,6 @@ const ServicePage = () => {
           { label: "Servicios", href: "/#servicios" },
           { label: service.title },
         ]}
-        meta={[service.code]}
       />
 
       <Section>
@@ -82,7 +81,7 @@ const ServicePage = () => {
                     >
                       <div>
                         <span className="font-montserrat text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                          {item.client}
+                          {item.sector}
                         </span>
                         <p className="mt-2 font-montserrat font-bold text-navy">{item.headline}</p>
                       </div>
