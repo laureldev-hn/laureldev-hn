@@ -3,6 +3,7 @@ import { ArrowUpRight, Check, Quote } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import ContactCta from "@/components/ContactCta";
 import NotFound from "@/pages/not-found";
+import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
@@ -57,7 +58,12 @@ const CaseStudyPage = () => {
 
             <Reveal>
               <h2 className="font-montserrat text-2xl font-bold text-navy">Arquitectura</h2>
-              <ul className="mt-6 space-y-4">
+              {study.architectureLayers ? (
+                <div className="mt-6">
+                  <ArchitectureDiagram layers={study.architectureLayers} heading={false} />
+                </div>
+              ) : null}
+              <ul className={study.architectureLayers ? "mt-8 space-y-4" : "mt-6 space-y-4"}>
                 {study.architecture.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />

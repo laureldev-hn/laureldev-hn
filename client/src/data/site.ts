@@ -10,11 +10,9 @@ export const siteConfig = {
   phoneHref: "+50431603102",
   location: "Goascorán, Valle, Honduras",
   whatsapp: "https://wa.me/50431603102",
+  calendarUrl: "https://calendar.app.google/TvGksbgcYsnLJFRY9",
   social: {
-    linkedin: "#",
-    facebook: "#",
-    instagram: "#",
-    github: "#",
+    linkedin: "https://www.linkedin.com/company/laurel-dev/",
   },
 };
 
@@ -28,6 +26,7 @@ export const navItems: NavItem[] = [
   { label: "Industrias", href: "/#industrias" },
   { label: "Casos de éxito", href: "/#casos" },
   { label: "Seguridad", href: "/#seguridad" },
+  { label: "Alianza", href: "/#alianza" },
   { label: "Nosotros", href: "/#nosotros" },
 ];
 

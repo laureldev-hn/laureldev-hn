@@ -3,6 +3,7 @@ import { ArrowRight, ShieldCheck, Activity, GitBranch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section";
 import { SectionLink } from "@/components/SectionLink";
+import { siteConfig } from "@/data/site";
 
 const trustPoints = [
   { icon: ShieldCheck, label: "Controles de grado bancario" },
@@ -11,10 +12,10 @@ const trustPoints = [
 ];
 
 const panelRows = [
-  { label: "Canales digitales", value: "Operando", tone: "ok" as const },
-  { label: "Integración con core", value: "Sincronizada", tone: "ok" as const },
-  { label: "Bitácora de auditoría", value: "Completa", tone: "ok" as const },
-  { label: "Tiempo de respuesta", value: "120 ms", tone: "neutral" as const },
+  { label: "Canales digitales", value: "En producción", tone: "ok" as const },
+  { label: "Integraciones", value: "15 VM → 1 clúster", tone: "ok" as const },
+  { label: "Disponibilidad", value: "99.9%", tone: "ok" as const },
+  { label: "Firma electrónica", value: "Prestador acreditado", tone: "neutral" as const },
 ];
 
 const Hero = () => (
@@ -50,10 +51,10 @@ const Hero = () => (
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Button asChild variant="gold" size="xl">
-              <SectionLink href="/#contacto">
+              <a href={siteConfig.calendarUrl} target="_blank" rel="noopener noreferrer">
                 Agendar un diagnóstico
                 <ArrowRight className="ml-1" />
-              </SectionLink>
+              </a>
             </Button>
             <Button asChild variant="onDark" size="xl">
               <SectionLink href="/#casos">Ver casos de éxito</SectionLink>
@@ -80,9 +81,9 @@ const Hero = () => (
             <div className="flex items-center justify-between border-b border-white/10 pb-5">
               <div>
                 <p className="font-montserrat text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
-                  Estado de la plataforma
+                  Plataforma en producción
                 </p>
-                <p className="mt-2 font-montserrat text-xl font-bold">Institución financiera</p>
+                <p className="mt-2 font-montserrat text-xl font-bold">Cooperativa de ahorro y crédito</p>
               </div>
               <span className="flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
@@ -92,13 +93,13 @@ const Hero = () => (
 
             <dl className="divide-y divide-white/10">
               {panelRows.map((row) => (
-                <div key={row.label} className="flex items-center justify-between py-4">
+                <div key={row.label} className="flex items-center justify-between gap-4 py-4">
                   <dt className="text-sm text-white/60">{row.label}</dt>
                   <dd
                     className={
                       row.tone === "ok"
-                        ? "font-montserrat text-sm font-semibold text-white"
-                        : "font-montserrat text-sm font-semibold text-gold"
+                        ? "text-right font-montserrat text-sm font-semibold text-white"
+                        : "text-right font-montserrat text-sm font-semibold text-gold"
                     }
                   >
                     {row.value}
@@ -113,12 +114,12 @@ const Hero = () => (
                 <p className="mt-1 text-xs text-white/55">años de experiencia</p>
               </div>
               <div>
-                <p className="font-montserrat text-2xl font-bold">HN</p>
-                <p className="mt-1 text-xs text-white/55">y toda la región</p>
+                <p className="font-montserrat text-2xl font-bold">+500k</p>
+                <p className="mt-1 text-xs text-white/55">personas impactadas</p>
               </div>
               <div>
-                <p className="font-montserrat text-2xl font-bold">24/7</p>
-                <p className="mt-1 text-xs text-white/55">soporte acordado</p>
+                <p className="font-montserrat text-2xl font-bold">99.9%</p>
+                <p className="mt-1 text-xs text-white/55">disponibilidad</p>
               </div>
             </div>
           </div>
