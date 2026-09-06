@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionLink } from "@/components/SectionLink";
-import { navItems } from "@/data/site";
+import { navItems, siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -39,7 +39,7 @@ const Navbar = () => {
             <img src="/logo-header.png" alt="LaurelDev" className="h-9 w-auto" />
           </Link>
 
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-6 xl:flex">
             {navItems.map((item) => (
               <SectionLink
                 key={item.href}
@@ -51,15 +51,17 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <Button asChild size="default">
-              <SectionLink href="/#contacto">Agendar diagnóstico</SectionLink>
+              <a href={siteConfig.calendarUrl} target="_blank" rel="noopener noreferrer">
+                Agendar diagnóstico
+              </a>
             </Button>
           </div>
 
           <button
             type="button"
-            className="text-navy lg:hidden"
+            className="text-navy xl:hidden"
             onClick={() => setMobileMenuOpen((open) => !open)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -69,7 +71,7 @@ const Navbar = () => {
         </div>
 
         {mobileMenuOpen ? (
-          <div className="border-t border-border py-6 lg:hidden">
+          <div className="border-t border-border py-6 xl:hidden">
             <div className="flex flex-col gap-1">
               {navItems.map((item) => (
                 <SectionLink
@@ -82,9 +84,9 @@ const Navbar = () => {
                 </SectionLink>
               ))}
               <Button asChild size="lg" className="mt-4">
-                <SectionLink href="/#contacto" onClick={() => setMobileMenuOpen(false)}>
+                <a href={siteConfig.calendarUrl} target="_blank" rel="noopener noreferrer">
                   Agendar diagnóstico
-                </SectionLink>
+                </a>
               </Button>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Mail, Phone, Check } from "lucide-react";
+import { MapPin, Mail, Phone, Check, MessageCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -35,15 +35,18 @@ const CONTACT_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbwxYPHi5GQGIdTRkqlI7VW1T6NOAXzDomDreRZ0Yf0mBlZxdAvcrqCvqZ4AFS4896Oy/exec";
 
 const expectations = [
-  "Respondemos en menos de un día hábil.",
-  "La primera conversación es un diagnóstico para entender tu situación.",
+  "El diagnóstico dura unos 20 minutos y se agenda en el calendario.",
+  "Si prefieres escribir, usamos el formulario o WhatsApp.",
   "Firmamos acuerdo de confidencialidad antes de revisar información sensible.",
 ];
+
+const whatsappHref = `${siteConfig.whatsapp}?text=${encodeURIComponent("Hola, quiero agendar un diagnóstico para mi institución.")}`;
 
 const contactItems = [
   { icon: MapPin, label: "Ubicación", value: siteConfig.location, href: undefined },
   { icon: Mail, label: "Correo", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
   { icon: Phone, label: "Teléfono", value: siteConfig.phone, href: `tel:${siteConfig.phoneHref}` },
+  { icon: MessageCircle, label: "WhatsApp", value: siteConfig.phone, href: whatsappHref },
 ];
 
 const Contact = () => {
@@ -113,8 +116,21 @@ const Contact = () => {
           <SectionHeading
             eyebrow="Hablemos"
             title="Agenda un diagnóstico sin costo para tu institución"
-            description="Cuéntanos qué te está frenando hoy. Revisamos tu situación con un arquitecto y te proponemos el mejor camino para avanzar."
+            description="Elige un horario en el calendario. Un arquitecto revisa tu situación y te propone el mejor camino para avanzar."
           />
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="xl">
+              <a href={siteConfig.calendarUrl} target="_blank" rel="noopener noreferrer">
+                Elegir horario
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="xl">
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+            </Button>
+          </div>
 
           <ul className="mt-10 space-y-4">
             {expectations.map((item) => (
@@ -125,7 +141,7 @@ const Contact = () => {
             ))}
           </ul>
 
-          <dl className="mt-12 grid gap-6 border-t border-border pt-10 sm:grid-cols-3 lg:grid-cols-1">
+          <dl className="mt-12 grid gap-6 border-t border-border pt-10 sm:grid-cols-2 lg:grid-cols-1">
             {contactItems.map(({ icon: Icon, label, value, href }) => (
               <div key={label} className="flex items-start gap-4">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-navy/15 bg-background">
@@ -137,7 +153,13 @@ const Contact = () => {
                   </dt>
                   <dd className="mt-1 text-sm text-ink">
                     {href ? (
-                      <a href={href} className="transition-colors hover:text-navy">
+                      <a
+                        href={href}
+                        className="transition-colors hover:text-navy"
+                        {...(href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
                         {value}
                       </a>
                     ) : (
@@ -151,8 +173,14 @@ const Contact = () => {
         </Reveal>
 
         <Reveal delay={0.1} className="rounded-2xl border border-border bg-background p-8 md:p-10">
+          <p className="font-montserrat text-sm font-semibold text-navy">
+            Prefieres escribirnos
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Respondemos en menos de un día hábil.
+          </p>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 space-y-6" noValidate>
               <div className="grid gap-6 sm:grid-cols-2">
                 <FormField
                   control={form.control}
@@ -242,7 +270,7 @@ const Contact = () => {
               />
 
               <Button type="submit" size="xl" disabled={isSubmitting} className="w-full">
-                {isSubmitting ? "Enviando..." : "Solicitar diagnóstico"}
+                {isSubmitting ? "Enviando..." : "Enviar mensaje"}
               </Button>
 
               <p className="text-xs text-muted-foreground">

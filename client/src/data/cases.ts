@@ -6,6 +6,11 @@ export interface CaseResult {
   label: string;
 }
 
+export interface ArchitectureLayer {
+  label: string;
+  nodes: string[];
+}
+
 export interface CaseStudy {
   slug: string;
   clientProfile: string;
@@ -16,6 +21,7 @@ export interface CaseStudy {
   challenge: string;
   solution: string;
   architecture: string[];
+  architectureLayers?: ArchitectureLayer[];
   results: CaseResult[];
   stack: string[];
   quote?: {
@@ -48,6 +54,13 @@ export const caseStudies: CaseStudy[] = [
       "Baúl de secretos para la custodia de llaves asimétricas y configuración sensible",
       "Servicios internos de bajo volumen desplegados como pods dentro del mismo clúster",
       "Observabilidad con Prometheus, Loki y Grafana sobre el clúster y las transacciones que lo atraviesan",
+    ],
+    architectureLayers: [
+      { label: "Canales", nodes: ["App móvil", "Banca web", "Agentes"] },
+      { label: "DMZ", nodes: ["Kong API Gateway"] },
+      { label: "Clúster Kubernetes", nodes: ["Microservicios", "Apache Kafka", "Secretos", "Pods internos"] },
+      { label: "Core", nodes: ["Oracle — solo vía microservicios"] },
+      { label: "Observabilidad", nodes: ["Prometheus", "Grafana", "Loki"] },
     ],
     results: [
       { value: "15 → 1", label: "Servidores de integración consolidados en un solo clúster" },

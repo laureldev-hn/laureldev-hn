@@ -3,6 +3,7 @@ import { ArrowUpRight, Quote } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 import { Button } from "@/components/ui/button";
+import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { caseStudies, featuredCase } from "@/data/cases";
 
 const otherCases = caseStudies.filter((item) => item.slug !== featuredCase.slug);
@@ -91,6 +92,12 @@ const CaseStudies = () => (
         </div>
       </article>
     </Reveal>
+
+    {featuredCase.architectureLayers ? (
+      <Reveal className="mt-8">
+        <ArchitectureDiagram layers={featuredCase.architectureLayers} />
+      </Reveal>
+    ) : null}
 
     {otherCases.length > 0 ? (
       <div className="mt-8 grid gap-8 md:grid-cols-2">

@@ -1,15 +1,10 @@
 import { Link } from "wouter";
-import { Linkedin, Facebook, Instagram, Github, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { SectionLink } from "@/components/SectionLink";
 import { services } from "@/data/services";
 import { siteConfig, navItems } from "@/data/site";
 
-const socialLinks = [
-  { icon: Linkedin, label: "LinkedIn", href: siteConfig.social.linkedin },
-  { icon: Facebook, label: "Facebook", href: siteConfig.social.facebook },
-  { icon: Instagram, label: "Instagram", href: siteConfig.social.instagram },
-  { icon: Github, label: "GitHub", href: siteConfig.social.github },
-];
+const socialLinks = [{ icon: Linkedin, label: "LinkedIn", href: siteConfig.social.linkedin }];
 
 const Footer = () => (
   <footer className="bg-ink text-white">
@@ -109,6 +104,17 @@ const Footer = () => (
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
               <a href={`tel:${siteConfig.phoneHref}`} className="transition-colors hover:text-gold">
                 {siteConfig.phone}
+              </a>
+            </li>
+            <li className="flex items-start gap-3">
+              <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
+              <a
+                href={`${siteConfig.whatsapp}?text=${encodeURIComponent("Hola, quiero agendar un diagnóstico para mi institución.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-gold"
+              >
+                WhatsApp
               </a>
             </li>
           </ul>
